@@ -1,16 +1,14 @@
 ![](/Previews/Banner.png)
-![](/Previews/Home.png)
-![](/Previews/Plugins.png)
-![](/Previews/Settings.png)
-![](/Previews/About.png)
 
 ##
 
 BakkesModInjector Community Edition is a complete replacement for the original BakkesModInjectorCpp that's provided by Bakkes.
+Created by ItsBranK (me), along with the contributors SimpleAOB and Aberinkula/Megasplat.
+
 
 Some of the new features in the Community Edition are
 
-- Completetly redesigned interface made in CLR WinForms
+- A new redesigned user friendly interface
 - Detailed process and injection status events
 - Collapsable changelog box with the latest BakkesMod news
 - View your installed plugins and uninstall them
@@ -18,6 +16,13 @@ Some of the new features in the Community Edition are
 - Crash log exporter, exports all log files and crash reports into a single zip file
 - Both reinstall and uninstall BakkesMod in the Settings tab
 - View your Rocket League, Injector, and BakkeMod versions in the About tab
+
+##
+
+![](/Previews/Home.png)
+![](/Previews/Plugins.png)
+![](/Previews/Settings.png)
+![](/Previews/About.png)
 
 ## Contact
 
