@@ -2,14 +2,12 @@
   <img src="https://i.imgur.com/m5CjODH.png"><br></br>
 </p>
 
-![](/Previews/Banner.png)
-
 ## About
 
-BakkesModInjector Community Edition acts as a replacement for the original BakkesModInjectorCpp that's provided by Bakkes.
-There is only a difference between the injectors, not BakkesMod itself.
-Created by ItsBranK (me), along with the contributors SimpleAOB and Aberinkula/Megasplat.
+BakkesModInjector Community Edition is as a replacement for the original BakkesModInjectorCpp that's provided by Bakkes.
+BakkesMod itself is the exact same, so you will keep all your files and get all the latest updates. The only difference is the injector.
 
+Created by ItsBranK (me), along with the contributors SimpleAOB and Aberinkula/Megasplat.
 
 Some of the new features in the Community Edition are
 
@@ -22,7 +20,11 @@ Some of the new features in the Community Edition are
 - Both reinstall and uninstall BakkesMod in the Settings tab
 - View your Rocket League, Injector, and BakkeMod versions in the About tab
 
-##
+## Download
+
+The latest version can be downloaded from the releases page, simply extract exe from the zip file.
+
+## Screenshots
 
 ![](/Previews/Home.png)
 ![](/Previews/Plugins.png)
