@@ -1,14 +1,14 @@
 <p align="center">
-  <img src="https://i.imgur.com/m5CjODH.png"><br></br>
+  <img src="https://i.imgur.com/Db7wmTl.png"><br></br>
   <b>Discord:</b> https://discordapp.com/invite/HsM6kAR
 </p>
 
 ## About
 
-BakkesModInjector Community Edition is as a replacement for the original BakkesModInjectorCpp that's provided by Bakkes.
-BakkesMod itself is the exact same, so you will keep all your files and get all the latest updates. The only difference is the injector.
+BakkesModInjector Community Edition is as a replacement for the original BakkesModInjectorCpp that's provided by default.
 Created by ItsBranK (me), along with the contributors SimpleAOB and Aberinkula/Megasplat;
-this project was created to provide users with a more user friendly, stable, and feature packed injector for daily users of BakkesMod.
+this project was made to provide daily BakkesMod users with a more user friendly, feature packed, stable experience.
+BakkesMod itself is the exact same, so you will keep all your files and get all the latest updates.
 
 Some of the new features in this edition are
 
