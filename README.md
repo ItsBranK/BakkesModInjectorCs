@@ -1,15 +1,16 @@
 <p align="center">
   <img src="https://i.imgur.com/m5CjODH.png"><br></br>
+  <b>Discord:</b> https://discordapp.com/invite/HsM6kAR
 </p>
 
 ## About
 
 BakkesModInjector Community Edition is as a replacement for the original BakkesModInjectorCpp that's provided by Bakkes.
 BakkesMod itself is the exact same, so you will keep all your files and get all the latest updates. The only difference is the injector.
+Created by ItsBranK (me), along with the contributors SimpleAOB and Aberinkula/Megasplat;
+this project was created to provide users with a more user friendly, stable, and feature packed injector for daily users of BakkesMod.
 
-Created by ItsBranK (me), along with the contributors SimpleAOB and Aberinkula/Megasplat.
-
-Some of the new features in the Community Edition are
+Some of the new features in this edition are
 
 - A new redesigned user friendly interface
 - Detailed process and injection status events
@@ -22,21 +23,13 @@ Some of the new features in the Community Edition are
 
 ## Download
 
-The latest version can be downloaded from the releases page, simply extract exe from the zip file.
+The latest version can be downloaded from the [releases page](https://github.com/ItsBranK/BakkesModInjectorCs/releases), simply extract exe from the zip file and run the program.
 
 ## Screenshots
 
-![](/Previews/Home.png)
-![](/Previews/Plugins.png)
-![](/Previews/Settings.png)
-![](/Previews/About.png)
+![](/Screenshots/Home.png)
+![](/Screenshots/Plugins.png)
+![](/Screenshots/Settings.png)
+![](/Screenshots/About.png)
 
 ## Contact
-
-Message me on Discord if you have any suggestions or want to test out beta releases - ItsBranK#4095
-
-Be sure to join the BakkesMod Discord server!
-
-https://discordapp.com/invite/HsM6kAR
-
-![](/Previews/Invite.png)
