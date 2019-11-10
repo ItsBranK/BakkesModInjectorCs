@@ -1,8 +1,13 @@
+<p align="center">
+  <img src="https://i.imgur.com/m5CjODH.png"><br></br>
+</p>
+
 ![](/Previews/Banner.png)
 
-##
+## About
 
-BakkesModInjector Community Edition is a complete replacement for the original BakkesModInjectorCpp that's provided by Bakkes.
+BakkesModInjector Community Edition acts as a replacement for the original BakkesModInjectorCpp that's provided by Bakkes.
+There is only a difference between the injectors, not BakkesMod itself.
 Created by ItsBranK (me), along with the contributors SimpleAOB and Aberinkula/Megasplat.
 
 
