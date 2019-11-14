@@ -12,7 +12,7 @@ BakkesMod itself is the exact same, so you will keep all your files and get all 
 
 Some of the new features in this edition are
 
-- A new redesigned user friendly interface
+- A redesigned user friendly interface
 - Detailed process and injection status events in the Home tab
 - Collapsable changelog box with the latest BakkesMod news
 - View your installed plugins and have the option to uninstall them
@@ -27,9 +27,7 @@ The latest version can be downloaded from the [releases page](https://github.com
 
 ## Screenshots
 
-![](/Screenshots/Home.png)
-![](/Screenshots/Plugins.png)
-![](/Screenshots/Settings.png)
-![](/Screenshots/About.png)
-
-## Contact
+![](/Screenshots/home.png)
+![](/Screenshots/plugins.png)
+![](/Screenshots/settings.png)
+![](/Screenshots/about.png)
