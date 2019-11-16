@@ -89,7 +89,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\BakkesModUninstaller.exe" />
     <None Include="Resources\AutoUpdaterCs.exe" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\reset.png" />
+    <None Include="Resources\trash.png" />
+    <None Include="Resources\banner.png" />
     <None Include="Resources\test.png" />
     <None Include="Resources\cursor.png" />
     <None Include="Resources\time.png" />

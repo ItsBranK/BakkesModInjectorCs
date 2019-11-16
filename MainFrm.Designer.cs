@@ -30,40 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
-            this.websiteLnk = new System.Windows.Forms.Label();
-            this.websiteLbl = new System.Windows.Forms.Label();
-            this.discordLnk = new System.Windows.Forms.Label();
             this.injectionAlwaysBox = new System.Windows.Forms.RadioButton();
-            this.exportLogsBtn = new System.Windows.Forms.Label();
             this.injectionTimeBox = new System.Windows.Forms.NumericUpDown();
-            this.resetSettingsBtn = new System.Windows.Forms.Label();
-            this.manualUpdateBtn = new System.Windows.Forms.Label();
-            this.openFolderBtn = new System.Windows.Forms.Label();
-            this.uninstallBtn = new System.Windows.Forms.Label();
-            this.reinstallBtn = new System.Windows.Forms.Label();
             this.safeModeBox = new System.Windows.Forms.CheckBox();
             this.injectionManualBox = new System.Windows.Forms.RadioButton();
             this.injectionTimeLbl = new System.Windows.Forms.Label();
             this.injectionTimeoutBox = new System.Windows.Forms.RadioButton();
             this.warningsBox = new System.Windows.Forms.CheckBox();
             this.topMostBox = new System.Windows.Forms.CheckBox();
-            this.aboutTab = new System.Windows.Forms.TabPage();
-            this.patreonLnk = new System.Windows.Forms.Label();
-            this.patreonLbl = new System.Windows.Forms.Label();
-            this.discordLbl = new System.Windows.Forms.Label();
-            this.icons8Link = new System.Windows.Forms.Label();
-            this.icons8Lbl = new System.Windows.Forms.Label();
-            this.rlVersionLbl = new System.Windows.Forms.Label();
-            this.bmVersionLbl = new System.Windows.Forms.Label();
-            this.injectorVersionLbl = new System.Windows.Forms.Label();
-            this.creditsLbl = new System.Windows.Forms.Label();
-            this.websiteImg = new System.Windows.Forms.PictureBox();
-            this.patreonImg = new System.Windows.Forms.PictureBox();
-            this.discordImg = new System.Windows.Forms.PictureBox();
-            this.bmVersionImg = new System.Windows.Forms.PictureBox();
-            this.rlVersionImg = new System.Windows.Forms.PictureBox();
-            this.icons8Img = new System.Windows.Forms.PictureBox();
-            this.injectorVersionImg = new System.Windows.Forms.PictureBox();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.injectBtn = new System.Windows.Forms.PictureBox();
             this.homeBtn = new System.Windows.Forms.Label();
@@ -93,7 +67,12 @@
             this.settingsTab = new System.Windows.Forms.TabPage();
             this.hideMinimizeBox = new System.Windows.Forms.CheckBox();
             this.startupRunBox = new System.Windows.Forms.CheckBox();
-            this.injectionAlwaysImg = new System.Windows.Forms.PictureBox();
+            this.exportLogsBtn = new System.Windows.Forms.Label();
+            this.resetSettingsBtn = new System.Windows.Forms.Label();
+            this.manualUpdateBtn = new System.Windows.Forms.Label();
+            this.openFolderBtn = new System.Windows.Forms.Label();
+            this.uninstallBtn = new System.Windows.Forms.Label();
+            this.reinstallBtn = new System.Windows.Forms.Label();
             this.injectionTimeImg = new System.Windows.Forms.PictureBox();
             this.SafemodeImg = new System.Windows.Forms.PictureBox();
             this.injectionManualImg = new System.Windows.Forms.PictureBox();
@@ -104,20 +83,33 @@
             this.startupMinimizeImg = new System.Windows.Forms.PictureBox();
             this.hideMinimizeImg = new System.Windows.Forms.PictureBox();
             this.startupRunImg = new System.Windows.Forms.PictureBox();
+            this.injectionAlwaysImg = new System.Windows.Forms.PictureBox();
+            this.aboutTab = new System.Windows.Forms.TabPage();
+            this.websiteLnk = new System.Windows.Forms.Label();
+            this.websiteLbl = new System.Windows.Forms.Label();
+            this.discordLnk = new System.Windows.Forms.Label();
+            this.patreonLnk = new System.Windows.Forms.Label();
+            this.patreonLbl = new System.Windows.Forms.Label();
+            this.discordLbl = new System.Windows.Forms.Label();
+            this.icons8Link = new System.Windows.Forms.Label();
+            this.icons8Lbl = new System.Windows.Forms.Label();
+            this.rlVersionLbl = new System.Windows.Forms.Label();
+            this.bmVersionLbl = new System.Windows.Forms.Label();
+            this.injectorVersionLbl = new System.Windows.Forms.Label();
+            this.creditsLbl = new System.Windows.Forms.Label();
+            this.websiteImg = new System.Windows.Forms.PictureBox();
+            this.patreonImg = new System.Windows.Forms.PictureBox();
+            this.discordImg = new System.Windows.Forms.PictureBox();
+            this.bmVersionImg = new System.Windows.Forms.PictureBox();
+            this.rlVersionImg = new System.Windows.Forms.PictureBox();
+            this.icons8Img = new System.Windows.Forms.PictureBox();
+            this.injectorVersionImg = new System.Windows.Forms.PictureBox();
             this.processTmr = new System.Windows.Forms.Timer(this.components);
             this.pluginsImg = new System.Windows.Forms.PictureBox();
             this.aboutImg = new System.Windows.Forms.PictureBox();
             this.settingsImg = new System.Windows.Forms.PictureBox();
             this.homeImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).BeginInit();
-            this.aboutTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.websiteImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patreonImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.discordImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bmVersionImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icons8Img)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.injectorVersionImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).BeginInit();
             this.homeTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusImg)).BeginInit();
@@ -126,7 +118,6 @@
             this.controlTabs.SuspendLayout();
             this.pluginsTab.SuspendLayout();
             this.settingsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.injectionAlwaysImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SafemodeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionManualImg)).BeginInit();
@@ -137,50 +128,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.startupMinimizeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hideMinimizeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startupRunImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.injectionAlwaysImg)).BeginInit();
+            this.aboutTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.websiteImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patreonImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discordImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmVersionImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icons8Img)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.injectorVersionImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pluginsImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aboutImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeImg)).BeginInit();
             this.SuspendLayout();
-            // 
-            // websiteLnk
-            // 
-            this.websiteLnk.BackColor = System.Drawing.Color.Transparent;
-            this.websiteLnk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.websiteLnk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.websiteLnk.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.websiteLnk.Location = new System.Drawing.Point(95, 107);
-            this.websiteLnk.Name = "websiteLnk";
-            this.websiteLnk.Size = new System.Drawing.Size(95, 25);
-            this.websiteLnk.TabIndex = 82;
-            this.websiteLnk.Text = "bakkesmod.com";
-            this.websiteLnk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.websiteLnk.Click += new System.EventHandler(this.websiteLnk_Click);
-            // 
-            // websiteLbl
-            // 
-            this.websiteLbl.BackColor = System.Drawing.Color.Transparent;
-            this.websiteLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.websiteLbl.Location = new System.Drawing.Point(43, 107);
-            this.websiteLbl.Name = "websiteLbl";
-            this.websiteLbl.Size = new System.Drawing.Size(545, 25);
-            this.websiteLbl.TabIndex = 80;
-            this.websiteLbl.Text = "Website:";
-            this.websiteLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // discordLnk
-            // 
-            this.discordLnk.BackColor = System.Drawing.Color.Transparent;
-            this.discordLnk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.discordLnk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discordLnk.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.discordLnk.Location = new System.Drawing.Point(94, 138);
-            this.discordLnk.Name = "discordLnk";
-            this.discordLnk.Size = new System.Drawing.Size(125, 25);
-            this.discordLnk.TabIndex = 79;
-            this.discordLnk.Text = "discord.gg/HsM6kAR";
-            this.discordLnk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.discordLnk.Click += new System.EventHandler(this.discordLnk_Click);
             // 
             // injectionAlwaysBox
             // 
@@ -191,20 +152,8 @@
             this.injectionAlwaysBox.TabIndex = 71;
             this.injectionAlwaysBox.Text = "Always Injected (Experimental)";
             this.injectionAlwaysBox.UseVisualStyleBackColor = true;
+            this.injectionAlwaysBox.Visible = false;
             this.injectionAlwaysBox.CheckedChanged += new System.EventHandler(this.injectionAlwaysBox_CheckedChanged);
-            // 
-            // exportLogsBtn
-            // 
-            this.exportLogsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.exportLogsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exportLogsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exportLogsBtn.Location = new System.Drawing.Point(311, 183);
-            this.exportLogsBtn.Name = "exportLogsBtn";
-            this.exportLogsBtn.Size = new System.Drawing.Size(277, 30);
-            this.exportLogsBtn.TabIndex = 70;
-            this.exportLogsBtn.Text = "Export Crash Logs";
-            this.exportLogsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.exportLogsBtn.Click += new System.EventHandler(this.exportLogsBtn_Click);
             // 
             // injectionTimeBox
             // 
@@ -212,7 +161,7 @@
             this.injectionTimeBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.injectionTimeBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.injectionTimeBox.ForeColor = System.Drawing.Color.Black;
-            this.injectionTimeBox.Location = new System.Drawing.Point(455, 15);
+            this.injectionTimeBox.Location = new System.Drawing.Point(454, 14);
             this.injectionTimeBox.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -232,71 +181,6 @@
             0,
             0});
             this.injectionTimeBox.ValueChanged += new System.EventHandler(this.injectionTimeBox_ValueChanged);
-            // 
-            // resetSettingsBtn
-            // 
-            this.resetSettingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.resetSettingsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.resetSettingsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetSettingsBtn.Location = new System.Drawing.Point(311, 218);
-            this.resetSettingsBtn.Name = "resetSettingsBtn";
-            this.resetSettingsBtn.Size = new System.Drawing.Size(277, 30);
-            this.resetSettingsBtn.TabIndex = 65;
-            this.resetSettingsBtn.Text = "Reset Settings to Default";
-            this.resetSettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.resetSettingsBtn.Click += new System.EventHandler(this.resetSettingsBtn_Click);
-            // 
-            // manualUpdateBtn
-            // 
-            this.manualUpdateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.manualUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.manualUpdateBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manualUpdateBtn.Location = new System.Drawing.Point(311, 113);
-            this.manualUpdateBtn.Name = "manualUpdateBtn";
-            this.manualUpdateBtn.Size = new System.Drawing.Size(277, 30);
-            this.manualUpdateBtn.TabIndex = 59;
-            this.manualUpdateBtn.Text = "Check For Updates";
-            this.manualUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.manualUpdateBtn.Click += new System.EventHandler(this.manualUpdateBtn_Click);
-            // 
-            // openFolderBtn
-            // 
-            this.openFolderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.openFolderBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.openFolderBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.openFolderBtn.Location = new System.Drawing.Point(311, 148);
-            this.openFolderBtn.Name = "openFolderBtn";
-            this.openFolderBtn.Size = new System.Drawing.Size(277, 30);
-            this.openFolderBtn.TabIndex = 58;
-            this.openFolderBtn.Text = "Open BakkesMod Folder";
-            this.openFolderBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.openFolderBtn.Click += new System.EventHandler(this.openFolderBtn_Click);
-            // 
-            // uninstallBtn
-            // 
-            this.uninstallBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.uninstallBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uninstallBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uninstallBtn.Location = new System.Drawing.Point(311, 253);
-            this.uninstallBtn.Name = "uninstallBtn";
-            this.uninstallBtn.Size = new System.Drawing.Size(277, 30);
-            this.uninstallBtn.TabIndex = 57;
-            this.uninstallBtn.Text = "Uninstall BakkesMod";
-            this.uninstallBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uninstallBtn.Click += new System.EventHandler(this.uninstallBtn_Click);
-            // 
-            // reinstallBtn
-            // 
-            this.reinstallBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.reinstallBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reinstallBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reinstallBtn.Location = new System.Drawing.Point(311, 288);
-            this.reinstallBtn.Name = "reinstallBtn";
-            this.reinstallBtn.Size = new System.Drawing.Size(277, 30);
-            this.reinstallBtn.TabIndex = 56;
-            this.reinstallBtn.Text = "Reinstall BakkesMod";
-            this.reinstallBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.reinstallBtn.Click += new System.EventHandler(this.reinstallBtn_Click);
             // 
             // safeModeBox
             // 
@@ -327,7 +211,7 @@
             // 
             this.injectionTimeLbl.BackColor = System.Drawing.Color.Transparent;
             this.injectionTimeLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.injectionTimeLbl.Location = new System.Drawing.Point(345, 14);
+            this.injectionTimeLbl.Location = new System.Drawing.Point(344, 14);
             this.injectionTimeLbl.Name = "injectionTimeLbl";
             this.injectionTimeLbl.Size = new System.Drawing.Size(200, 25);
             this.injectionTimeLbl.TabIndex = 48;
@@ -372,8 +256,596 @@
             this.topMostBox.UseVisualStyleBackColor = false;
             this.topMostBox.CheckedChanged += new System.EventHandler(this.topMostBox_CheckedChanged);
             // 
+            // ToolTip
+            // 
+            this.ToolTip.BackColor = System.Drawing.Color.White;
+            this.ToolTip.ForeColor = System.Drawing.Color.Black;
+            // 
+            // injectBtn
+            // 
+            this.injectBtn.BackColor = System.Drawing.Color.Transparent;
+            this.injectBtn.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.syringe;
+            this.injectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.injectBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.injectBtn.Location = new System.Drawing.Point(563, 12);
+            this.injectBtn.Name = "injectBtn";
+            this.injectBtn.Size = new System.Drawing.Size(25, 25);
+            this.injectBtn.TabIndex = 16;
+            this.injectBtn.TabStop = false;
+            this.ToolTip.SetToolTip(this.injectBtn, "Manually inject");
+            this.injectBtn.Visible = false;
+            this.injectBtn.Click += new System.EventHandler(this.injectBtn_Click);
+            // 
+            // homeBtn
+            // 
+            this.homeBtn.BackColor = System.Drawing.Color.White;
+            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.homeBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeBtn.ForeColor = System.Drawing.Color.Black;
+            this.homeBtn.Location = new System.Drawing.Point(0, 0);
+            this.homeBtn.Name = "homeBtn";
+            this.homeBtn.Size = new System.Drawing.Size(150, 30);
+            this.homeBtn.TabIndex = 33;
+            this.homeBtn.Text = "HOME";
+            this.homeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
+            // 
+            // startupMinimizeBox
+            // 
+            this.startupMinimizeBox.BackColor = System.Drawing.Color.Transparent;
+            this.startupMinimizeBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startupMinimizeBox.ForeColor = System.Drawing.Color.Black;
+            this.startupMinimizeBox.Location = new System.Drawing.Point(43, 138);
+            this.startupMinimizeBox.Name = "startupMinimizeBox";
+            this.startupMinimizeBox.Size = new System.Drawing.Size(200, 25);
+            this.startupMinimizeBox.TabIndex = 32;
+            this.startupMinimizeBox.Text = "Minimize on Startup";
+            this.startupMinimizeBox.UseVisualStyleBackColor = false;
+            this.startupMinimizeBox.CheckedChanged += new System.EventHandler(this.startupMinimizeBox_CheckedChanged);
+            // 
+            // autoUpdateBox
+            // 
+            this.autoUpdateBox.BackColor = System.Drawing.Color.Transparent;
+            this.autoUpdateBox.Checked = true;
+            this.autoUpdateBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoUpdateBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autoUpdateBox.ForeColor = System.Drawing.Color.Black;
+            this.autoUpdateBox.Location = new System.Drawing.Point(43, 14);
+            this.autoUpdateBox.Name = "autoUpdateBox";
+            this.autoUpdateBox.Size = new System.Drawing.Size(200, 25);
+            this.autoUpdateBox.TabIndex = 35;
+            this.autoUpdateBox.Text = "Automatically Update";
+            this.autoUpdateBox.UseVisualStyleBackColor = false;
+            this.autoUpdateBox.CheckedChanged += new System.EventHandler(this.autoUpdateBox_CheckedChanged);
+            // 
+            // changelogBtn
+            // 
+            this.changelogBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.changelogBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.changelogBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changelogBtn.ForeColor = System.Drawing.Color.Black;
+            this.changelogBtn.Location = new System.Drawing.Point(12, 74);
+            this.changelogBtn.Name = "changelogBtn";
+            this.changelogBtn.Size = new System.Drawing.Size(576, 25);
+            this.changelogBtn.TabIndex = 19;
+            this.changelogBtn.Text = "CHANGELOG";
+            this.changelogBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.changelogBtn.Click += new System.EventHandler(this.changelogBtn_Click);
+            // 
+            // statusLbl
+            // 
+            this.statusLbl.BackColor = System.Drawing.Color.Transparent;
+            this.statusLbl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusLbl.ForeColor = System.Drawing.Color.Black;
+            this.statusLbl.Location = new System.Drawing.Point(43, 43);
+            this.statusLbl.Name = "statusLbl";
+            this.statusLbl.Size = new System.Drawing.Size(514, 25);
+            this.statusLbl.TabIndex = 8;
+            this.statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
+            this.statusLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // changelogBox
+            // 
+            this.changelogBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.changelogBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.changelogBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.changelogBox.DetectUrls = false;
+            this.changelogBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changelogBox.ForeColor = System.Drawing.Color.Black;
+            this.changelogBox.Location = new System.Drawing.Point(12, 99);
+            this.changelogBox.Name = "changelogBox";
+            this.changelogBox.ReadOnly = true;
+            this.changelogBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.changelogBox.Size = new System.Drawing.Size(576, 220);
+            this.changelogBox.TabIndex = 20;
+            this.changelogBox.Text = "";
+            // 
+            // aboutBtn
+            // 
+            this.aboutBtn.BackColor = System.Drawing.Color.Transparent;
+            this.aboutBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.aboutBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutBtn.ForeColor = System.Drawing.Color.Black;
+            this.aboutBtn.Location = new System.Drawing.Point(450, 0);
+            this.aboutBtn.Name = "aboutBtn";
+            this.aboutBtn.Size = new System.Drawing.Size(150, 30);
+            this.aboutBtn.TabIndex = 36;
+            this.aboutBtn.Text = "ABOUT";
+            this.aboutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.aboutBtn.Click += new System.EventHandler(this.aboutBtn_Click);
+            // 
+            // settingsBtn
+            // 
+            this.settingsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.settingsBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.settingsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsBtn.ForeColor = System.Drawing.Color.Black;
+            this.settingsBtn.Location = new System.Drawing.Point(300, 0);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(150, 30);
+            this.settingsBtn.TabIndex = 35;
+            this.settingsBtn.Text = "SETTINGS";
+            this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
+            // 
+            // homeTab
+            // 
+            this.homeTab.Controls.Add(this.changelogBtn);
+            this.homeTab.Controls.Add(this.injectBtn);
+            this.homeTab.Controls.Add(this.statusImg);
+            this.homeTab.Controls.Add(this.rocketLeagueImg);
+            this.homeTab.Controls.Add(this.statusLbl);
+            this.homeTab.Controls.Add(this.rocketLeagueLbl);
+            this.homeTab.Controls.Add(this.changelogBox);
+            this.homeTab.Location = new System.Drawing.Point(4, 22);
+            this.homeTab.Name = "homeTab";
+            this.homeTab.Padding = new System.Windows.Forms.Padding(3);
+            this.homeTab.Size = new System.Drawing.Size(600, 329);
+            this.homeTab.TabIndex = 0;
+            this.homeTab.Text = "Home";
+            this.homeTab.UseVisualStyleBackColor = true;
+            // 
+            // statusImg
+            // 
+            this.statusImg.BackColor = System.Drawing.Color.Transparent;
+            this.statusImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.notes;
+            this.statusImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.statusImg.Location = new System.Drawing.Point(12, 43);
+            this.statusImg.Name = "statusImg";
+            this.statusImg.Size = new System.Drawing.Size(25, 25);
+            this.statusImg.TabIndex = 10;
+            this.statusImg.TabStop = false;
+            // 
+            // rocketLeagueImg
+            // 
+            this.rocketLeagueImg.BackColor = System.Drawing.Color.Transparent;
+            this.rocketLeagueImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.rocket;
+            this.rocketLeagueImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rocketLeagueImg.Location = new System.Drawing.Point(12, 12);
+            this.rocketLeagueImg.Name = "rocketLeagueImg";
+            this.rocketLeagueImg.Size = new System.Drawing.Size(25, 25);
+            this.rocketLeagueImg.TabIndex = 9;
+            this.rocketLeagueImg.TabStop = false;
+            // 
+            // rocketLeagueLbl
+            // 
+            this.rocketLeagueLbl.BackColor = System.Drawing.Color.Transparent;
+            this.rocketLeagueLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rocketLeagueLbl.ForeColor = System.Drawing.Color.Black;
+            this.rocketLeagueLbl.Location = new System.Drawing.Point(43, 12);
+            this.rocketLeagueLbl.Name = "rocketLeagueLbl";
+            this.rocketLeagueLbl.Size = new System.Drawing.Size(452, 25);
+            this.rocketLeagueLbl.TabIndex = 7;
+            this.rocketLeagueLbl.Text = "Rocket League is not running.";
+            this.rocketLeagueLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pluginsBtn
+            // 
+            this.pluginsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.pluginsBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pluginsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pluginsBtn.ForeColor = System.Drawing.Color.Black;
+            this.pluginsBtn.Location = new System.Drawing.Point(150, 0);
+            this.pluginsBtn.Name = "pluginsBtn";
+            this.pluginsBtn.Size = new System.Drawing.Size(150, 30);
+            this.pluginsBtn.TabIndex = 34;
+            this.pluginsBtn.Text = "PLUGINS";
+            this.pluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pluginsBtn.Click += new System.EventHandler(this.pluginsBtn_Click);
+            // 
+            // injectionTmr
+            // 
+            this.injectionTmr.Interval = 2500;
+            this.injectionTmr.Tick += new System.EventHandler(this.injectionTmr_Tick);
+            // 
+            // ExitTrayBtn
+            // 
+            this.ExitTrayBtn.Name = "ExitTrayBtn";
+            this.ExitTrayBtn.Size = new System.Drawing.Size(226, 22);
+            this.ExitTrayBtn.Text = "Exit BakkesModInjectorCs";
+            this.ExitTrayBtn.Click += new System.EventHandler(this.ExitTrayBtn_Click);
+            // 
+            // OpenTrayBtn
+            // 
+            this.OpenTrayBtn.Name = "OpenTrayBtn";
+            this.OpenTrayBtn.Size = new System.Drawing.Size(226, 22);
+            this.OpenTrayBtn.Text = "Open BakkesModInjectorCs";
+            this.OpenTrayBtn.Click += new System.EventHandler(this.OpenTrayBtn_Click);
+            // 
+            // TrayMenuStrip
+            // 
+            this.TrayMenuStrip.BackColor = System.Drawing.Color.White;
+            this.TrayMenuStrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrayMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenTrayBtn,
+            this.ExitTrayBtn});
+            this.TrayMenuStrip.Name = "TrayMenuStrip";
+            this.TrayMenuStrip.Size = new System.Drawing.Size(227, 48);
+            // 
+            // TrayIcon
+            // 
+            this.TrayIcon.ContextMenuStrip = this.TrayMenuStrip;
+            this.TrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TrayIcon.Icon")));
+            this.TrayIcon.Text = "BakkesModInjectorCs";
+            this.TrayIcon.Click += new System.EventHandler(this.TrayIcon_Click);
+            // 
+            // controlTabs
+            // 
+            this.controlTabs.Controls.Add(this.homeTab);
+            this.controlTabs.Controls.Add(this.pluginsTab);
+            this.controlTabs.Controls.Add(this.settingsTab);
+            this.controlTabs.Controls.Add(this.aboutTab);
+            this.controlTabs.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.controlTabs.Location = new System.Drawing.Point(-4, 8);
+            this.controlTabs.Name = "controlTabs";
+            this.controlTabs.SelectedIndex = 0;
+            this.controlTabs.Size = new System.Drawing.Size(608, 355);
+            this.controlTabs.TabIndex = 37;
+            // 
+            // pluginsTab
+            // 
+            this.pluginsTab.Controls.Add(this.downloadpluginsBtn);
+            this.pluginsTab.Controls.Add(this.refreshpluginsBtn);
+            this.pluginsTab.Controls.Add(this.uninstallpluginsBtn);
+            this.pluginsTab.Controls.Add(this.pluginsList);
+            this.pluginsTab.Location = new System.Drawing.Point(4, 22);
+            this.pluginsTab.Name = "pluginsTab";
+            this.pluginsTab.Size = new System.Drawing.Size(600, 329);
+            this.pluginsTab.TabIndex = 2;
+            this.pluginsTab.Text = "Plugins";
+            this.pluginsTab.UseVisualStyleBackColor = true;
+            // 
+            // downloadpluginsBtn
+            // 
+            this.downloadpluginsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.downloadpluginsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.downloadpluginsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.downloadpluginsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.update;
+            this.downloadpluginsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.downloadpluginsBtn.Location = new System.Drawing.Point(403, 292);
+            this.downloadpluginsBtn.Name = "downloadpluginsBtn";
+            this.downloadpluginsBtn.Size = new System.Drawing.Size(185, 30);
+            this.downloadpluginsBtn.TabIndex = 63;
+            this.downloadpluginsBtn.Text = "Download Plugins";
+            this.downloadpluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.downloadpluginsBtn.Click += new System.EventHandler(this.downloadpluginsBtn_Click);
+            // 
+            // refreshpluginsBtn
+            // 
+            this.refreshpluginsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.refreshpluginsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.refreshpluginsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshpluginsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.reset;
+            this.refreshpluginsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.refreshpluginsBtn.Location = new System.Drawing.Point(203, 292);
+            this.refreshpluginsBtn.Name = "refreshpluginsBtn";
+            this.refreshpluginsBtn.Size = new System.Drawing.Size(194, 30);
+            this.refreshpluginsBtn.TabIndex = 62;
+            this.refreshpluginsBtn.Text = "Refresh Plugins";
+            this.refreshpluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.refreshpluginsBtn.Click += new System.EventHandler(this.refreshpluginsBtn_Click);
+            // 
+            // uninstallpluginsBtn
+            // 
+            this.uninstallpluginsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.uninstallpluginsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uninstallpluginsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uninstallpluginsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.trash;
+            this.uninstallpluginsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uninstallpluginsBtn.Location = new System.Drawing.Point(12, 292);
+            this.uninstallpluginsBtn.Name = "uninstallpluginsBtn";
+            this.uninstallpluginsBtn.Size = new System.Drawing.Size(185, 30);
+            this.uninstallpluginsBtn.TabIndex = 61;
+            this.uninstallpluginsBtn.Text = "Uninstall Plugin";
+            this.uninstallpluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uninstallpluginsBtn.Click += new System.EventHandler(this.uninstallpluginsBtn_Click);
+            // 
+            // pluginsList
+            // 
+            this.pluginsList.BackColor = System.Drawing.Color.White;
+            this.pluginsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pluginsList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pluginsList.ForeColor = System.Drawing.Color.Black;
+            this.pluginsList.LabelWrap = false;
+            this.pluginsList.Location = new System.Drawing.Point(12, 14);
+            this.pluginsList.MultiSelect = false;
+            this.pluginsList.Name = "pluginsList";
+            this.pluginsList.Size = new System.Drawing.Size(576, 275);
+            this.pluginsList.TabIndex = 1;
+            this.pluginsList.UseCompatibleStateImageBehavior = false;
+            this.pluginsList.View = System.Windows.Forms.View.List;
+            // 
+            // settingsTab
+            // 
+            this.settingsTab.Controls.Add(this.injectionTimeBox);
+            this.settingsTab.Controls.Add(this.safeModeBox);
+            this.settingsTab.Controls.Add(this.injectionManualBox);
+            this.settingsTab.Controls.Add(this.injectionTimeLbl);
+            this.settingsTab.Controls.Add(this.injectionTimeoutBox);
+            this.settingsTab.Controls.Add(this.warningsBox);
+            this.settingsTab.Controls.Add(this.topMostBox);
+            this.settingsTab.Controls.Add(this.startupMinimizeBox);
+            this.settingsTab.Controls.Add(this.autoUpdateBox);
+            this.settingsTab.Controls.Add(this.hideMinimizeBox);
+            this.settingsTab.Controls.Add(this.startupRunBox);
+            this.settingsTab.Controls.Add(this.exportLogsBtn);
+            this.settingsTab.Controls.Add(this.resetSettingsBtn);
+            this.settingsTab.Controls.Add(this.manualUpdateBtn);
+            this.settingsTab.Controls.Add(this.openFolderBtn);
+            this.settingsTab.Controls.Add(this.uninstallBtn);
+            this.settingsTab.Controls.Add(this.reinstallBtn);
+            this.settingsTab.Controls.Add(this.injectionTimeImg);
+            this.settingsTab.Controls.Add(this.SafemodeImg);
+            this.settingsTab.Controls.Add(this.injectionManualImg);
+            this.settingsTab.Controls.Add(this.injectionTimeoutImg);
+            this.settingsTab.Controls.Add(this.topMostImg);
+            this.settingsTab.Controls.Add(this.autoUpdateImg);
+            this.settingsTab.Controls.Add(this.warningsImg);
+            this.settingsTab.Controls.Add(this.startupMinimizeImg);
+            this.settingsTab.Controls.Add(this.hideMinimizeImg);
+            this.settingsTab.Controls.Add(this.startupRunImg);
+            this.settingsTab.Controls.Add(this.injectionAlwaysBox);
+            this.settingsTab.Controls.Add(this.injectionAlwaysImg);
+            this.settingsTab.Location = new System.Drawing.Point(4, 22);
+            this.settingsTab.Name = "settingsTab";
+            this.settingsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.settingsTab.Size = new System.Drawing.Size(600, 329);
+            this.settingsTab.TabIndex = 1;
+            this.settingsTab.Text = "Settings";
+            this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // hideMinimizeBox
+            // 
+            this.hideMinimizeBox.BackColor = System.Drawing.Color.Transparent;
+            this.hideMinimizeBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hideMinimizeBox.ForeColor = System.Drawing.Color.Black;
+            this.hideMinimizeBox.Location = new System.Drawing.Point(43, 169);
+            this.hideMinimizeBox.Name = "hideMinimizeBox";
+            this.hideMinimizeBox.Size = new System.Drawing.Size(200, 25);
+            this.hideMinimizeBox.TabIndex = 33;
+            this.hideMinimizeBox.Text = "Hide When Minimized";
+            this.hideMinimizeBox.UseVisualStyleBackColor = false;
+            this.hideMinimizeBox.CheckedChanged += new System.EventHandler(this.hideMinimizeBox_CheckedChanged);
+            // 
+            // startupRunBox
+            // 
+            this.startupRunBox.BackColor = System.Drawing.Color.Transparent;
+            this.startupRunBox.Checked = true;
+            this.startupRunBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.startupRunBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startupRunBox.ForeColor = System.Drawing.Color.Black;
+            this.startupRunBox.Location = new System.Drawing.Point(43, 107);
+            this.startupRunBox.Name = "startupRunBox";
+            this.startupRunBox.Size = new System.Drawing.Size(200, 25);
+            this.startupRunBox.TabIndex = 31;
+            this.startupRunBox.Text = "Run on Startup";
+            this.startupRunBox.UseVisualStyleBackColor = false;
+            this.startupRunBox.CheckedChanged += new System.EventHandler(this.startupRunBox_CheckedChanged);
+            // 
+            // exportLogsBtn
+            // 
+            this.exportLogsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.exportLogsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exportLogsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportLogsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.export;
+            this.exportLogsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exportLogsBtn.Location = new System.Drawing.Point(313, 183);
+            this.exportLogsBtn.Name = "exportLogsBtn";
+            this.exportLogsBtn.Size = new System.Drawing.Size(275, 30);
+            this.exportLogsBtn.TabIndex = 70;
+            this.exportLogsBtn.Text = "Export Crash Logs";
+            this.exportLogsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.exportLogsBtn.Click += new System.EventHandler(this.exportLogsBtn_Click);
+            // 
+            // resetSettingsBtn
+            // 
+            this.resetSettingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.resetSettingsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.resetSettingsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetSettingsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.wrench;
+            this.resetSettingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.resetSettingsBtn.Location = new System.Drawing.Point(313, 218);
+            this.resetSettingsBtn.Name = "resetSettingsBtn";
+            this.resetSettingsBtn.Size = new System.Drawing.Size(275, 30);
+            this.resetSettingsBtn.TabIndex = 65;
+            this.resetSettingsBtn.Text = "Reset Settings to Default";
+            this.resetSettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.resetSettingsBtn.Click += new System.EventHandler(this.resetSettingsBtn_Click);
+            // 
+            // manualUpdateBtn
+            // 
+            this.manualUpdateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.manualUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.manualUpdateBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manualUpdateBtn.Image = global::BakkesModInjectorCs.Properties.Resources.update;
+            this.manualUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manualUpdateBtn.Location = new System.Drawing.Point(313, 113);
+            this.manualUpdateBtn.Name = "manualUpdateBtn";
+            this.manualUpdateBtn.Size = new System.Drawing.Size(275, 30);
+            this.manualUpdateBtn.TabIndex = 59;
+            this.manualUpdateBtn.Text = "Check For Updates";
+            this.manualUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.manualUpdateBtn.Click += new System.EventHandler(this.manualUpdateBtn_Click);
+            // 
+            // openFolderBtn
+            // 
+            this.openFolderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.openFolderBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.openFolderBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openFolderBtn.Image = global::BakkesModInjectorCs.Properties.Resources.folder;
+            this.openFolderBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.openFolderBtn.Location = new System.Drawing.Point(313, 148);
+            this.openFolderBtn.Name = "openFolderBtn";
+            this.openFolderBtn.Size = new System.Drawing.Size(275, 30);
+            this.openFolderBtn.TabIndex = 58;
+            this.openFolderBtn.Text = "Open BakkesMod Folder";
+            this.openFolderBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.openFolderBtn.Click += new System.EventHandler(this.openFolderBtn_Click);
+            // 
+            // uninstallBtn
+            // 
+            this.uninstallBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.uninstallBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uninstallBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uninstallBtn.Image = global::BakkesModInjectorCs.Properties.Resources.trash;
+            this.uninstallBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uninstallBtn.Location = new System.Drawing.Point(313, 253);
+            this.uninstallBtn.Name = "uninstallBtn";
+            this.uninstallBtn.Size = new System.Drawing.Size(275, 30);
+            this.uninstallBtn.TabIndex = 57;
+            this.uninstallBtn.Text = "Uninstall BakkesMod";
+            this.uninstallBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uninstallBtn.Click += new System.EventHandler(this.uninstallBtn_Click);
+            // 
+            // reinstallBtn
+            // 
+            this.reinstallBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.reinstallBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reinstallBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reinstallBtn.Image = global::BakkesModInjectorCs.Properties.Resources.reset;
+            this.reinstallBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reinstallBtn.Location = new System.Drawing.Point(313, 288);
+            this.reinstallBtn.Name = "reinstallBtn";
+            this.reinstallBtn.Size = new System.Drawing.Size(275, 30);
+            this.reinstallBtn.TabIndex = 56;
+            this.reinstallBtn.Text = "Reinstall BakkesMod";
+            this.reinstallBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.reinstallBtn.Click += new System.EventHandler(this.reinstallBtn_Click);
+            // 
+            // injectionTimeImg
+            // 
+            this.injectionTimeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.hourglass;
+            this.injectionTimeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.injectionTimeImg.Location = new System.Drawing.Point(313, 14);
+            this.injectionTimeImg.Name = "injectionTimeImg";
+            this.injectionTimeImg.Size = new System.Drawing.Size(25, 25);
+            this.injectionTimeImg.TabIndex = 55;
+            this.injectionTimeImg.TabStop = false;
+            // 
+            // SafemodeImg
+            // 
+            this.SafemodeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.protect;
+            this.SafemodeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.SafemodeImg.Location = new System.Drawing.Point(12, 45);
+            this.SafemodeImg.Name = "SafemodeImg";
+            this.SafemodeImg.Size = new System.Drawing.Size(25, 25);
+            this.SafemodeImg.TabIndex = 52;
+            this.SafemodeImg.TabStop = false;
+            // 
+            // injectionManualImg
+            // 
+            this.injectionManualImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.cursor;
+            this.injectionManualImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.injectionManualImg.Location = new System.Drawing.Point(12, 262);
+            this.injectionManualImg.Name = "injectionManualImg";
+            this.injectionManualImg.Size = new System.Drawing.Size(25, 25);
+            this.injectionManualImg.TabIndex = 54;
+            this.injectionManualImg.TabStop = false;
+            // 
+            // injectionTimeoutImg
+            // 
+            this.injectionTimeoutImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.time;
+            this.injectionTimeoutImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.injectionTimeoutImg.Location = new System.Drawing.Point(12, 231);
+            this.injectionTimeoutImg.Name = "injectionTimeoutImg";
+            this.injectionTimeoutImg.Size = new System.Drawing.Size(25, 25);
+            this.injectionTimeoutImg.TabIndex = 53;
+            this.injectionTimeoutImg.TabStop = false;
+            // 
+            // topMostImg
+            // 
+            this.topMostImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.dock;
+            this.topMostImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.topMostImg.Location = new System.Drawing.Point(12, 200);
+            this.topMostImg.Name = "topMostImg";
+            this.topMostImg.Size = new System.Drawing.Size(25, 25);
+            this.topMostImg.TabIndex = 41;
+            this.topMostImg.TabStop = false;
+            // 
+            // autoUpdateImg
+            // 
+            this.autoUpdateImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.update;
+            this.autoUpdateImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.autoUpdateImg.Location = new System.Drawing.Point(12, 14);
+            this.autoUpdateImg.Name = "autoUpdateImg";
+            this.autoUpdateImg.Size = new System.Drawing.Size(25, 25);
+            this.autoUpdateImg.TabIndex = 38;
+            this.autoUpdateImg.TabStop = false;
+            // 
+            // warningsImg
+            // 
+            this.warningsImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.warning;
+            this.warningsImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.warningsImg.Location = new System.Drawing.Point(12, 76);
+            this.warningsImg.Name = "warningsImg";
+            this.warningsImg.Size = new System.Drawing.Size(25, 25);
+            this.warningsImg.TabIndex = 36;
+            this.warningsImg.TabStop = false;
+            // 
+            // startupMinimizeImg
+            // 
+            this.startupMinimizeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.minimize;
+            this.startupMinimizeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.startupMinimizeImg.Location = new System.Drawing.Point(12, 138);
+            this.startupMinimizeImg.Name = "startupMinimizeImg";
+            this.startupMinimizeImg.Size = new System.Drawing.Size(25, 25);
+            this.startupMinimizeImg.TabIndex = 39;
+            this.startupMinimizeImg.TabStop = false;
+            // 
+            // hideMinimizeImg
+            // 
+            this.hideMinimizeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.hide;
+            this.hideMinimizeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.hideMinimizeImg.Location = new System.Drawing.Point(12, 169);
+            this.hideMinimizeImg.Name = "hideMinimizeImg";
+            this.hideMinimizeImg.Size = new System.Drawing.Size(25, 25);
+            this.hideMinimizeImg.TabIndex = 40;
+            this.hideMinimizeImg.TabStop = false;
+            // 
+            // startupRunImg
+            // 
+            this.startupRunImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.run;
+            this.startupRunImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.startupRunImg.Location = new System.Drawing.Point(12, 107);
+            this.startupRunImg.Name = "startupRunImg";
+            this.startupRunImg.Size = new System.Drawing.Size(25, 25);
+            this.startupRunImg.TabIndex = 37;
+            this.startupRunImg.TabStop = false;
+            // 
+            // injectionAlwaysImg
+            // 
+            this.injectionAlwaysImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.test;
+            this.injectionAlwaysImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.injectionAlwaysImg.Location = new System.Drawing.Point(12, 293);
+            this.injectionAlwaysImg.Name = "injectionAlwaysImg";
+            this.injectionAlwaysImg.Size = new System.Drawing.Size(25, 25);
+            this.injectionAlwaysImg.TabIndex = 72;
+            this.injectionAlwaysImg.TabStop = false;
+            this.injectionAlwaysImg.Visible = false;
+            // 
             // aboutTab
             // 
+            this.aboutTab.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.banner;
             this.aboutTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.aboutTab.Controls.Add(this.websiteLnk);
             this.aboutTab.Controls.Add(this.websiteLbl);
@@ -400,6 +872,45 @@
             this.aboutTab.TabIndex = 3;
             this.aboutTab.Text = "About";
             this.aboutTab.UseVisualStyleBackColor = true;
+            // 
+            // websiteLnk
+            // 
+            this.websiteLnk.BackColor = System.Drawing.Color.Transparent;
+            this.websiteLnk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.websiteLnk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.websiteLnk.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.websiteLnk.Location = new System.Drawing.Point(95, 107);
+            this.websiteLnk.Name = "websiteLnk";
+            this.websiteLnk.Size = new System.Drawing.Size(95, 25);
+            this.websiteLnk.TabIndex = 82;
+            this.websiteLnk.Text = "bakkesmod.com";
+            this.websiteLnk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.websiteLnk.Click += new System.EventHandler(this.websiteLnk_Click);
+            // 
+            // websiteLbl
+            // 
+            this.websiteLbl.BackColor = System.Drawing.Color.Transparent;
+            this.websiteLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.websiteLbl.Location = new System.Drawing.Point(43, 107);
+            this.websiteLbl.Name = "websiteLbl";
+            this.websiteLbl.Size = new System.Drawing.Size(545, 25);
+            this.websiteLbl.TabIndex = 80;
+            this.websiteLbl.Text = "Website:";
+            this.websiteLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // discordLnk
+            // 
+            this.discordLnk.BackColor = System.Drawing.Color.Transparent;
+            this.discordLnk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.discordLnk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discordLnk.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.discordLnk.Location = new System.Drawing.Point(94, 138);
+            this.discordLnk.Name = "discordLnk";
+            this.discordLnk.Size = new System.Drawing.Size(125, 25);
+            this.discordLnk.TabIndex = 79;
+            this.discordLnk.Text = "discord.gg/HsM6kAR";
+            this.discordLnk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.discordLnk.Click += new System.EventHandler(this.discordLnk_Click);
             // 
             // patreonLnk
             // 
@@ -591,493 +1102,6 @@
             this.injectorVersionImg.TabIndex = 70;
             this.injectorVersionImg.TabStop = false;
             // 
-            // ToolTip
-            // 
-            this.ToolTip.BackColor = System.Drawing.Color.White;
-            this.ToolTip.ForeColor = System.Drawing.Color.Black;
-            // 
-            // injectBtn
-            // 
-            this.injectBtn.BackColor = System.Drawing.Color.Transparent;
-            this.injectBtn.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.syringe;
-            this.injectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.injectBtn.Location = new System.Drawing.Point(563, 12);
-            this.injectBtn.Name = "injectBtn";
-            this.injectBtn.Size = new System.Drawing.Size(25, 25);
-            this.injectBtn.TabIndex = 16;
-            this.injectBtn.TabStop = false;
-            this.ToolTip.SetToolTip(this.injectBtn, "Manually Inject");
-            this.injectBtn.Visible = false;
-            this.injectBtn.Click += new System.EventHandler(this.injectBtn_Click);
-            // 
-            // homeBtn
-            // 
-            this.homeBtn.BackColor = System.Drawing.Color.White;
-            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.homeBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeBtn.ForeColor = System.Drawing.Color.Black;
-            this.homeBtn.Location = new System.Drawing.Point(0, 0);
-            this.homeBtn.Name = "homeBtn";
-            this.homeBtn.Size = new System.Drawing.Size(150, 30);
-            this.homeBtn.TabIndex = 33;
-            this.homeBtn.Text = "HOME";
-            this.homeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
-            // 
-            // startupMinimizeBox
-            // 
-            this.startupMinimizeBox.BackColor = System.Drawing.Color.Transparent;
-            this.startupMinimizeBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startupMinimizeBox.ForeColor = System.Drawing.Color.Black;
-            this.startupMinimizeBox.Location = new System.Drawing.Point(43, 138);
-            this.startupMinimizeBox.Name = "startupMinimizeBox";
-            this.startupMinimizeBox.Size = new System.Drawing.Size(200, 25);
-            this.startupMinimizeBox.TabIndex = 32;
-            this.startupMinimizeBox.Text = "Minimize on Startup";
-            this.startupMinimizeBox.UseVisualStyleBackColor = false;
-            this.startupMinimizeBox.CheckedChanged += new System.EventHandler(this.startupMinimizeBox_CheckedChanged);
-            // 
-            // autoUpdateBox
-            // 
-            this.autoUpdateBox.BackColor = System.Drawing.Color.Transparent;
-            this.autoUpdateBox.Checked = true;
-            this.autoUpdateBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autoUpdateBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.autoUpdateBox.ForeColor = System.Drawing.Color.Black;
-            this.autoUpdateBox.Location = new System.Drawing.Point(43, 14);
-            this.autoUpdateBox.Name = "autoUpdateBox";
-            this.autoUpdateBox.Size = new System.Drawing.Size(200, 25);
-            this.autoUpdateBox.TabIndex = 35;
-            this.autoUpdateBox.Text = "Automatically Update";
-            this.autoUpdateBox.UseVisualStyleBackColor = false;
-            this.autoUpdateBox.CheckedChanged += new System.EventHandler(this.autoUpdateBox_CheckedChanged);
-            // 
-            // changelogBtn
-            // 
-            this.changelogBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.changelogBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.changelogBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changelogBtn.ForeColor = System.Drawing.Color.Black;
-            this.changelogBtn.Location = new System.Drawing.Point(12, 74);
-            this.changelogBtn.Name = "changelogBtn";
-            this.changelogBtn.Size = new System.Drawing.Size(576, 25);
-            this.changelogBtn.TabIndex = 19;
-            this.changelogBtn.Text = "CHANGELOG";
-            this.changelogBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.changelogBtn.Click += new System.EventHandler(this.changelogBtn_Click);
-            // 
-            // statusLbl
-            // 
-            this.statusLbl.BackColor = System.Drawing.Color.Transparent;
-            this.statusLbl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLbl.ForeColor = System.Drawing.Color.Black;
-            this.statusLbl.Location = new System.Drawing.Point(43, 43);
-            this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(514, 25);
-            this.statusLbl.TabIndex = 8;
-            this.statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
-            this.statusLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // changelogBox
-            // 
-            this.changelogBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.changelogBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.changelogBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.changelogBox.DetectUrls = false;
-            this.changelogBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changelogBox.ForeColor = System.Drawing.Color.Black;
-            this.changelogBox.Location = new System.Drawing.Point(12, 99);
-            this.changelogBox.Name = "changelogBox";
-            this.changelogBox.ReadOnly = true;
-            this.changelogBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.changelogBox.Size = new System.Drawing.Size(576, 220);
-            this.changelogBox.TabIndex = 20;
-            this.changelogBox.Text = "";
-            // 
-            // aboutBtn
-            // 
-            this.aboutBtn.BackColor = System.Drawing.Color.Transparent;
-            this.aboutBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.aboutBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutBtn.ForeColor = System.Drawing.Color.Black;
-            this.aboutBtn.Location = new System.Drawing.Point(450, 0);
-            this.aboutBtn.Name = "aboutBtn";
-            this.aboutBtn.Size = new System.Drawing.Size(150, 30);
-            this.aboutBtn.TabIndex = 36;
-            this.aboutBtn.Text = "ABOUT";
-            this.aboutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.aboutBtn.Click += new System.EventHandler(this.aboutBtn_Click);
-            // 
-            // settingsBtn
-            // 
-            this.settingsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.settingsBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.settingsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsBtn.ForeColor = System.Drawing.Color.Black;
-            this.settingsBtn.Location = new System.Drawing.Point(300, 0);
-            this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(150, 30);
-            this.settingsBtn.TabIndex = 35;
-            this.settingsBtn.Text = "SETTINGS";
-            this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
-            // 
-            // homeTab
-            // 
-            this.homeTab.Controls.Add(this.changelogBtn);
-            this.homeTab.Controls.Add(this.injectBtn);
-            this.homeTab.Controls.Add(this.statusImg);
-            this.homeTab.Controls.Add(this.rocketLeagueImg);
-            this.homeTab.Controls.Add(this.statusLbl);
-            this.homeTab.Controls.Add(this.rocketLeagueLbl);
-            this.homeTab.Controls.Add(this.changelogBox);
-            this.homeTab.Location = new System.Drawing.Point(4, 22);
-            this.homeTab.Name = "homeTab";
-            this.homeTab.Padding = new System.Windows.Forms.Padding(3);
-            this.homeTab.Size = new System.Drawing.Size(600, 329);
-            this.homeTab.TabIndex = 0;
-            this.homeTab.Text = "Home";
-            this.homeTab.UseVisualStyleBackColor = true;
-            // 
-            // statusImg
-            // 
-            this.statusImg.BackColor = System.Drawing.Color.Transparent;
-            this.statusImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.notes;
-            this.statusImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.statusImg.Location = new System.Drawing.Point(12, 43);
-            this.statusImg.Name = "statusImg";
-            this.statusImg.Size = new System.Drawing.Size(25, 25);
-            this.statusImg.TabIndex = 10;
-            this.statusImg.TabStop = false;
-            // 
-            // rocketLeagueImg
-            // 
-            this.rocketLeagueImg.BackColor = System.Drawing.Color.Transparent;
-            this.rocketLeagueImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.rocket;
-            this.rocketLeagueImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rocketLeagueImg.Location = new System.Drawing.Point(12, 12);
-            this.rocketLeagueImg.Name = "rocketLeagueImg";
-            this.rocketLeagueImg.Size = new System.Drawing.Size(25, 25);
-            this.rocketLeagueImg.TabIndex = 9;
-            this.rocketLeagueImg.TabStop = false;
-            // 
-            // rocketLeagueLbl
-            // 
-            this.rocketLeagueLbl.BackColor = System.Drawing.Color.Transparent;
-            this.rocketLeagueLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rocketLeagueLbl.ForeColor = System.Drawing.Color.Black;
-            this.rocketLeagueLbl.Location = new System.Drawing.Point(43, 12);
-            this.rocketLeagueLbl.Name = "rocketLeagueLbl";
-            this.rocketLeagueLbl.Size = new System.Drawing.Size(452, 25);
-            this.rocketLeagueLbl.TabIndex = 7;
-            this.rocketLeagueLbl.Text = "Rocket League is not running.";
-            this.rocketLeagueLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pluginsBtn
-            // 
-            this.pluginsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.pluginsBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pluginsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pluginsBtn.ForeColor = System.Drawing.Color.Black;
-            this.pluginsBtn.Location = new System.Drawing.Point(150, 0);
-            this.pluginsBtn.Name = "pluginsBtn";
-            this.pluginsBtn.Size = new System.Drawing.Size(150, 30);
-            this.pluginsBtn.TabIndex = 34;
-            this.pluginsBtn.Text = "PLUGINS";
-            this.pluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.pluginsBtn.Click += new System.EventHandler(this.pluginsBtn_Click);
-            // 
-            // injectionTmr
-            // 
-            this.injectionTmr.Interval = 2500;
-            this.injectionTmr.Tick += new System.EventHandler(this.injectionTmr_Tick);
-            // 
-            // ExitTrayBtn
-            // 
-            this.ExitTrayBtn.Name = "ExitTrayBtn";
-            this.ExitTrayBtn.Size = new System.Drawing.Size(170, 22);
-            this.ExitTrayBtn.Text = "Exit BranksMod";
-            // 
-            // OpenTrayBtn
-            // 
-            this.OpenTrayBtn.Name = "OpenTrayBtn";
-            this.OpenTrayBtn.Size = new System.Drawing.Size(170, 22);
-            this.OpenTrayBtn.Text = "Open BranksMod";
-            // 
-            // TrayMenuStrip
-            // 
-            this.TrayMenuStrip.BackColor = System.Drawing.Color.White;
-            this.TrayMenuStrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TrayMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.OpenTrayBtn,
-            this.ExitTrayBtn});
-            this.TrayMenuStrip.Name = "TrayMenuStrip";
-            this.TrayMenuStrip.Size = new System.Drawing.Size(171, 48);
-            // 
-            // TrayIcon
-            // 
-            this.TrayIcon.ContextMenuStrip = this.TrayMenuStrip;
-            this.TrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TrayIcon.Icon")));
-            this.TrayIcon.Text = "BranksMod";
-            // 
-            // controlTabs
-            // 
-            this.controlTabs.Controls.Add(this.homeTab);
-            this.controlTabs.Controls.Add(this.pluginsTab);
-            this.controlTabs.Controls.Add(this.settingsTab);
-            this.controlTabs.Controls.Add(this.aboutTab);
-            this.controlTabs.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.controlTabs.Location = new System.Drawing.Point(-4, 8);
-            this.controlTabs.Name = "controlTabs";
-            this.controlTabs.SelectedIndex = 0;
-            this.controlTabs.Size = new System.Drawing.Size(608, 355);
-            this.controlTabs.TabIndex = 37;
-            // 
-            // pluginsTab
-            // 
-            this.pluginsTab.Controls.Add(this.downloadpluginsBtn);
-            this.pluginsTab.Controls.Add(this.refreshpluginsBtn);
-            this.pluginsTab.Controls.Add(this.uninstallpluginsBtn);
-            this.pluginsTab.Controls.Add(this.pluginsList);
-            this.pluginsTab.Location = new System.Drawing.Point(4, 22);
-            this.pluginsTab.Name = "pluginsTab";
-            this.pluginsTab.Size = new System.Drawing.Size(600, 329);
-            this.pluginsTab.TabIndex = 2;
-            this.pluginsTab.Text = "Plugins";
-            this.pluginsTab.UseVisualStyleBackColor = true;
-            // 
-            // downloadpluginsBtn
-            // 
-            this.downloadpluginsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.downloadpluginsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.downloadpluginsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.downloadpluginsBtn.Location = new System.Drawing.Point(403, 292);
-            this.downloadpluginsBtn.Name = "downloadpluginsBtn";
-            this.downloadpluginsBtn.Size = new System.Drawing.Size(185, 30);
-            this.downloadpluginsBtn.TabIndex = 63;
-            this.downloadpluginsBtn.Text = "Download Plugins";
-            this.downloadpluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.downloadpluginsBtn.Click += new System.EventHandler(this.downloadpluginsBtn_Click);
-            // 
-            // refreshpluginsBtn
-            // 
-            this.refreshpluginsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.refreshpluginsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.refreshpluginsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshpluginsBtn.Location = new System.Drawing.Point(203, 292);
-            this.refreshpluginsBtn.Name = "refreshpluginsBtn";
-            this.refreshpluginsBtn.Size = new System.Drawing.Size(194, 30);
-            this.refreshpluginsBtn.TabIndex = 62;
-            this.refreshpluginsBtn.Text = "Refresh Plugins";
-            this.refreshpluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.refreshpluginsBtn.Click += new System.EventHandler(this.refreshpluginsBtn_Click);
-            // 
-            // uninstallpluginsBtn
-            // 
-            this.uninstallpluginsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.uninstallpluginsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uninstallpluginsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uninstallpluginsBtn.Location = new System.Drawing.Point(12, 292);
-            this.uninstallpluginsBtn.Name = "uninstallpluginsBtn";
-            this.uninstallpluginsBtn.Size = new System.Drawing.Size(185, 30);
-            this.uninstallpluginsBtn.TabIndex = 61;
-            this.uninstallpluginsBtn.Text = "Uninstall Plugin";
-            this.uninstallpluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uninstallpluginsBtn.Click += new System.EventHandler(this.uninstallpluginsBtn_Click);
-            // 
-            // pluginsList
-            // 
-            this.pluginsList.BackColor = System.Drawing.Color.White;
-            this.pluginsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pluginsList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pluginsList.ForeColor = System.Drawing.Color.Black;
-            this.pluginsList.LabelWrap = false;
-            this.pluginsList.Location = new System.Drawing.Point(12, 14);
-            this.pluginsList.MultiSelect = false;
-            this.pluginsList.Name = "pluginsList";
-            this.pluginsList.Size = new System.Drawing.Size(576, 275);
-            this.pluginsList.TabIndex = 1;
-            this.pluginsList.UseCompatibleStateImageBehavior = false;
-            this.pluginsList.View = System.Windows.Forms.View.List;
-            // 
-            // settingsTab
-            // 
-            this.settingsTab.Controls.Add(this.injectionAlwaysBox);
-            this.settingsTab.Controls.Add(this.exportLogsBtn);
-            this.settingsTab.Controls.Add(this.injectionTimeBox);
-            this.settingsTab.Controls.Add(this.resetSettingsBtn);
-            this.settingsTab.Controls.Add(this.manualUpdateBtn);
-            this.settingsTab.Controls.Add(this.openFolderBtn);
-            this.settingsTab.Controls.Add(this.uninstallBtn);
-            this.settingsTab.Controls.Add(this.reinstallBtn);
-            this.settingsTab.Controls.Add(this.safeModeBox);
-            this.settingsTab.Controls.Add(this.injectionManualBox);
-            this.settingsTab.Controls.Add(this.injectionTimeLbl);
-            this.settingsTab.Controls.Add(this.injectionTimeoutBox);
-            this.settingsTab.Controls.Add(this.warningsBox);
-            this.settingsTab.Controls.Add(this.topMostBox);
-            this.settingsTab.Controls.Add(this.startupMinimizeBox);
-            this.settingsTab.Controls.Add(this.autoUpdateBox);
-            this.settingsTab.Controls.Add(this.hideMinimizeBox);
-            this.settingsTab.Controls.Add(this.startupRunBox);
-            this.settingsTab.Controls.Add(this.injectionAlwaysImg);
-            this.settingsTab.Controls.Add(this.injectionTimeImg);
-            this.settingsTab.Controls.Add(this.SafemodeImg);
-            this.settingsTab.Controls.Add(this.injectionManualImg);
-            this.settingsTab.Controls.Add(this.injectionTimeoutImg);
-            this.settingsTab.Controls.Add(this.topMostImg);
-            this.settingsTab.Controls.Add(this.autoUpdateImg);
-            this.settingsTab.Controls.Add(this.warningsImg);
-            this.settingsTab.Controls.Add(this.startupMinimizeImg);
-            this.settingsTab.Controls.Add(this.hideMinimizeImg);
-            this.settingsTab.Controls.Add(this.startupRunImg);
-            this.settingsTab.Location = new System.Drawing.Point(4, 22);
-            this.settingsTab.Name = "settingsTab";
-            this.settingsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.settingsTab.Size = new System.Drawing.Size(600, 329);
-            this.settingsTab.TabIndex = 1;
-            this.settingsTab.Text = "Settings";
-            this.settingsTab.UseVisualStyleBackColor = true;
-            // 
-            // hideMinimizeBox
-            // 
-            this.hideMinimizeBox.BackColor = System.Drawing.Color.Transparent;
-            this.hideMinimizeBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideMinimizeBox.ForeColor = System.Drawing.Color.Black;
-            this.hideMinimizeBox.Location = new System.Drawing.Point(43, 169);
-            this.hideMinimizeBox.Name = "hideMinimizeBox";
-            this.hideMinimizeBox.Size = new System.Drawing.Size(200, 25);
-            this.hideMinimizeBox.TabIndex = 33;
-            this.hideMinimizeBox.Text = "Hide When Minimized";
-            this.hideMinimizeBox.UseVisualStyleBackColor = false;
-            this.hideMinimizeBox.CheckedChanged += new System.EventHandler(this.hideMinimizeBox_CheckedChanged);
-            // 
-            // startupRunBox
-            // 
-            this.startupRunBox.BackColor = System.Drawing.Color.Transparent;
-            this.startupRunBox.Checked = true;
-            this.startupRunBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.startupRunBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startupRunBox.ForeColor = System.Drawing.Color.Black;
-            this.startupRunBox.Location = new System.Drawing.Point(43, 107);
-            this.startupRunBox.Name = "startupRunBox";
-            this.startupRunBox.Size = new System.Drawing.Size(200, 25);
-            this.startupRunBox.TabIndex = 31;
-            this.startupRunBox.Text = "Run on Startup";
-            this.startupRunBox.UseVisualStyleBackColor = false;
-            this.startupRunBox.CheckedChanged += new System.EventHandler(this.startupRunBox_CheckedChanged);
-            // 
-            // injectionAlwaysImg
-            // 
-            this.injectionAlwaysImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.test;
-            this.injectionAlwaysImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectionAlwaysImg.Location = new System.Drawing.Point(12, 293);
-            this.injectionAlwaysImg.Name = "injectionAlwaysImg";
-            this.injectionAlwaysImg.Size = new System.Drawing.Size(25, 25);
-            this.injectionAlwaysImg.TabIndex = 72;
-            this.injectionAlwaysImg.TabStop = false;
-            // 
-            // injectionTimeImg
-            // 
-            this.injectionTimeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.hourglass;
-            this.injectionTimeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectionTimeImg.Location = new System.Drawing.Point(314, 14);
-            this.injectionTimeImg.Name = "injectionTimeImg";
-            this.injectionTimeImg.Size = new System.Drawing.Size(25, 25);
-            this.injectionTimeImg.TabIndex = 55;
-            this.injectionTimeImg.TabStop = false;
-            // 
-            // SafemodeImg
-            // 
-            this.SafemodeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.protect;
-            this.SafemodeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.SafemodeImg.Location = new System.Drawing.Point(12, 45);
-            this.SafemodeImg.Name = "SafemodeImg";
-            this.SafemodeImg.Size = new System.Drawing.Size(25, 25);
-            this.SafemodeImg.TabIndex = 52;
-            this.SafemodeImg.TabStop = false;
-            // 
-            // injectionManualImg
-            // 
-            this.injectionManualImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.cursor;
-            this.injectionManualImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectionManualImg.Location = new System.Drawing.Point(12, 262);
-            this.injectionManualImg.Name = "injectionManualImg";
-            this.injectionManualImg.Size = new System.Drawing.Size(25, 25);
-            this.injectionManualImg.TabIndex = 54;
-            this.injectionManualImg.TabStop = false;
-            // 
-            // injectionTimeoutImg
-            // 
-            this.injectionTimeoutImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.time;
-            this.injectionTimeoutImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectionTimeoutImg.Location = new System.Drawing.Point(12, 231);
-            this.injectionTimeoutImg.Name = "injectionTimeoutImg";
-            this.injectionTimeoutImg.Size = new System.Drawing.Size(25, 25);
-            this.injectionTimeoutImg.TabIndex = 53;
-            this.injectionTimeoutImg.TabStop = false;
-            // 
-            // topMostImg
-            // 
-            this.topMostImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.dock;
-            this.topMostImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.topMostImg.Location = new System.Drawing.Point(12, 200);
-            this.topMostImg.Name = "topMostImg";
-            this.topMostImg.Size = new System.Drawing.Size(25, 25);
-            this.topMostImg.TabIndex = 41;
-            this.topMostImg.TabStop = false;
-            // 
-            // autoUpdateImg
-            // 
-            this.autoUpdateImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.update;
-            this.autoUpdateImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.autoUpdateImg.Location = new System.Drawing.Point(12, 14);
-            this.autoUpdateImg.Name = "autoUpdateImg";
-            this.autoUpdateImg.Size = new System.Drawing.Size(25, 25);
-            this.autoUpdateImg.TabIndex = 38;
-            this.autoUpdateImg.TabStop = false;
-            // 
-            // warningsImg
-            // 
-            this.warningsImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.warning;
-            this.warningsImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.warningsImg.Location = new System.Drawing.Point(12, 76);
-            this.warningsImg.Name = "warningsImg";
-            this.warningsImg.Size = new System.Drawing.Size(25, 25);
-            this.warningsImg.TabIndex = 36;
-            this.warningsImg.TabStop = false;
-            // 
-            // startupMinimizeImg
-            // 
-            this.startupMinimizeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.minimize;
-            this.startupMinimizeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.startupMinimizeImg.Location = new System.Drawing.Point(12, 138);
-            this.startupMinimizeImg.Name = "startupMinimizeImg";
-            this.startupMinimizeImg.Size = new System.Drawing.Size(25, 25);
-            this.startupMinimizeImg.TabIndex = 39;
-            this.startupMinimizeImg.TabStop = false;
-            // 
-            // hideMinimizeImg
-            // 
-            this.hideMinimizeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.hide;
-            this.hideMinimizeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.hideMinimizeImg.Location = new System.Drawing.Point(12, 169);
-            this.hideMinimizeImg.Name = "hideMinimizeImg";
-            this.hideMinimizeImg.Size = new System.Drawing.Size(25, 25);
-            this.hideMinimizeImg.TabIndex = 40;
-            this.hideMinimizeImg.TabStop = false;
-            // 
-            // startupRunImg
-            // 
-            this.startupRunImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.run;
-            this.startupRunImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.startupRunImg.Location = new System.Drawing.Point(12, 107);
-            this.startupRunImg.Name = "startupRunImg";
-            this.startupRunImg.Size = new System.Drawing.Size(25, 25);
-            this.startupRunImg.TabIndex = 37;
-            this.startupRunImg.TabStop = false;
-            // 
             // processTmr
             // 
             this.processTmr.Interval = 250;
@@ -1155,15 +1179,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BakkesModInjectorCs - Community Edition";
             this.Load += new System.EventHandler(this.MainFrm_Load);
+            this.Resize += new System.EventHandler(this.MainFrm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).EndInit();
-            this.aboutTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.websiteImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patreonImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.discordImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bmVersionImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icons8Img)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.injectorVersionImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).EndInit();
             this.homeTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statusImg)).EndInit();
@@ -1172,7 +1189,6 @@
             this.controlTabs.ResumeLayout(false);
             this.pluginsTab.ResumeLayout(false);
             this.settingsTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.injectionAlwaysImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SafemodeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionManualImg)).EndInit();
@@ -1183,6 +1199,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.startupMinimizeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hideMinimizeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startupRunImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.injectionAlwaysImg)).EndInit();
+            this.aboutTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.websiteImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patreonImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discordImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmVersionImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icons8Img)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.injectorVersionImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pluginsImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aboutImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsImg)).EndInit();
@@ -1197,7 +1222,6 @@
         private System.Windows.Forms.Label websiteLbl;
         private System.Windows.Forms.Label discordLnk;
         private System.Windows.Forms.RadioButton injectionAlwaysBox;
-        private System.Windows.Forms.Label exportLogsBtn;
         private System.Windows.Forms.NumericUpDown injectionTimeBox;
         private System.Windows.Forms.Label resetSettingsBtn;
         private System.Windows.Forms.Label manualUpdateBtn;
@@ -1272,6 +1296,7 @@
         private System.Windows.Forms.PictureBox startupRunImg;
         private System.Windows.Forms.Timer processTmr;
         private System.Windows.Forms.PictureBox pluginsImg;
+        private System.Windows.Forms.Label exportLogsBtn;
     }
 }
 
