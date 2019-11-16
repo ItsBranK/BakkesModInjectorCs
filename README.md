@@ -27,10 +27,10 @@ The latest version can be downloaded from the [releases page](https://github.com
 
 ## Screenshots
 
-![](Screenshots/home.png)
-![](Screenshots/plugins.png)
-![](Screenshots/settings.png)
-![](Screenshots/about.png)
+![](https://i.imgur.com/CPvlqPk.png)
+![](https://i.imgur.com/ceuS5Y1.png)
+![](https://i.imgur.com/kyhoJly.png)
+![](https://i.imgur.com/pjvQgMP.png)
 
 ## Contact
 
