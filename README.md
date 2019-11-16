@@ -31,3 +31,9 @@ The latest version can be downloaded from the [releases page](https://github.com
 ![](/screenshots/plugins.png)
 ![](/screenshots/settings.png)
 ![](/screenshots/about.png)
+
+## Contact
+
+If you find a bug and want to report it, please create a New Issue [here](https://github.com/ItsBranK/BakkesModInjectorCs/issues).
+
+If you need help or want to contact me directly, feel free to join our [Discord] (https://discordapp.com/invite/HsM6kAR) or message me on [Twitter] (https://twitter.com/itsbrank).
