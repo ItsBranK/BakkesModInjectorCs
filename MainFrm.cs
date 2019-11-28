@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace BakkesModInjectorCs
 {
@@ -35,25 +36,21 @@ namespace BakkesModInjectorCs
             loadChangelog();
         }
 
+        private void MainFrm_Resize(object sender, EventArgs e)
+        {
+            checkHideMinimize();
+        }
 
         private void OpenTrayBtn_Click(object sender, EventArgs e)
         {
             this.Show();
+            this.WindowState = FormWindowState.Normal;
+            TrayIcon.Visible = false;
         }
 
         private void ExitTrayBtn_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
-        }
-
-        private void TrayIcon_Click(object sender, EventArgs e)
-        {
-            this.Show();
-        }
-
-        private void MainFrm_Resize(object sender, EventArgs e)
-        {
-            checkHideMinimize();
         }
 
         private void websiteLnk_Click(object sender, EventArgs e)
@@ -284,16 +281,12 @@ namespace BakkesModInjectorCs
 
         public void checkHideMinimize()
         {
-            if (this.WindowState == FormWindowState.Minimized)
+            if (Properties.Settings.Default.MINIMIZE_HIDE == true)
             {
-                if (Properties.Settings.Default.MINIMIZE_HIDE == true)
+                if (this.WindowState == FormWindowState.Minimized)
                 {
                     this.Hide();
                     TrayIcon.Visible = true;
-                }
-                else if (Properties.Settings.Default.MINIMIZE_HIDE == false)
-                {
-                    TrayIcon.Visible = false;
                 }
             }
         }
@@ -308,87 +301,6 @@ namespace BakkesModInjectorCs
             {
                 this.TopMost = false;
             }
-        }
-
-        public void loadSettings()
-        {
-            checkServer();
-            if (Properties.Settings.Default.AUTO_UPDATE == true)
-            {
-                autoUpdateBox.Checked = true;
-            }
-            else if (Properties.Settings.Default.AUTO_UPDATE == false)
-            {
-                autoUpdateBox.Checked = false;
-            }
-            checkAutoUpdate();
-            if (Properties.Settings.Default.SAFE_MODE == true)
-            {
-                safeModeBox.Checked = true;
-            }
-            else if (Properties.Settings.Default.SAFE_MODE == false)
-            {
-                safeModeBox.Checked = false;
-            }
-            checkSafeMode();
-            if (Properties.Settings.Default.DISABLE_WARNINGS == true)
-            {
-                warningsBox.Checked = true;
-            }
-            else if (Properties.Settings.Default.DISABLE_WARNINGS == false)
-            {
-                warningsBox.Checked = false;
-            }
-            checkWarnings();
-            if (Properties.Settings.Default.STARTUP_RUN == true)
-            {
-                startupRunBox.Checked = true;
-            }
-            else if (Properties.Settings.Default.STARTUP_RUN == false)
-            {
-                startupRunBox.Checked = false;
-            }
-            if (Properties.Settings.Default.STARTUP_MINIMIZE == true)
-            {
-                startupMinimizeBox.Checked = true;
-            }
-            else if (Properties.Settings.Default.STARTUP_MINIMIZE == false)
-            {
-                startupMinimizeBox.Checked = false;
-            }
-            checkHideStartup();
-            if (Properties.Settings.Default.MINIMIZE_HIDE == true)
-            {
-                hideMinimizeBox.Checked = true;
-            }
-            else if (Properties.Settings.Default.MINIMIZE_HIDE == false)
-            {
-                hideMinimizeBox.Checked = false;
-            }
-            if (Properties.Settings.Default.TOPMOST == true)
-            {
-                topMostBox.Checked = true;
-            }
-            else if (Properties.Settings.Default.TOPMOST == false)
-            {
-                topMostBox.Checked = false;
-            }
-            checkTopMost();
-            if (Properties.Settings.Default.INJECTION_TYPE == "timeout")
-            {
-                injectionTimeoutBox.Checked = true;
-            }
-            else if (Properties.Settings.Default.INJECTION_TYPE == "manual")
-            {
-                injectionManualBox.Checked = true;
-            }
-            else if (Properties.Settings.Default.INJECTION_TYPE == "always")
-            {
-                injectionAlwaysBox.Checked = true;
-            }
-
-            injectionTimeBox.Text = Properties.Settings.Default.TIMEOUT_VALUE.ToString();
-            reporter.writeToLog(Properties.Settings.Default.WIN32_FOLDER, "(loadSettings) All settings loaded.");
         }
 
         public void loadChangelog()
@@ -490,19 +402,32 @@ namespace BakkesModInjectorCs
                 DialogResult Result = MessageBox.Show("Are you sure you want to uninstall this plugin? This action can not be undone.", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (Result == DialogResult.Yes)
-                {
-                    string Dll = Properties.Settings.Default.WIN32_FOLDER + "bakkesmod\\plugins\\" + pluginsList.SelectedItems[0].Text;
-                    string Set = pluginsList.SelectedItems[0].Text.Replace(".dll", ".set");
-                    string Settings = Properties.Settings.Default.WIN32_FOLDER + "bakkesmod\\plugins\\settings\\" + Set;
+                {               
+                    string set = pluginsList.SelectedItems[0].Text.Replace(".dll", ".set");
+                    string cfg = pluginsList.SelectedItems[0].Text.Replace(".dll", ".cfg");
+                    string dllFile = Properties.Settings.Default.WIN32_FOLDER + "bakkesmod\\plugins\\" + pluginsList.SelectedItems[0].Text;
+                    string setFile = Properties.Settings.Default.WIN32_FOLDER + "bakkesmod\\plugins\\settings\\" + set;
+                    string cfgFile = Properties.Settings.Default.WIN32_FOLDER + "bakkesmod\\cfg\\" + cfg;
 
                     try
                     {
-                        if (File.Exists(Dll))
+                        reporter.writeToLog(logPath, "(uninstallpluginsBtn) Attempting to uninstall the selected plugin: " + pluginsList.SelectedItems[0].Text);
+                        if (File.Exists(dllFile))
                         {
-                            reporter.writeToLog(logPath, "(uninstallpluginsBtn) " + Dll + " has successfully been deleted.");
-                            File.Delete(Dll);
-                            reporter.writeToLog(logPath, "(uninstallpluginsBtn) " + Set + " has successfully been deleted.");
-                            File.Delete(Settings);
+                            File.Delete(dllFile);
+                            reporter.writeToLog(logPath, "(uninstallpluginsBtn) " + pluginsList.SelectedItems[0].Text + " has successfully been deleted.");
+                        }
+
+                        if (File.Exists(setFile))
+                        {
+                            File.Delete(setFile);
+                            reporter.writeToLog(logPath, "(uninstallpluginsBtn) " + setFile + " has successfully been deleted.");
+                        }
+
+                        if (File.Exists(cfgFile))
+                        {
+                            File.Delete(cfgFile);
+                            reporter.writeToLog(logPath, "(uninstallpluginsBtn) " + cfgFile + " has successfully been deleted.");
                         }
                     }
                     catch (Exception Ex)
@@ -528,6 +453,87 @@ namespace BakkesModInjectorCs
         #endregion
 
         #region "Setting Events"
+        public void loadSettings()
+        {
+            checkServer();
+            if (Properties.Settings.Default.AUTO_UPDATE == true)
+            {
+                autoUpdateBox.Checked = true;
+            }
+            else if (Properties.Settings.Default.AUTO_UPDATE == false)
+            {
+                autoUpdateBox.Checked = false;
+            }
+            checkAutoUpdate();
+            if (Properties.Settings.Default.SAFE_MODE == true)
+            {
+                safeModeBox.Checked = true;
+            }
+            else if (Properties.Settings.Default.SAFE_MODE == false)
+            {
+                safeModeBox.Checked = false;
+            }
+            checkSafeMode();
+            if (Properties.Settings.Default.DISABLE_WARNINGS == true)
+            {
+                warningsBox.Checked = true;
+            }
+            else if (Properties.Settings.Default.DISABLE_WARNINGS == false)
+            {
+                warningsBox.Checked = false;
+            }
+            checkWarnings();
+            if (Properties.Settings.Default.STARTUP_RUN == true)
+            {
+                startupRunBox.Checked = true;
+            }
+            else if (Properties.Settings.Default.STARTUP_RUN == false)
+            {
+                startupRunBox.Checked = false;
+            }
+            if (Properties.Settings.Default.STARTUP_MINIMIZE == true)
+            {
+                startupMinimizeBox.Checked = true;
+            }
+            else if (Properties.Settings.Default.STARTUP_MINIMIZE == false)
+            {
+                startupMinimizeBox.Checked = false;
+            }
+            checkHideStartup();
+            if (Properties.Settings.Default.MINIMIZE_HIDE == true)
+            {
+                hideMinimizeBox.Checked = true;
+            }
+            else if (Properties.Settings.Default.MINIMIZE_HIDE == false)
+            {
+                hideMinimizeBox.Checked = false;
+            }
+            if (Properties.Settings.Default.TOPMOST == true)
+            {
+                topMostBox.Checked = true;
+            }
+            else if (Properties.Settings.Default.TOPMOST == false)
+            {
+                topMostBox.Checked = false;
+            }
+            checkTopMost();
+            if (Properties.Settings.Default.INJECTION_TYPE == "timeout")
+            {
+                injectionTimeoutBox.Checked = true;
+            }
+            else if (Properties.Settings.Default.INJECTION_TYPE == "manual")
+            {
+                injectionManualBox.Checked = true;
+            }
+            else if (Properties.Settings.Default.INJECTION_TYPE == "always")
+            {
+                injectionAlwaysBox.Checked = true;
+            }
+
+            injectionTimeBox.Text = Properties.Settings.Default.TIMEOUT_VALUE.ToString();
+            reporter.writeToLog(Properties.Settings.Default.WIN32_FOLDER, "(loadSettings) All settings loaded.");
+        }
+
         public void resetSettings()
         {
             Properties.Settings.Default.AUTO_UPDATE = true;
@@ -547,6 +553,21 @@ namespace BakkesModInjectorCs
 
         public void setInjectionMethod()
         {
+            string originalFile = Path.GetTempPath() + "\\wkscli_.dll";
+            string newFile = Properties.Settings.Default.WIN32_FOLDER + "\\wkscli.dll";
+
+            if (File.Exists(originalFile))
+            {
+                reporter.writeToLog(logPath, "(injectionAlwaysBox) Refreshing wkscli_.dll");
+                File.Delete(originalFile);
+            }
+
+            if (File.Exists(newFile))
+            {
+                reporter.writeToLog(logPath, "(injectionAlwaysBox) Refreshing wkscli.dll");
+                File.Delete(newFile);
+            }
+
             if (injectionTimeoutBox.Checked == true)
             {
                 Properties.Settings.Default.INJECTION_TYPE = "timeout";
@@ -558,6 +579,22 @@ namespace BakkesModInjectorCs
             else if (injectionAlwaysBox.Checked == true)
             {
                 Properties.Settings.Default.INJECTION_TYPE = "always";
+
+                if (!File.Exists(originalFile))
+                {
+                    reporter.writeToLog(logPath, "(injectionAlwaysBox) Writing wkscli_.dll");
+                    reporter.writeToLog(logPath, "(injectionAlwaysBox) Location of wkscli_.dll: " + originalFile);
+                    byte[] fileBytes = Properties.Resources.wkscli_;
+                    File.WriteAllBytes(originalFile, fileBytes);
+                }
+
+                if (injectionAlwaysBox.Checked == true)
+                {
+                    reporter.writeToLog(logPath, "(injectionAlwaysBox) Writing wkscli.dll");
+                    reporter.writeToLog(logPath, "(injectionAlwaysBox) Location of wkscli.dll: " + newFile);
+                    byte[] fileBytes = Properties.Resources.wkscli;
+                    File.WriteAllBytes(newFile, fileBytes);
+                }
             }
 
             processTmr.Start();
@@ -586,14 +623,16 @@ namespace BakkesModInjectorCs
         private void startupRunBox_CheckedChanged(object sender, EventArgs e)
         {
             RegistryKey RK = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            
             if (startupRunBox.Checked == true)
             {
                 RK.SetValue("BakkesModInjectorCs", Application.ExecutablePath);
             }
-            if (startupRunBox.Checked == false)
+            else
             {
                 RK.DeleteValue("BakkesModInjectorCs", false);
             }
+
             Properties.Settings.Default.STARTUP_RUN = startupRunBox.Checked;
             Properties.Settings.Default.Save();
         }
@@ -620,6 +659,7 @@ namespace BakkesModInjectorCs
             {
                 this.TopMost = false;
             }
+
             Properties.Settings.Default.TOPMOST = topMostBox.Checked;
             Properties.Settings.Default.Save();
         }
@@ -752,8 +792,8 @@ namespace BakkesModInjectorCs
             try
             {
                 reporter.writeToLog(logPath, "(uninstallBtn) Writing BakkesModUninstaller.");
-                byte[] BMU = Properties.Resources.BakkesModUninstaller;
-                File.WriteAllBytes(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModUninstaller.exe", BMU);
+                byte[] fileBytes = Properties.Resources.BakkesModUninstaller;
+                File.WriteAllBytes(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModUninstaller.exe", fileBytes);
                 reporter.writeToLog(logPath, "(uninstallBtn) Opening BakkesModUninstaller.");
                 Process P = new Process();
                 P.StartInfo.FileName = AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModUninstaller.exe";
@@ -871,24 +911,24 @@ namespace BakkesModInjectorCs
 
         private void processTmr_Tick(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.INJECTION_TYPE == "always")
+            if (isProcessRunning() == false)
             {
-                statusLbl.Text = "Always Injected enabled.";
-                processTmr.Stop();
+                rocketLeagueLbl.Text = "Rocket League is not running.";
+                statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
+                isInjected = false;
+                injectBtn.Visible = false;
             }
             else
             {
-                //to do: find correct placement for always injected type
-                if (isProcessRunning() == false)
+                rocketLeagueLbl.Text = "Rocket League is running.";
+
+                if (Properties.Settings.Default.INJECTION_TYPE == "always")
                 {
-                    rocketLeagueLbl.Text = "Rocket League is not running.";
-                    statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
-                    isInjected = false;
-                    injectBtn.Visible = false;
+                    statusLbl.Text = "Process found, always injected enabled.";
+                    injectionTmr.Stop();
                 }
                 else
                 {
-                    rocketLeagueLbl.Text = "Rocket League is running.";
                     if (isInjected == false)
                     {
                         injectionTmr.Interval = Properties.Settings.Default.TIMEOUT_VALUE;
@@ -1274,8 +1314,8 @@ namespace BakkesModInjectorCs
             try
             {
                 reporter.writeToLog(logPath, "(installInjector) Writing AutoUpdaterCs.");
-                byte[] BMU = Properties.Resources.AutoUpdaterCs;
-                File.WriteAllBytes(AppDomain.CurrentDomain.BaseDirectory + "\\AutoUpdaterCs.exe", BMU);
+                byte[] fileBytes = Properties.Resources.AutoUpdaterCs;
+                File.WriteAllBytes(AppDomain.CurrentDomain.BaseDirectory + "\\AutoUpdaterCs.exe", fileBytes);
                 reporter.writeToLog(logPath, "(installInjector) Opening AutoUpdaterCs.");
                 Process P = new Process();
                 P.StartInfo.FileName = AppDomain.CurrentDomain.BaseDirectory + "\\AutoUpdaterCs.exe";

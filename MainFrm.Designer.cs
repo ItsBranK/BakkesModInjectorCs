@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
-            this.injectionAlwaysBox = new System.Windows.Forms.RadioButton();
             this.injectionTimeBox = new System.Windows.Forms.NumericUpDown();
             this.safeModeBox = new System.Windows.Forms.CheckBox();
             this.injectionManualBox = new System.Windows.Forms.RadioButton();
@@ -39,7 +38,6 @@
             this.warningsBox = new System.Windows.Forms.CheckBox();
             this.topMostBox = new System.Windows.Forms.CheckBox();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.injectBtn = new System.Windows.Forms.PictureBox();
             this.homeBtn = new System.Windows.Forms.Label();
             this.startupMinimizeBox = new System.Windows.Forms.CheckBox();
             this.autoUpdateBox = new System.Windows.Forms.CheckBox();
@@ -49,24 +47,30 @@
             this.aboutBtn = new System.Windows.Forms.Label();
             this.settingsBtn = new System.Windows.Forms.Label();
             this.homeTab = new System.Windows.Forms.TabPage();
-            this.statusImg = new System.Windows.Forms.PictureBox();
-            this.rocketLeagueImg = new System.Windows.Forms.PictureBox();
             this.rocketLeagueLbl = new System.Windows.Forms.Label();
             this.pluginsBtn = new System.Windows.Forms.Label();
             this.injectionTmr = new System.Windows.Forms.Timer(this.components);
-            this.ExitTrayBtn = new System.Windows.Forms.ToolStripMenuItem();
-            this.OpenTrayBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.TrayMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.controlTabs = new System.Windows.Forms.TabControl();
             this.pluginsTab = new System.Windows.Forms.TabPage();
+            this.pluginsList = new System.Windows.Forms.ListView();
+            this.settingsTab = new System.Windows.Forms.TabPage();
+            this.injectionAlwaysBox = new System.Windows.Forms.RadioButton();
+            this.hideMinimizeBox = new System.Windows.Forms.CheckBox();
+            this.startupRunBox = new System.Windows.Forms.CheckBox();
+            this.processTmr = new System.Windows.Forms.Timer(this.components);
+            this.pluginsImg = new System.Windows.Forms.PictureBox();
+            this.aboutImg = new System.Windows.Forms.PictureBox();
+            this.settingsImg = new System.Windows.Forms.PictureBox();
+            this.homeImg = new System.Windows.Forms.PictureBox();
+            this.injectBtn = new System.Windows.Forms.PictureBox();
+            this.statusImg = new System.Windows.Forms.PictureBox();
+            this.rocketLeagueImg = new System.Windows.Forms.PictureBox();
             this.downloadpluginsBtn = new System.Windows.Forms.Label();
             this.refreshpluginsBtn = new System.Windows.Forms.Label();
             this.uninstallpluginsBtn = new System.Windows.Forms.Label();
-            this.pluginsList = new System.Windows.Forms.ListView();
-            this.settingsTab = new System.Windows.Forms.TabPage();
-            this.hideMinimizeBox = new System.Windows.Forms.CheckBox();
-            this.startupRunBox = new System.Windows.Forms.CheckBox();
+            this.injectionAlwaysImg = new System.Windows.Forms.PictureBox();
             this.exportLogsBtn = new System.Windows.Forms.Label();
             this.resetSettingsBtn = new System.Windows.Forms.Label();
             this.manualUpdateBtn = new System.Windows.Forms.Label();
@@ -83,7 +87,6 @@
             this.startupMinimizeImg = new System.Windows.Forms.PictureBox();
             this.hideMinimizeImg = new System.Windows.Forms.PictureBox();
             this.startupRunImg = new System.Windows.Forms.PictureBox();
-            this.injectionAlwaysImg = new System.Windows.Forms.PictureBox();
             this.aboutTab = new System.Windows.Forms.TabPage();
             this.websiteLnk = new System.Windows.Forms.Label();
             this.websiteLbl = new System.Windows.Forms.Label();
@@ -104,20 +107,22 @@
             this.rlVersionImg = new System.Windows.Forms.PictureBox();
             this.icons8Img = new System.Windows.Forms.PictureBox();
             this.injectorVersionImg = new System.Windows.Forms.PictureBox();
-            this.processTmr = new System.Windows.Forms.Timer(this.components);
-            this.pluginsImg = new System.Windows.Forms.PictureBox();
-            this.aboutImg = new System.Windows.Forms.PictureBox();
-            this.settingsImg = new System.Windows.Forms.PictureBox();
-            this.homeImg = new System.Windows.Forms.PictureBox();
+            this.OpenTrayBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitTrayBtn = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).BeginInit();
             this.homeTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rocketLeagueImg)).BeginInit();
             this.TrayMenuStrip.SuspendLayout();
             this.controlTabs.SuspendLayout();
             this.pluginsTab.SuspendLayout();
             this.settingsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aboutImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rocketLeagueImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.injectionAlwaysImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SafemodeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionManualImg)).BeginInit();
@@ -128,7 +133,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.startupMinimizeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hideMinimizeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startupRunImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.injectionAlwaysImg)).BeginInit();
             this.aboutTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.websiteImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patreonImg)).BeginInit();
@@ -137,23 +141,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icons8Img)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectorVersionImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pluginsImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aboutImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.settingsImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.homeImg)).BeginInit();
             this.SuspendLayout();
-            // 
-            // injectionAlwaysBox
-            // 
-            this.injectionAlwaysBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.injectionAlwaysBox.Location = new System.Drawing.Point(43, 293);
-            this.injectionAlwaysBox.Name = "injectionAlwaysBox";
-            this.injectionAlwaysBox.Size = new System.Drawing.Size(200, 25);
-            this.injectionAlwaysBox.TabIndex = 71;
-            this.injectionAlwaysBox.Text = "Always Injected (Experimental)";
-            this.injectionAlwaysBox.UseVisualStyleBackColor = true;
-            this.injectionAlwaysBox.Visible = false;
-            this.injectionAlwaysBox.CheckedChanged += new System.EventHandler(this.injectionAlwaysBox_CheckedChanged);
             // 
             // injectionTimeBox
             // 
@@ -260,21 +248,6 @@
             // 
             this.ToolTip.BackColor = System.Drawing.Color.White;
             this.ToolTip.ForeColor = System.Drawing.Color.Black;
-            // 
-            // injectBtn
-            // 
-            this.injectBtn.BackColor = System.Drawing.Color.Transparent;
-            this.injectBtn.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.syringe;
-            this.injectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.injectBtn.Location = new System.Drawing.Point(563, 12);
-            this.injectBtn.Name = "injectBtn";
-            this.injectBtn.Size = new System.Drawing.Size(25, 25);
-            this.injectBtn.TabIndex = 16;
-            this.injectBtn.TabStop = false;
-            this.ToolTip.SetToolTip(this.injectBtn, "Manually inject");
-            this.injectBtn.Visible = false;
-            this.injectBtn.Click += new System.EventHandler(this.injectBtn_Click);
             // 
             // homeBtn
             // 
@@ -405,28 +378,6 @@
             this.homeTab.Text = "Home";
             this.homeTab.UseVisualStyleBackColor = true;
             // 
-            // statusImg
-            // 
-            this.statusImg.BackColor = System.Drawing.Color.Transparent;
-            this.statusImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.notes;
-            this.statusImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.statusImg.Location = new System.Drawing.Point(12, 43);
-            this.statusImg.Name = "statusImg";
-            this.statusImg.Size = new System.Drawing.Size(25, 25);
-            this.statusImg.TabIndex = 10;
-            this.statusImg.TabStop = false;
-            // 
-            // rocketLeagueImg
-            // 
-            this.rocketLeagueImg.BackColor = System.Drawing.Color.Transparent;
-            this.rocketLeagueImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.rocket;
-            this.rocketLeagueImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rocketLeagueImg.Location = new System.Drawing.Point(12, 12);
-            this.rocketLeagueImg.Name = "rocketLeagueImg";
-            this.rocketLeagueImg.Size = new System.Drawing.Size(25, 25);
-            this.rocketLeagueImg.TabIndex = 9;
-            this.rocketLeagueImg.TabStop = false;
-            // 
             // rocketLeagueLbl
             // 
             this.rocketLeagueLbl.BackColor = System.Drawing.Color.Transparent;
@@ -458,36 +409,21 @@
             this.injectionTmr.Interval = 2500;
             this.injectionTmr.Tick += new System.EventHandler(this.injectionTmr_Tick);
             // 
-            // ExitTrayBtn
-            // 
-            this.ExitTrayBtn.Name = "ExitTrayBtn";
-            this.ExitTrayBtn.Size = new System.Drawing.Size(226, 22);
-            this.ExitTrayBtn.Text = "Exit BakkesModInjectorCs";
-            this.ExitTrayBtn.Click += new System.EventHandler(this.ExitTrayBtn_Click);
-            // 
-            // OpenTrayBtn
-            // 
-            this.OpenTrayBtn.Name = "OpenTrayBtn";
-            this.OpenTrayBtn.Size = new System.Drawing.Size(226, 22);
-            this.OpenTrayBtn.Text = "Open BakkesModInjectorCs";
-            this.OpenTrayBtn.Click += new System.EventHandler(this.OpenTrayBtn_Click);
-            // 
             // TrayMenuStrip
             // 
             this.TrayMenuStrip.BackColor = System.Drawing.Color.White;
-            this.TrayMenuStrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrayMenuStrip.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TrayMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OpenTrayBtn,
             this.ExitTrayBtn});
             this.TrayMenuStrip.Name = "TrayMenuStrip";
-            this.TrayMenuStrip.Size = new System.Drawing.Size(227, 48);
+            this.TrayMenuStrip.Size = new System.Drawing.Size(180, 48);
             // 
             // TrayIcon
             // 
             this.TrayIcon.ContextMenuStrip = this.TrayMenuStrip;
             this.TrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TrayIcon.Icon")));
             this.TrayIcon.Text = "BakkesModInjectorCs";
-            this.TrayIcon.Click += new System.EventHandler(this.TrayIcon_Click);
             // 
             // controlTabs
             // 
@@ -514,6 +450,189 @@
             this.pluginsTab.TabIndex = 2;
             this.pluginsTab.Text = "Plugins";
             this.pluginsTab.UseVisualStyleBackColor = true;
+            // 
+            // pluginsList
+            // 
+            this.pluginsList.BackColor = System.Drawing.Color.White;
+            this.pluginsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pluginsList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pluginsList.ForeColor = System.Drawing.Color.Black;
+            this.pluginsList.LabelWrap = false;
+            this.pluginsList.Location = new System.Drawing.Point(12, 14);
+            this.pluginsList.MultiSelect = false;
+            this.pluginsList.Name = "pluginsList";
+            this.pluginsList.Size = new System.Drawing.Size(576, 275);
+            this.pluginsList.TabIndex = 1;
+            this.pluginsList.UseCompatibleStateImageBehavior = false;
+            this.pluginsList.View = System.Windows.Forms.View.List;
+            // 
+            // settingsTab
+            // 
+            this.settingsTab.Controls.Add(this.injectionAlwaysBox);
+            this.settingsTab.Controls.Add(this.injectionTimeBox);
+            this.settingsTab.Controls.Add(this.safeModeBox);
+            this.settingsTab.Controls.Add(this.injectionManualBox);
+            this.settingsTab.Controls.Add(this.injectionTimeLbl);
+            this.settingsTab.Controls.Add(this.injectionTimeoutBox);
+            this.settingsTab.Controls.Add(this.warningsBox);
+            this.settingsTab.Controls.Add(this.topMostBox);
+            this.settingsTab.Controls.Add(this.startupMinimizeBox);
+            this.settingsTab.Controls.Add(this.autoUpdateBox);
+            this.settingsTab.Controls.Add(this.hideMinimizeBox);
+            this.settingsTab.Controls.Add(this.startupRunBox);
+            this.settingsTab.Controls.Add(this.injectionAlwaysImg);
+            this.settingsTab.Controls.Add(this.exportLogsBtn);
+            this.settingsTab.Controls.Add(this.resetSettingsBtn);
+            this.settingsTab.Controls.Add(this.manualUpdateBtn);
+            this.settingsTab.Controls.Add(this.openFolderBtn);
+            this.settingsTab.Controls.Add(this.uninstallBtn);
+            this.settingsTab.Controls.Add(this.reinstallBtn);
+            this.settingsTab.Controls.Add(this.injectionTimeImg);
+            this.settingsTab.Controls.Add(this.SafemodeImg);
+            this.settingsTab.Controls.Add(this.injectionManualImg);
+            this.settingsTab.Controls.Add(this.injectionTimeoutImg);
+            this.settingsTab.Controls.Add(this.topMostImg);
+            this.settingsTab.Controls.Add(this.autoUpdateImg);
+            this.settingsTab.Controls.Add(this.warningsImg);
+            this.settingsTab.Controls.Add(this.startupMinimizeImg);
+            this.settingsTab.Controls.Add(this.hideMinimizeImg);
+            this.settingsTab.Controls.Add(this.startupRunImg);
+            this.settingsTab.Location = new System.Drawing.Point(4, 22);
+            this.settingsTab.Name = "settingsTab";
+            this.settingsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.settingsTab.Size = new System.Drawing.Size(600, 329);
+            this.settingsTab.TabIndex = 1;
+            this.settingsTab.Text = "Settings";
+            this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // injectionAlwaysBox
+            // 
+            this.injectionAlwaysBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.injectionAlwaysBox.Location = new System.Drawing.Point(43, 293);
+            this.injectionAlwaysBox.Name = "injectionAlwaysBox";
+            this.injectionAlwaysBox.Size = new System.Drawing.Size(200, 25);
+            this.injectionAlwaysBox.TabIndex = 71;
+            this.injectionAlwaysBox.Text = "Always Injected (Experimental)";
+            this.injectionAlwaysBox.UseVisualStyleBackColor = true;
+            this.injectionAlwaysBox.CheckedChanged += new System.EventHandler(this.injectionAlwaysBox_CheckedChanged);
+            // 
+            // hideMinimizeBox
+            // 
+            this.hideMinimizeBox.BackColor = System.Drawing.Color.Transparent;
+            this.hideMinimizeBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hideMinimizeBox.ForeColor = System.Drawing.Color.Black;
+            this.hideMinimizeBox.Location = new System.Drawing.Point(43, 169);
+            this.hideMinimizeBox.Name = "hideMinimizeBox";
+            this.hideMinimizeBox.Size = new System.Drawing.Size(200, 25);
+            this.hideMinimizeBox.TabIndex = 33;
+            this.hideMinimizeBox.Text = "Hide When Minimized";
+            this.hideMinimizeBox.UseVisualStyleBackColor = false;
+            this.hideMinimizeBox.CheckedChanged += new System.EventHandler(this.hideMinimizeBox_CheckedChanged);
+            // 
+            // startupRunBox
+            // 
+            this.startupRunBox.BackColor = System.Drawing.Color.Transparent;
+            this.startupRunBox.Checked = true;
+            this.startupRunBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.startupRunBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startupRunBox.ForeColor = System.Drawing.Color.Black;
+            this.startupRunBox.Location = new System.Drawing.Point(43, 107);
+            this.startupRunBox.Name = "startupRunBox";
+            this.startupRunBox.Size = new System.Drawing.Size(200, 25);
+            this.startupRunBox.TabIndex = 31;
+            this.startupRunBox.Text = "Run on Windows Startup";
+            this.startupRunBox.UseVisualStyleBackColor = false;
+            this.startupRunBox.CheckedChanged += new System.EventHandler(this.startupRunBox_CheckedChanged);
+            // 
+            // processTmr
+            // 
+            this.processTmr.Interval = 250;
+            this.processTmr.Tick += new System.EventHandler(this.processTmr_Tick);
+            // 
+            // pluginsImg
+            // 
+            this.pluginsImg.BackColor = System.Drawing.Color.Transparent;
+            this.pluginsImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.plugin;
+            this.pluginsImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pluginsImg.Location = new System.Drawing.Point(155, 5);
+            this.pluginsImg.Name = "pluginsImg";
+            this.pluginsImg.Size = new System.Drawing.Size(20, 20);
+            this.pluginsImg.TabIndex = 39;
+            this.pluginsImg.TabStop = false;
+            this.pluginsImg.Click += new System.EventHandler(this.pluginsImg_Click);
+            // 
+            // aboutImg
+            // 
+            this.aboutImg.BackColor = System.Drawing.Color.Transparent;
+            this.aboutImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.help;
+            this.aboutImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.aboutImg.Location = new System.Drawing.Point(455, 5);
+            this.aboutImg.Name = "aboutImg";
+            this.aboutImg.Size = new System.Drawing.Size(20, 20);
+            this.aboutImg.TabIndex = 41;
+            this.aboutImg.TabStop = false;
+            this.aboutImg.Click += new System.EventHandler(this.aboutImg_Click);
+            // 
+            // settingsImg
+            // 
+            this.settingsImg.BackColor = System.Drawing.Color.Transparent;
+            this.settingsImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.wrench;
+            this.settingsImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.settingsImg.Location = new System.Drawing.Point(305, 5);
+            this.settingsImg.Name = "settingsImg";
+            this.settingsImg.Size = new System.Drawing.Size(20, 20);
+            this.settingsImg.TabIndex = 40;
+            this.settingsImg.TabStop = false;
+            this.settingsImg.Click += new System.EventHandler(this.settingsImg_Click);
+            // 
+            // homeImg
+            // 
+            this.homeImg.BackColor = System.Drawing.Color.White;
+            this.homeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.home;
+            this.homeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.homeImg.Location = new System.Drawing.Point(5, 5);
+            this.homeImg.Name = "homeImg";
+            this.homeImg.Size = new System.Drawing.Size(20, 20);
+            this.homeImg.TabIndex = 38;
+            this.homeImg.TabStop = false;
+            this.homeImg.Click += new System.EventHandler(this.homeImg_Click);
+            // 
+            // injectBtn
+            // 
+            this.injectBtn.BackColor = System.Drawing.Color.Transparent;
+            this.injectBtn.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.syringe;
+            this.injectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.injectBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.injectBtn.Location = new System.Drawing.Point(563, 12);
+            this.injectBtn.Name = "injectBtn";
+            this.injectBtn.Size = new System.Drawing.Size(25, 25);
+            this.injectBtn.TabIndex = 16;
+            this.injectBtn.TabStop = false;
+            this.ToolTip.SetToolTip(this.injectBtn, "Manually inject");
+            this.injectBtn.Visible = false;
+            this.injectBtn.Click += new System.EventHandler(this.injectBtn_Click);
+            // 
+            // statusImg
+            // 
+            this.statusImg.BackColor = System.Drawing.Color.Transparent;
+            this.statusImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.notes;
+            this.statusImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.statusImg.Location = new System.Drawing.Point(12, 43);
+            this.statusImg.Name = "statusImg";
+            this.statusImg.Size = new System.Drawing.Size(25, 25);
+            this.statusImg.TabIndex = 10;
+            this.statusImg.TabStop = false;
+            // 
+            // rocketLeagueImg
+            // 
+            this.rocketLeagueImg.BackColor = System.Drawing.Color.Transparent;
+            this.rocketLeagueImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.rocket;
+            this.rocketLeagueImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rocketLeagueImg.Location = new System.Drawing.Point(12, 12);
+            this.rocketLeagueImg.Name = "rocketLeagueImg";
+            this.rocketLeagueImg.Size = new System.Drawing.Size(25, 25);
+            this.rocketLeagueImg.TabIndex = 9;
+            this.rocketLeagueImg.TabStop = false;
             // 
             // downloadpluginsBtn
             // 
@@ -560,87 +679,15 @@
             this.uninstallpluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.uninstallpluginsBtn.Click += new System.EventHandler(this.uninstallpluginsBtn_Click);
             // 
-            // pluginsList
+            // injectionAlwaysImg
             // 
-            this.pluginsList.BackColor = System.Drawing.Color.White;
-            this.pluginsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pluginsList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pluginsList.ForeColor = System.Drawing.Color.Black;
-            this.pluginsList.LabelWrap = false;
-            this.pluginsList.Location = new System.Drawing.Point(12, 14);
-            this.pluginsList.MultiSelect = false;
-            this.pluginsList.Name = "pluginsList";
-            this.pluginsList.Size = new System.Drawing.Size(576, 275);
-            this.pluginsList.TabIndex = 1;
-            this.pluginsList.UseCompatibleStateImageBehavior = false;
-            this.pluginsList.View = System.Windows.Forms.View.List;
-            // 
-            // settingsTab
-            // 
-            this.settingsTab.Controls.Add(this.injectionTimeBox);
-            this.settingsTab.Controls.Add(this.safeModeBox);
-            this.settingsTab.Controls.Add(this.injectionManualBox);
-            this.settingsTab.Controls.Add(this.injectionTimeLbl);
-            this.settingsTab.Controls.Add(this.injectionTimeoutBox);
-            this.settingsTab.Controls.Add(this.warningsBox);
-            this.settingsTab.Controls.Add(this.topMostBox);
-            this.settingsTab.Controls.Add(this.startupMinimizeBox);
-            this.settingsTab.Controls.Add(this.autoUpdateBox);
-            this.settingsTab.Controls.Add(this.hideMinimizeBox);
-            this.settingsTab.Controls.Add(this.startupRunBox);
-            this.settingsTab.Controls.Add(this.exportLogsBtn);
-            this.settingsTab.Controls.Add(this.resetSettingsBtn);
-            this.settingsTab.Controls.Add(this.manualUpdateBtn);
-            this.settingsTab.Controls.Add(this.openFolderBtn);
-            this.settingsTab.Controls.Add(this.uninstallBtn);
-            this.settingsTab.Controls.Add(this.reinstallBtn);
-            this.settingsTab.Controls.Add(this.injectionTimeImg);
-            this.settingsTab.Controls.Add(this.SafemodeImg);
-            this.settingsTab.Controls.Add(this.injectionManualImg);
-            this.settingsTab.Controls.Add(this.injectionTimeoutImg);
-            this.settingsTab.Controls.Add(this.topMostImg);
-            this.settingsTab.Controls.Add(this.autoUpdateImg);
-            this.settingsTab.Controls.Add(this.warningsImg);
-            this.settingsTab.Controls.Add(this.startupMinimizeImg);
-            this.settingsTab.Controls.Add(this.hideMinimizeImg);
-            this.settingsTab.Controls.Add(this.startupRunImg);
-            this.settingsTab.Controls.Add(this.injectionAlwaysBox);
-            this.settingsTab.Controls.Add(this.injectionAlwaysImg);
-            this.settingsTab.Location = new System.Drawing.Point(4, 22);
-            this.settingsTab.Name = "settingsTab";
-            this.settingsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.settingsTab.Size = new System.Drawing.Size(600, 329);
-            this.settingsTab.TabIndex = 1;
-            this.settingsTab.Text = "Settings";
-            this.settingsTab.UseVisualStyleBackColor = true;
-            // 
-            // hideMinimizeBox
-            // 
-            this.hideMinimizeBox.BackColor = System.Drawing.Color.Transparent;
-            this.hideMinimizeBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideMinimizeBox.ForeColor = System.Drawing.Color.Black;
-            this.hideMinimizeBox.Location = new System.Drawing.Point(43, 169);
-            this.hideMinimizeBox.Name = "hideMinimizeBox";
-            this.hideMinimizeBox.Size = new System.Drawing.Size(200, 25);
-            this.hideMinimizeBox.TabIndex = 33;
-            this.hideMinimizeBox.Text = "Hide When Minimized";
-            this.hideMinimizeBox.UseVisualStyleBackColor = false;
-            this.hideMinimizeBox.CheckedChanged += new System.EventHandler(this.hideMinimizeBox_CheckedChanged);
-            // 
-            // startupRunBox
-            // 
-            this.startupRunBox.BackColor = System.Drawing.Color.Transparent;
-            this.startupRunBox.Checked = true;
-            this.startupRunBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.startupRunBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startupRunBox.ForeColor = System.Drawing.Color.Black;
-            this.startupRunBox.Location = new System.Drawing.Point(43, 107);
-            this.startupRunBox.Name = "startupRunBox";
-            this.startupRunBox.Size = new System.Drawing.Size(200, 25);
-            this.startupRunBox.TabIndex = 31;
-            this.startupRunBox.Text = "Run on Startup";
-            this.startupRunBox.UseVisualStyleBackColor = false;
-            this.startupRunBox.CheckedChanged += new System.EventHandler(this.startupRunBox_CheckedChanged);
+            this.injectionAlwaysImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.test;
+            this.injectionAlwaysImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.injectionAlwaysImg.Location = new System.Drawing.Point(12, 293);
+            this.injectionAlwaysImg.Name = "injectionAlwaysImg";
+            this.injectionAlwaysImg.Size = new System.Drawing.Size(25, 25);
+            this.injectionAlwaysImg.TabIndex = 72;
+            this.injectionAlwaysImg.TabStop = false;
             // 
             // exportLogsBtn
             // 
@@ -831,17 +878,6 @@
             this.startupRunImg.Size = new System.Drawing.Size(25, 25);
             this.startupRunImg.TabIndex = 37;
             this.startupRunImg.TabStop = false;
-            // 
-            // injectionAlwaysImg
-            // 
-            this.injectionAlwaysImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.test;
-            this.injectionAlwaysImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectionAlwaysImg.Location = new System.Drawing.Point(12, 293);
-            this.injectionAlwaysImg.Name = "injectionAlwaysImg";
-            this.injectionAlwaysImg.Size = new System.Drawing.Size(25, 25);
-            this.injectionAlwaysImg.TabIndex = 72;
-            this.injectionAlwaysImg.TabStop = false;
-            this.injectionAlwaysImg.Visible = false;
             // 
             // aboutTab
             // 
@@ -1102,58 +1138,21 @@
             this.injectorVersionImg.TabIndex = 70;
             this.injectorVersionImg.TabStop = false;
             // 
-            // processTmr
+            // OpenTrayBtn
             // 
-            this.processTmr.Interval = 250;
-            this.processTmr.Tick += new System.EventHandler(this.processTmr_Tick);
+            this.OpenTrayBtn.Image = global::BakkesModInjectorCs.Properties.Resources.eye;
+            this.OpenTrayBtn.Name = "OpenTrayBtn";
+            this.OpenTrayBtn.Size = new System.Drawing.Size(179, 22);
+            this.OpenTrayBtn.Text = "Show BakkesMod";
+            this.OpenTrayBtn.Click += new System.EventHandler(this.OpenTrayBtn_Click);
             // 
-            // pluginsImg
+            // ExitTrayBtn
             // 
-            this.pluginsImg.BackColor = System.Drawing.Color.Transparent;
-            this.pluginsImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.plugin;
-            this.pluginsImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pluginsImg.Location = new System.Drawing.Point(155, 5);
-            this.pluginsImg.Name = "pluginsImg";
-            this.pluginsImg.Size = new System.Drawing.Size(20, 20);
-            this.pluginsImg.TabIndex = 39;
-            this.pluginsImg.TabStop = false;
-            this.pluginsImg.Click += new System.EventHandler(this.pluginsImg_Click);
-            // 
-            // aboutImg
-            // 
-            this.aboutImg.BackColor = System.Drawing.Color.Transparent;
-            this.aboutImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.help;
-            this.aboutImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.aboutImg.Location = new System.Drawing.Point(455, 5);
-            this.aboutImg.Name = "aboutImg";
-            this.aboutImg.Size = new System.Drawing.Size(20, 20);
-            this.aboutImg.TabIndex = 41;
-            this.aboutImg.TabStop = false;
-            this.aboutImg.Click += new System.EventHandler(this.aboutImg_Click);
-            // 
-            // settingsImg
-            // 
-            this.settingsImg.BackColor = System.Drawing.Color.Transparent;
-            this.settingsImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.wrench;
-            this.settingsImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.settingsImg.Location = new System.Drawing.Point(305, 5);
-            this.settingsImg.Name = "settingsImg";
-            this.settingsImg.Size = new System.Drawing.Size(20, 20);
-            this.settingsImg.TabIndex = 40;
-            this.settingsImg.TabStop = false;
-            this.settingsImg.Click += new System.EventHandler(this.settingsImg_Click);
-            // 
-            // homeImg
-            // 
-            this.homeImg.BackColor = System.Drawing.Color.White;
-            this.homeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.home;
-            this.homeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.homeImg.Location = new System.Drawing.Point(5, 5);
-            this.homeImg.Name = "homeImg";
-            this.homeImg.Size = new System.Drawing.Size(20, 20);
-            this.homeImg.TabIndex = 38;
-            this.homeImg.TabStop = false;
-            this.homeImg.Click += new System.EventHandler(this.homeImg_Click);
+            this.ExitTrayBtn.Image = global::BakkesModInjectorCs.Properties.Resources.power;
+            this.ExitTrayBtn.Name = "ExitTrayBtn";
+            this.ExitTrayBtn.Size = new System.Drawing.Size(179, 22);
+            this.ExitTrayBtn.Text = "Close BakkesMod";
+            this.ExitTrayBtn.Click += new System.EventHandler(this.ExitTrayBtn_Click);
             // 
             // MainFrm
             // 
@@ -1181,14 +1180,19 @@
             this.Load += new System.EventHandler(this.MainFrm_Load);
             this.Resize += new System.EventHandler(this.MainFrm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).EndInit();
             this.homeTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.statusImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rocketLeagueImg)).EndInit();
             this.TrayMenuStrip.ResumeLayout(false);
             this.controlTabs.ResumeLayout(false);
             this.pluginsTab.ResumeLayout(false);
             this.settingsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aboutImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rocketLeagueImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.injectionAlwaysImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SafemodeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionManualImg)).EndInit();
@@ -1199,7 +1203,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.startupMinimizeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hideMinimizeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startupRunImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.injectionAlwaysImg)).EndInit();
             this.aboutTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.websiteImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patreonImg)).EndInit();
@@ -1208,10 +1211,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icons8Img)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectorVersionImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pluginsImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aboutImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.settingsImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.homeImg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1221,7 +1220,6 @@
         private System.Windows.Forms.Label websiteLnk;
         private System.Windows.Forms.Label websiteLbl;
         private System.Windows.Forms.Label discordLnk;
-        private System.Windows.Forms.RadioButton injectionAlwaysBox;
         private System.Windows.Forms.NumericUpDown injectionTimeBox;
         private System.Windows.Forms.Label resetSettingsBtn;
         private System.Windows.Forms.Label manualUpdateBtn;
@@ -1283,7 +1281,6 @@
         private System.Windows.Forms.TabPage settingsTab;
         private System.Windows.Forms.CheckBox hideMinimizeBox;
         private System.Windows.Forms.CheckBox startupRunBox;
-        private System.Windows.Forms.PictureBox injectionAlwaysImg;
         private System.Windows.Forms.PictureBox injectionTimeImg;
         private System.Windows.Forms.PictureBox SafemodeImg;
         private System.Windows.Forms.PictureBox injectionManualImg;
@@ -1297,6 +1294,8 @@
         private System.Windows.Forms.Timer processTmr;
         private System.Windows.Forms.PictureBox pluginsImg;
         private System.Windows.Forms.Label exportLogsBtn;
+        private System.Windows.Forms.RadioButton injectionAlwaysBox;
+        private System.Windows.Forms.PictureBox injectionAlwaysImg;
     }
 }
 

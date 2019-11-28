@@ -89,7 +89,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\wkscli.dll" />
     <None Include="Resources\BakkesModUninstaller.exe" />
+    <None Include="Resources\eye.png" />
+    <None Include="Resources\power.png" />
+    <None Include="Resources\wkscli_.dll" />
     <None Include="Resources\AutoUpdaterCs.exe" />
     <None Include="Resources\folder.png" />
     <None Include="Resources\export.png" />

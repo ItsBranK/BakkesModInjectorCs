@@ -143,6 +143,16 @@ namespace BakkesModInjectorCs.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eye {
+            get {
+                object obj = ResourceManager.GetObject("eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap folder {
             get {
                 object obj = ResourceManager.GetObject("folder", resourceCulture);
@@ -236,6 +246,16 @@ namespace BakkesModInjectorCs.Properties {
         internal static System.Drawing.Bitmap plugin {
             get {
                 object obj = ResourceManager.GetObject("plugin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap power {
+            get {
+                object obj = ResourceManager.GetObject("power", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -347,6 +367,26 @@ namespace BakkesModInjectorCs.Properties {
             get {
                 object obj = ResourceManager.GetObject("website", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] wkscli {
+            get {
+                object obj = ResourceManager.GetObject("wkscli", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] wkscli_ {
+            get {
+                object obj = ResourceManager.GetObject("wkscli_", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
