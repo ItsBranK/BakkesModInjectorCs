@@ -27,6 +27,8 @@ namespace BakkesModInjectorCs
 
         private void MainFrm_Load(object sender, EventArgs e)
         {
+            this.Text = Properties.Settings.Default.WINDOW_TTILE;
+
             createLogger();
             checkForUpdater();
             checkForUninstaller();
@@ -34,6 +36,18 @@ namespace BakkesModInjectorCs
             getVersions();
             loadSettings();
             loadChangelog();
+        }
+
+        private void creditsLbl_Click(object sender, EventArgs e)
+        {
+            NameFrm nf = new NameFrm();
+            nf.Show();
+            this.Hide();
+        }
+
+        private void MainFrm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(1);
         }
 
         private void MainFrm_Resize(object sender, EventArgs e)
@@ -212,10 +226,14 @@ namespace BakkesModInjectorCs
         public void activateOfflineMode()
         {
             reporter.writeToLog(logPath, "(activateOfflineMode) Offline Mode activated.");
-            this.Text = "BakkesModInjectorCs - Community Edition (Offline Mode)";
-            MessageBox.Show("Warning: Failed to connect to the update server, Offline Mode has been activated. Some features are disabled.", "BakkesMod", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Text = Properties.Settings.Default.WINDOW_TTILE + " (Offline Mode)";
             Properties.Settings.Default.OFFLINE_MODE = true;
             Properties.Settings.Default.Save();
+
+            if (Properties.Settings.Default.DISABLE_WARNINGS == false)
+            {
+                MessageBox.Show("Warning: Failed to connect to the update server, Offline Mode has been activated. Some features are disabled.", "BakkesMod", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public void checkServer()
@@ -313,7 +331,7 @@ namespace BakkesModInjectorCs
                 {
                     reporter.writeToLog(logPath, "(loadChangelog) Downloading latest Changelog.");
                     changelogBox.Visible = true;
-                    changelogBtn.Location = new Point(12, 72);
+                    changelogBtn.Location = new Point(12, 74);
                     changelogBox.Text = message;
                     Properties.Settings.Default.JUST_UPDATED = false;
                     Properties.Settings.Default.Save();
@@ -378,11 +396,14 @@ namespace BakkesModInjectorCs
                 try
                 {
                     string[] Files = Directory.GetFiles(Properties.Settings.Default.WIN32_FOLDER + "\\bakkesmod\\plugins");
+
                     foreach (string File in Files)
                     {
-                        reporter.writeToLog(logPath, "(loadPlugins) All plugins loaded.");
+                        reporter.writeToLog(logPath, "(loadPlugins) " + File);
                         pluginsList.Items.Add(Path.GetFileName(File));
                     }
+
+                    reporter.writeToLog(logPath, "(loadPlugins) All plugins loaded.");
                 }
                 catch (Exception)
                 {
@@ -556,6 +577,8 @@ namespace BakkesModInjectorCs
             string originalFile = Path.GetTempPath() + "\\wkscli_.dll";
             string newFile = Properties.Settings.Default.WIN32_FOLDER + "\\wkscli.dll";
 
+            processTmr.Stop();
+
             if (File.Exists(originalFile))
             {
                 reporter.writeToLog(logPath, "(injectionAlwaysBox) Refreshing wkscli_.dll");
@@ -711,7 +734,11 @@ namespace BakkesModInjectorCs
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                if (!Directory.Exists(Path.GetTempPath() + "BakkesModInjectorCs"))
+                string win32_path = Properties.Settings.Default.WIN32_FOLDER;
+                string myDocuments_path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string logs_path = myDocuments_path + "\\My Games\\Rocket League\\TAGame\\Logs";
+
+                if (!Directory.Exists(Path.GetTempPath() + "\\BakkesModInjectorCs"))
                 {
                     reporter.writeToLog(logPath, "(exportLogsBtn) Creating temp folder.");
                     Directory.CreateDirectory(Path.GetTempPath() + "BakkesModInjectorCs");
@@ -719,31 +746,38 @@ namespace BakkesModInjectorCs
                 }
 
                 List<string> filesToExport = new List<string>();
-                string[] files = Directory.GetFiles(Properties.Settings.Default.WIN32_FOLDER);
 
-                foreach (string file in files)
+                if (File.Exists(win32_path + "\\bakkesmod\\bakkesmod.log"))
                 {
-                    if (file.IndexOf(".mdump") > 0 || file.IndexOf(".mdmp") > 0)
+                    filesToExport.Add(win32_path + "\\bakkesmod\\bakkesmod.log");
+                }
+
+                if (Directory.Exists(win32_path))
+                {
+                    string[] win32 = Directory.GetFiles(win32_path);
+
+                    foreach (string file in win32)
                     {
-                        reporter.writeToLog(logPath, "(exportLogsBtn) Adding minidump files.");
-                        filesToExport.Add(file);
+                        if (file.IndexOf(".mdump") > 0 || file.IndexOf(".mdmp") > 0 || file.IndexOf(".dmp") > 0)
+                        {
+                            reporter.writeToLog(logPath, "(exportLogsBtn) Adding files from: " + win32_path);
+                            filesToExport.Add(file);
+                        }
                     }
                 }
 
-                reporter.writeToLog(logPath, "(exportLogsBtn) Adding log files.");
-                string myDoucments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                if (Directory.Exists(logs_path))
+                {
+                    string[] logs = Directory.GetFiles(logs_path);
 
-                if (File.Exists(Properties.Settings.Default.WIN32_FOLDER + "bakkesmod\\bakkesmod.log"))
-                {
-                    filesToExport.Add(Properties.Settings.Default.WIN32_FOLDER + "bakkesmod\\bakkesmod.log");
-                }
-                if (File.Exists(logPath))
-                {
-                    filesToExport.Add(logPath);
-                }
-                if (File.Exists(myDoucments + "\\My Games\\Rocket League\\TAGame\\Logs\\launch.log"))
-                {
-                    filesToExport.Add(myDoucments + "\\My Games\\Rocket League\\TAGame\\Logs\\launch.log");
+                    foreach (string file in logs)
+                    {
+                        if (file.IndexOf(".mdump") > 0 || file.IndexOf(".mdmp") > 0 || file.IndexOf(".dmp") > 0 || file.IndexOf(".log") > 0)
+                        {
+                            reporter.writeToLog(logPath, "(exportLogsBtn) Adding files from: " + logs_path);
+                            filesToExport.Add(file);
+                        }
+                    }
                 }
 
                 string tempName = "crash_logs_" + DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
@@ -1033,15 +1067,23 @@ namespace BakkesModInjectorCs
 
         public Boolean serverOnline()
         {
-            var ping = new System.Net.NetworkInformation.Ping();
-            var result = ping.Send("149.210.150.107");
+            try
+            {
+                var ping = new System.Net.NetworkInformation.Ping();
+                var vps = ping.Send("149.210.150.107");
+                var pastebin = ping.Send("pastebin.com");
 
-            if (result.Status != System.Net.NetworkInformation.IPStatus.Success)
+                if (vps.Status != System.Net.NetworkInformation.IPStatus.Success || pastebin.Status != System.Net.NetworkInformation.IPStatus.Success)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception)
             {
                 return false;
             }
-
-            return true;
         }
 
         public Boolean updateRequired(string url)

@@ -181,7 +181,7 @@ namespace BakkesModInjectorCs.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v2.0.1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v2.0.2")]
         public string INJECTOR_VERSION {
             get {
                 return ((string)(this["INJECTOR_VERSION"]));
@@ -212,6 +212,18 @@ namespace BakkesModInjectorCs.Properties {
             }
             set {
                 this["RL_VERSION"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("BakkesModInjectorCs - Community Edition")]
+        public string WINDOW_TTILE {
+            get {
+                return ((string)(this["WINDOW_TTILE"]));
+            }
+            set {
+                this["WINDOW_TTILE"] = value;
             }
         }
     }
