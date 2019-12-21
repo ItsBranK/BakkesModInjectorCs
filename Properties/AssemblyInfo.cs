@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BakkesModInjectorCs")]
-[assembly: AssemblyDescription("Injects BakkesMod.dll into Rocket League.")]
+[assembly: AssemblyTitle("AutoUpdaterCs")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("https://github.com/ItsBranK/")]
-[assembly: AssemblyProduct("BakkesModInjectorCs")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("AutoUpdaterCs")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("db5968c4-a194-4a7c-8d98-e9f7ee4a0c07")]
+[assembly: Guid("effcc8ea-2420-4eae-ad6c-2508bd5b797c")]
 
 // Version information for an assembly consists of the following four values:
 //
