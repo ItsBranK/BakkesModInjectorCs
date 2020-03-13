@@ -513,6 +513,7 @@
             this.pluginsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pluginsList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pluginsList.ForeColor = System.Drawing.Color.Black;
+            this.pluginsList.HideSelection = false;
             this.pluginsList.LabelWrap = false;
             this.pluginsList.Location = new System.Drawing.Point(12, 14);
             this.pluginsList.MultiSelect = false;
@@ -563,6 +564,7 @@
             // 
             // injectionAlwaysBox
             // 
+            this.injectionAlwaysBox.Enabled = false;
             this.injectionAlwaysBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.injectionAlwaysBox.Location = new System.Drawing.Point(43, 293);
             this.injectionAlwaysBox.Name = "injectionAlwaysBox";

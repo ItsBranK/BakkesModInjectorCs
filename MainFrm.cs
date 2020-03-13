@@ -1019,7 +1019,7 @@ namespace BakkesModInjectorCs
                     break;
                 case Feedback.FAIL:
                     reporter.writeToLog(logPath, "(injectInstance) Injection failed, no reason provided.");
-                    statusLbl.Text = "Injection failed, possible corruption?";
+                    statusLbl.Text = "Injection failed, possible file corruption?";
                     isInjected = false;
                     break;
                 case Feedback.NO_ENTRY_POINT:
@@ -1043,6 +1043,7 @@ namespace BakkesModInjectorCs
                     isInjected = true;
                     break;
             }
+            injectionTmr.Stop();
         }
         #endregion
 
