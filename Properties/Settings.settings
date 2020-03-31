@@ -42,7 +42,7 @@
       <Value Profile="(Default)">null</Value>
     </Setting>
     <Setting Name="INJECTOR_VERSION" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v2.0.3</Value>
+      <Value Profile="(Default)">v2.0.4</Value>
     </Setting>
     <Setting Name="BM_VERSION" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>

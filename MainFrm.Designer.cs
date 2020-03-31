@@ -1180,6 +1180,7 @@
             this.MaximizeBox = false;
             this.Name = "MainFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "BakkesModInjectorCs - Community Edition";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFrm_FormClosed);
             this.Load += new System.EventHandler(this.MainFrm_Load);
             this.Resize += new System.EventHandler(this.MainFrm_Resize);

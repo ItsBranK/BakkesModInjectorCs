@@ -1004,46 +1004,50 @@ namespace BakkesModInjectorCs
         void injectInstance()
         {
             reporter.writeToLog(logPath, "(injectInstance) Attempting injection.");
-            Feedback Result = injector.instance.load("RocketLeague", Properties.Settings.Default.WIN32_FOLDER + "\\BakkesMod\\bakkesmod.dll");
+            feedback Result = injector.instance.load("RocketLeague", Properties.Settings.Default.WIN32_FOLDER + "\\bakkesmod\\dll\\bakkesmod.dll");
             switch (Result)
             {
-                case Feedback.FILE_NOT_FOUND:
+                case feedback.FILE_NOT_FOUND:
                     reporter.writeToLog(logPath, "(injectInstance) Injection failed, DLL not found.");
                     statusLbl.Text = "Uninjected, could not locate DLL.";
-                    isInjected = false;
+                    isInjected = true;
                     break;
-                case Feedback.PROCESS_NOT_FOUND:
+                case feedback.PROCESS_NOT_FOUND:
                     reporter.writeToLog(logPath, "(injectInstance) Injection failed, process not found.");
-                    isInjected = false;
+                    isInjected = true;
                     statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
                     break;
-                case Feedback.FAIL:
-                    reporter.writeToLog(logPath, "(injectInstance) Injection failed, no reason provided.");
-                    statusLbl.Text = "Injection failed, possible file corruption?";
-                    isInjected = false;
-                    break;
-                case Feedback.NO_ENTRY_POINT:
+                case feedback.NO_ENTRY_POINT:
                     reporter.writeToLog(logPath, "(injectInstance) Injection failed, no entry point in process.");
                     statusLbl.Text = "Injection failed, no entry point for process.";
-                    isInjected = false;
+                    isInjected = true;
                     break;
-                case Feedback.MEMORY_SPACE_FAIL:
+                case feedback.MEMORY_SPACE_FAIL:
                     reporter.writeToLog(logPath, "(injectInstance) Injection failed, not enough memory available.");
                     statusLbl.Text = "Injection failed, not enough memory space.";
-                    isInjected = false;
+                    isInjected = true;
                     break;
-                case Feedback.MEMORY_WRITE_FAIL:
-                    reporter.writeToLog(logPath, "(injectInstance) Injection Failed.");
+                case feedback.MEMORY_WRITE_FAIL:
+                    reporter.writeToLog(logPath, "(injectInstance) Injection failed, could not write to memory.");
                     statusLbl.Text = "Injection failed, could not write to memory.";
-                    isInjected = false;
+                    isInjected = true;
                     break;
-                case Feedback.SUCCESS:
-                    reporter.writeToLog(logPath, "(injectInstance) Successfully Injected.");
+                case feedback.REMOTE_THREAD_FAIL:
+                    reporter.writeToLog(logPath, "(injectInstance) Injection failed, could not create remote thread.");
+                    statusLbl.Text = "Injection failed, could not create remote thread.";
+                    isInjected = true;
+                    break;
+                case feedback.SUCCESS:
+                    reporter.writeToLog(logPath, "(injectInstance) Successfully injected.");
                     statusLbl.Text = "Successfully injected, changes applied in-game.";
                     isInjected = true;
                     break;
+                case feedback.NOT_SUPPORTED:
+                    reporter.writeToLog(logPath, "(injectInstance) User is on DX9, cannot inject at this time.");
+                    statusLbl.Text = "Failed to inject, DX9 is no longer supported.";
+                    isInjected = true;
+                    break;
             }
-            injectionTmr.Stop();
         }
         #endregion
 
@@ -1215,7 +1219,7 @@ namespace BakkesModInjectorCs
                 if (!Directory.Exists(directory + "\\bakkesmod"))
                 {
                     reporter.writeToLog(logPath, "(checkInstall) Failed to locate the BakkesMod folder.");
-                    DialogResult DialogResult = MessageBox.Show("Error: Could not find the BakkesMod folder, would you like to install it?", "BakkesMod", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult DialogResult = MessageBox.Show("Error: Could not find the BakkesMod folder, would you like to install it? If you are on DX9 press no, DX9 is no longer supported.", "BakkesMod", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (DialogResult == DialogResult.Yes)
                     {
                         installBM();

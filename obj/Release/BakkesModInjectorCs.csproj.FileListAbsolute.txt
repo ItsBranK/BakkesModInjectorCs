@@ -1,0 +1,10 @@
+C:\Users\BranK\Documents\Visual Studio 2019\Projects\BakkesModInjectorCs\bin\Release\BakkesModInjectorCs.exe.config
+C:\Users\BranK\Documents\Visual Studio 2019\Projects\BakkesModInjectorCs\bin\Release\BakkesModInjectorCs.xml
+C:\Users\BranK\Documents\Visual Studio 2019\Projects\BakkesModInjectorCs\bin\Release\BakkesModInjectorCs.exe
+C:\Users\BranK\Documents\Visual Studio 2019\Projects\BakkesModInjectorCs\bin\Release\BakkesModInjectorCs.pdb
+C:\Users\BranK\Documents\Visual Studio 2019\Projects\BakkesModInjectorCs\obj\Release\BakkesModInjectorCs.MainFrm.resources
+C:\Users\BranK\Documents\Visual Studio 2019\Projects\BakkesModInjectorCs\obj\Release\BakkesModInjectorCs.NameFrm.resources
+C:\Users\BranK\Documents\Visual Studio 2019\Projects\BakkesModInjectorCs\obj\Release\BakkesModInjectorCs.Properties.Resources.resources
+C:\Users\BranK\Documents\Visual Studio 2019\Projects\BakkesModInjectorCs\obj\Release\BakkesModInjectorCs.csproj.GenerateResource.cache
+C:\Users\BranK\Documents\Visual Studio 2019\Projects\BakkesModInjectorCs\obj\Release\BakkesModInjectorCs.exe
+C:\Users\BranK\Documents\Visual Studio 2019\Projects\BakkesModInjectorCs\obj\Release\BakkesModInjectorCs.pdb

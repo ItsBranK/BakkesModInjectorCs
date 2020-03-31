@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 // https://www.unknowncheats.me/forum/c-/82629-basic-dll-injector.html
 
-public enum Feedback
+public enum feedback
 {
     FILE_NOT_FOUND,
     PROCESS_NOT_FOUND,
@@ -16,15 +16,14 @@ public enum Feedback
     MEMORY_SPACE_FAIL,
     MEMORY_WRITE_FAIL,
     REMOTE_THREAD_FAIL,
-    FAIL,
+    NOT_SUPPORTED,
     SUCCESS
 }
 
 public sealed class injector
 {
-    int Result;
     static readonly IntPtr IntPtr_Zero = IntPtr.Zero;
-    static readonly uint Access = (0x2 | 0x8 | 0x10 | 0x20 | 0x400);
+    static readonly uint Access = 0x001F0FFF;
     static injector _instance;
 
     [DllImport("kernel32.dll", SetLastError = true)]
@@ -63,60 +62,55 @@ public sealed class injector
 
     private injector() { }
 
-    public Feedback load(string Name, string Path)
+    public feedback load(string name, string path)
     {
-        if (!File.Exists(Path))
+        if (!File.Exists(path))
         {
-            return Feedback.FILE_NOT_FOUND;
+            return feedback.FILE_NOT_FOUND;
         }
 
         uint ProcessID = 0;
         Process[] CurrentProcesses = Process.GetProcesses();
         foreach (Process P in CurrentProcesses)
         {
-            if (P.ProcessName == Name)
+            string x64 = "Rocket League (64-bit, DX11, Cooked)";
+            string x32 = "Rocket League (32-bit, DX9, Cooked)";
+
+            if (P.ProcessName == name)
             {
-                ProcessID = (uint)P.Id;
+                if (P.MainWindowTitle == x64)
+                {
+                    ProcessID = (uint)P.Id;
+                }
+                else if (P.MainWindowTitle == x32)
+                {
+                    return feedback.NOT_SUPPORTED;
+                }
             }
         }
 
-        if (ProcessID == 0) return Feedback.PROCESS_NOT_FOUND;
+        if (ProcessID == 0) return feedback.PROCESS_NOT_FOUND;
 
-        injectInstance(ProcessID, Path);
-
-        if (Result == 1) return Feedback.FAIL;
-
-        if (Result == 2) return Feedback.NO_ENTRY_POINT;
-
-        if (Result == 3) return Feedback.MEMORY_SPACE_FAIL;
-
-        if (Result == 4) return Feedback.MEMORY_WRITE_FAIL;
-
-        return Feedback.SUCCESS;
+        return injectInstance(ProcessID, path);
     }
 
-    int injectInstance(uint ProcessToHook, string Path)
+    feedback injectInstance(uint processId, string path)
     {
-        IntPtr processHandle = OpenProcess(Access, 1, ProcessToHook);
-        if (processHandle == IntPtr_Zero) return Result = 1; // Cant open or no perms?
+        IntPtr processHandle = OpenProcess(Access, 1, processId);
+        if (processHandle == IntPtr_Zero) return feedback.FILE_NOT_FOUND;
 
         IntPtr loadLibraryAddress = GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
-        if (loadLibraryAddress == IntPtr_Zero) return Result = 2; // No entry point
+        if (loadLibraryAddress == IntPtr_Zero) return feedback.NO_ENTRY_POINT;
 
-        IntPtr argAddress = VirtualAllocEx(processHandle, (IntPtr)null, (IntPtr)Path.Length, (0x1000 | 0x2000), 0X40);
-        if (argAddress == IntPtr_Zero) return Result = 3; // Invalid memory space, potato pc prob
+        IntPtr argAddress = VirtualAllocEx(processHandle, (IntPtr)null, (IntPtr)path.Length, (0x1000 | 0x2000), 0X40);
+        if (argAddress == IntPtr_Zero) return feedback.MEMORY_SPACE_FAIL;
 
-        byte[] bytes = Encoding.ASCII.GetBytes(Path);
+        byte[] bytes = Encoding.ASCII.GetBytes(path);
 
-        if (WriteProcessMemory(processHandle, argAddress, bytes, (uint)bytes.Length, 0) == 0)
-            return Result = 4; // Writing memory fail
-
-        if (CreateRemoteThread(processHandle, (IntPtr)null, IntPtr_Zero, loadLibraryAddress, argAddress, 0, (IntPtr)null) == IntPtr_Zero)
-        {
-            return Result = 4; // Failed to create remote thread
-        }
+        if (WriteProcessMemory(processHandle, argAddress, bytes, (uint)bytes.Length, 0) == 0) return feedback.MEMORY_WRITE_FAIL;
+        if (CreateRemoteThread(processHandle, (IntPtr)null, IntPtr_Zero, loadLibraryAddress, argAddress, 0, (IntPtr)null) == IntPtr_Zero) return feedback.REMOTE_THREAD_FAIL;
 
         CloseHandle(processHandle);
-        return Result = 0; // Sucess
+        return feedback.SUCCESS;
     }
 }
