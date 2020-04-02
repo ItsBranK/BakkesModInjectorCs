@@ -30,8 +30,8 @@ The latest version can be downloaded from the [releases page](https://github.com
 
 ![](https://i.imgur.com/CPvlqPk.png)
 ![](https://i.imgur.com/ceuS5Y1.png)
-![](https://i.imgur.com/Vxq9SvY.png)
-![](https://i.imgur.com/h1CYtNU.png)
+![](https://i.imgur.com/87kRQwk.png)
+![](https://i.imgur.com/EImrv3y.png)
 
 ## Contact
 
