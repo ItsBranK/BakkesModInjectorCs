@@ -63,6 +63,16 @@ namespace BakkesModInjectorCs.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] _XAPOFX1_5 {
+            get {
+                object obj = ResourceManager.GetObject("_XAPOFX1_5", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] AutoUpdaterCs {
             get {
                 object obj = ResourceManager.GetObject("AutoUpdaterCs", resourceCulture);
@@ -207,6 +217,16 @@ namespace BakkesModInjectorCs.Properties {
             get {
                 object obj = ResourceManager.GetObject("icons8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] injected {
+            get {
+                object obj = ResourceManager.GetObject("injected", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -367,26 +387,6 @@ namespace BakkesModInjectorCs.Properties {
             get {
                 object obj = ResourceManager.GetObject("website", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] wkscli {
-            get {
-                object obj = ResourceManager.GetObject("wkscli", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] wkscli_ {
-            get {
-                object obj = ResourceManager.GetObject("wkscli_", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         

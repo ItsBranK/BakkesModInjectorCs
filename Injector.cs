@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
-
 // https://www.unknowncheats.me/forum/c-/82629-basic-dll-injector.html
 
 public enum feedback

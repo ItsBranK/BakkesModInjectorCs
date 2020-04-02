@@ -570,7 +570,7 @@
             this.injectionAlwaysBox.Name = "injectionAlwaysBox";
             this.injectionAlwaysBox.Size = new System.Drawing.Size(200, 25);
             this.injectionAlwaysBox.TabIndex = 71;
-            this.injectionAlwaysBox.Text = "Always Injected (Experimental)";
+            this.injectionAlwaysBox.Text = "Always Injected (Discontinued)";
             this.injectionAlwaysBox.UseVisualStyleBackColor = true;
             this.injectionAlwaysBox.CheckedChanged += new System.EventHandler(this.injectionAlwaysBox_CheckedChanged);
             // 
@@ -1180,7 +1180,6 @@
             this.MaximizeBox = false;
             this.Name = "MainFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BakkesModInjectorCs - Community Edition";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFrm_FormClosed);
             this.Load += new System.EventHandler(this.MainFrm_Load);
             this.Resize += new System.EventHandler(this.MainFrm_Resize);

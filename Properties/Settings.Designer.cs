@@ -170,12 +170,12 @@ namespace BakkesModInjectorCs.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("null")]
-        public string WIN32_FOLDER {
+        public string WIN64_FOLDER {
             get {
-                return ((string)(this["WIN32_FOLDER"]));
+                return ((string)(this["WIN64_FOLDER"]));
             }
             set {
-                this["WIN32_FOLDER"] = value;
+                this["WIN64_FOLDER"] = value;
             }
         }
         

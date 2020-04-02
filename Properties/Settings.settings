@@ -38,7 +38,7 @@
     <Setting Name="INJECTION_TYPE" Type="System.String" Scope="User">
       <Value Profile="(Default)">timeout</Value>
     </Setting>
-    <Setting Name="WIN32_FOLDER" Type="System.String" Scope="User">
+    <Setting Name="WIN64_FOLDER" Type="System.String" Scope="User">
       <Value Profile="(Default)">null</Value>
     </Setting>
     <Setting Name="INJECTOR_VERSION" Type="System.String" Scope="User">
