@@ -9,7 +9,6 @@ using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using System.Text;
 
 namespace BakkesModInjectorCs
 {
@@ -32,9 +31,7 @@ namespace BakkesModInjectorCs
             createLogger();
             checkForUpdater();
             checkForUninstaller();
-
             getFolderDirectory();
-            getVersionInfo();
             loadSettings();
             loadChangelog();
         }
@@ -79,13 +76,6 @@ namespace BakkesModInjectorCs
         private void icons8Link_Click(object sender, EventArgs e)
         {
             Process.Start("https://icons8.com/");
-        }
-
-        private void creditsLbl_Click(object sender, EventArgs e)
-        {
-            NameFrm nf = new NameFrm();
-            nf.Show();
-            this.Hide();
         }
         #endregion
 
@@ -213,7 +203,7 @@ namespace BakkesModInjectorCs
             if (File.Exists(Properties.Settings.Default.WIN64_FOLDER + "\\d3d9.dll"))
             {
                 utils.writeToLog(logFile, "(checkD3D9) D3D9.dll has been located.");
-                DialogResult dr = MessageBox.Show("Warning: d3d9.dll detected. This file is used by ReShade/uMod and might prevent the GUI from working. Would you like BakkesModInjectorCs to remove this file?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr = MessageBox.Show("Warning: d3d9.dll was found. This file is used by ReShade/uMod and might prevent the GUI from working. Would you like BakkesModInjectorCs to remove this file?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (dr == DialogResult.Yes)
                 {
@@ -556,10 +546,6 @@ namespace BakkesModInjectorCs
             {
                 injectionManualBox.Checked = true;
             }
-            else if (Properties.Settings.Default.INJECTION_TYPE == "always")
-            {
-                injectionAlwaysBox.Checked = true;
-            }
 
             injectionTimeBox.Text = Properties.Settings.Default.TIMEOUT_VALUE.ToString();
             utils.writeToLog(logFile, "(loadSettings) All settings loaded.");
@@ -615,34 +601,6 @@ namespace BakkesModInjectorCs
             else if (injectionManualBox.Checked == true)
             {
                 Properties.Settings.Default.INJECTION_TYPE = "manual";
-            }
-            else if (injectionAlwaysBox.Checked == true)
-            {
-                Properties.Settings.Default.INJECTION_TYPE = "always";
-
-                /*if (!File.Exists(soundFile))
-                {
-                    utils.writeToLog(logFile, "(injectionAlwaysBox) Writing injected.ogg");
-                    utils.writeToLog(logFile, "(injectionAlwaysBox) Location of injected.ogg: " + soundFile);
-                    byte[] fileBytes = Properties.Resources.injected;
-                    File.WriteAllBytes(soundFile, fileBytes);
-                }
-
-                if (!File.Exists(originalFile))
-                {
-                    utils.writeToLog(logFile, "(injectionAlwaysBox) Writing wkscli_.dll");
-                    utils.writeToLog(logFile, "(injectionAlwaysBox) Location of _XAPOFX1_5.dll: " + originalFile);
-                    byte[] fileBytes = Properties.Resources._XAPOFX1_5;
-                    File.WriteAllBytes(originalFile, fileBytes);
-                }
-
-                if (injectionAlwaysBox.Checked == true)
-                {
-                    utils.writeToLog(logFile, "(injectionAlwaysBox) Writing wkscli.dll");
-                    utils.writeToLog(logFile, "(injectionAlwaysBox) Location of XAPOFX1_5.dll: " + newFile);
-                    //byte[] fileBytes = Properties.Resources.XAPOFX1_5;
-                    File.WriteAllBytes(newFile, fileBytes);
-                }*/
             }
 
             Properties.Settings.Default.Save();
@@ -830,13 +788,19 @@ namespace BakkesModInjectorCs
             resetSettings();
         }
 
+        private void windowTitleBtn_Click(object sender, EventArgs e)
+        {
+            NameFrm nf = new NameFrm();
+            nf.Show();
+            this.Hide();
+        }
+
         private void reinstallBtn_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("This will fully remove all BakkesMod files, are you sure you want to continue?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                string Path = Properties.Settings.Default.WIN64_FOLDER + "bakkesmod";
-
+                string Path = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod";
                 if (Directory.Exists(Path))
                 {
                     Directory.Delete(Path, true);
@@ -926,14 +890,13 @@ namespace BakkesModInjectorCs
         #region "Injector & Timers"
         public Boolean isProcessRunning()
         {
-            Process[] rocketLeague = Process.GetProcessesByName("RocketLeague");
-
-            if (rocketLeague.Length == 0)
+            Process[] allProcesses = Process.GetProcesses();
+            foreach (Process p in allProcesses)
             {
-                return false;
+                if (p.ProcessName == "RocketLeague")
+                    return true;
             }
-
-            return true;
+            return false;
         }
 
         public Boolean openProcess()
@@ -956,10 +919,14 @@ namespace BakkesModInjectorCs
         {
             try
             {
-                Process[] rocketLeague = Process.GetProcessesByName("RocketLeague");
-
-                rocketLeague[0].Kill();
-                return true;
+                Process[] allProcesses = Process.GetProcesses();
+                foreach (Process p in allProcesses)
+                {
+                    if (p.ProcessName == "RocketLeague")
+                        p.Kill();
+                        return true;
+                }
+                return false;
             }
             catch
             {
@@ -1090,7 +1057,6 @@ namespace BakkesModInjectorCs
             {
                 match = Regex.Match(download, pattern, RegexOptions.IgnoreCase | RegexOptions.RightToLeft).Groups[1].Value.Replace("\"", "");
             }
-
             return match;
         }
 
@@ -1106,10 +1072,9 @@ namespace BakkesModInjectorCs
                 {
                     return false;
                 }
-
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }
@@ -1143,7 +1108,6 @@ namespace BakkesModInjectorCs
 
             download = download.Substring(download.IndexOf("\"download_url\": \"") + 17);
             download = download.Substring(0, download.IndexOf("\""));
-
             return download;
         }
 
@@ -1160,7 +1124,6 @@ namespace BakkesModInjectorCs
             {
                 return true;
             }
-
             return false;
         }
 
@@ -1182,7 +1145,6 @@ namespace BakkesModInjectorCs
             {
                 download = "No changelog provided for the most recent update.";
             }
-
             return download;
         }
 
@@ -1196,9 +1158,9 @@ namespace BakkesModInjectorCs
                     File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\AutoUpdaterCs.exe");
                     utils.writeToLog(logFile, "(checkForUpdater) AutoUpdaterCs.exe has successfully been deleted.");
                 }
-                catch (Exception Ex)
+                catch (Exception ex)
                 {
-                    utils.writeToLog(logFile, "(checkForUpdater) " + Ex.ToString());
+                    utils.writeToLog(logFile, "(checkForUpdater) " + ex.ToString());
                 }
             }
             else
@@ -1217,9 +1179,9 @@ namespace BakkesModInjectorCs
                     File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModUninstaller.exe");
                     utils.writeToLog(logFile, "(checkForUninstaller) BakkesModUninstaller.exe has successfully been deleted.");
                 }
-                catch (Exception Ex)
+                catch (Exception ex)
                 {
-                    utils.writeToLog(logFile, "(checkForUninstaller) " + Ex.ToString());
+                    utils.writeToLog(logFile, "(checkForUninstaller) " + ex.ToString());
                 }
             }
             else
@@ -1273,16 +1235,16 @@ namespace BakkesModInjectorCs
                     utils.writeToLog(logFile, "(checkForUpdates) Current BakkesMod version: " + Properties.Settings.Default.BM_VERSION);
                     if (updateRequired(updaterURL + Properties.Settings.Default.BM_VERSION) == false)
                     {
-                        utils.writeToLog(logFile, "(checkForUpdates) No BakkesMod update detected. ");
+                        utils.writeToLog(logFile, "(checkForUpdates) No BakkesMod update found. ");
                         if (displayResult == true)
                         {
-                            MessageBox.Show("No mod or injector updates were detected.", "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("No mod or injector updates were found.", "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
                     {
                         utils.writeToLog(logFile, "(checkForUpdates) BakkesMod update found. ");
-                        DialogResult result = MessageBox.Show("A new version of BakkesMod was detected, would you like to download it?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        DialogResult result = MessageBox.Show("A new version of BakkesMod was found, would you like to download it?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (result == DialogResult.Yes)
                         {
                             if (isProcessRunning() == true)
@@ -1292,13 +1254,13 @@ namespace BakkesModInjectorCs
                                 {
                                     if (closeProcess() == true)
                                     {
-                                        installUpdate();
+                                        updateBakkesMod();
                                     }
                                 }
                             }
                             else
                             {
-                                installUpdate();
+                                updateBakkesMod();
                             }
                         }
                     }
@@ -1306,7 +1268,7 @@ namespace BakkesModInjectorCs
                 else
                 {
                     utils.writeToLog(logFile, "(checkForUpdates) Version mismatch, injector update found.");
-                    DialogResult result = MessageBox.Show("A new version of BakkesModInjectorCs was detected, would you like to download it?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    DialogResult result = MessageBox.Show("A new version of BakkesModInjectorCs was found, would you like to download it?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
                     {
                         if (isProcessRunning() == true)
@@ -1316,13 +1278,13 @@ namespace BakkesModInjectorCs
                             {
                                 if (closeProcess() == true)
                                 {
-                                    installInjector();
+                                    updateInjector();
                                 }
                             }
                         }
                         else
                         {
-                            installInjector();
+                            updateInjector();
                         }
                     }
                 }
@@ -1341,7 +1303,7 @@ namespace BakkesModInjectorCs
 
             if (!Directory.Exists(path + "\\bakkesmod"))
             {
-                utils.writeToLog(logFile, "(installBM) Creating BakkesMod folder.");
+                utils.writeToLog(logFile, "(installBakkesMod) Creating BakkesMod folder.");
                 Directory.CreateDirectory(path + "\\bakkesmod");
             }
 
@@ -1349,12 +1311,12 @@ namespace BakkesModInjectorCs
             {
                 try
                 {
-                    utils.writeToLog(logFile, "(installBM) Downloading BakkesMod archive.");
+                    utils.writeToLog(logFile, "(installBakkesMod) Downloading BakkesMod archive.");
                     client.DownloadFile(url, AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip");
                 }
                 catch (Exception ex)
                 {
-                    utils.writeToLog(logFile, "(installBM) " + ex.ToString());
+                    utils.writeToLog(logFile, "(installBakkesMod) " + ex.ToString());
                 }
             }
 
@@ -1362,31 +1324,31 @@ namespace BakkesModInjectorCs
             {
                 try
                 {
-                    utils.writeToLog(logFile, "(installBM) Extracting archive.");
+                    utils.writeToLog(logFile, "(installBakkesMod) Extracting archive.");
                     ZipFile.ExtractToDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip", path + "\\bakkesmod\\");
-                    utils.writeToLog(logFile, "(installBM) Deleting archive.");
+                    utils.writeToLog(logFile, "(installBakkesMod) Deleting archive.");
                     File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip");
                 }
                 catch (Exception ex)
                 {
-                    utils.writeToLog(logFile, "(installBM) " + ex.ToString());
+                    utils.writeToLog(logFile, "(installBakkesMod) " + ex.ToString());
                     MessageBox.Show(ex.ToString(), "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                utils.writeToLog(logFile, "(installBM) No archive found, cannot extract file.");
+                utils.writeToLog(logFile, "(installBakkesMod) No archive found, cannot extract file.");
             }
         }
 
-        public void installInjector()
+        public void updateInjector()
         {
             try
             {
-                utils.writeToLog(logFile, "(installInjector) Writing AutoUpdaterCs.");
+                utils.writeToLog(logFile, "(updateInjector) Writing AutoUpdaterCs.");
                 byte[] fileBytes = Properties.Resources.AutoUpdaterCs;
                 File.WriteAllBytes(AppDomain.CurrentDomain.BaseDirectory + "\\AutoUpdaterCs.exe", fileBytes);
-                utils.writeToLog(logFile, "(installInjector) Opening AutoUpdaterCs.");
+                utils.writeToLog(logFile, "(updateInjector) Opening AutoUpdaterCs.");
                 Process P = new Process();
                 P.StartInfo.FileName = AppDomain.CurrentDomain.BaseDirectory + "\\AutoUpdaterCs.exe";
                 P.Start();
@@ -1394,24 +1356,23 @@ namespace BakkesModInjectorCs
             }
             catch (Exception ex)
             {
-                utils.writeToLog(logFile, "(installInjector) " + ex.ToString());
+                utils.writeToLog(logFile, "(updateInjector) " + ex.ToString());
             }
         }
 
-        public void installUpdate()
+        public void updateBakkesMod()
         {
             string url = downloadURL(updaterURL + Properties.Settings.Default.BM_VERSION);
-
             using (WebClient client = new WebClient())
             {
                 try
                 {
-                    utils.writeToLog(logFile, "(installUpdate) Downloading archive.");
+                    utils.writeToLog(logFile, "(updateBakkesMod) Downloading archive.");
                     client.DownloadFile(url, AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip");
                 }
                 catch (Exception ex)
                 {
-                    utils.writeToLog(logFile, "(installUpdate) " + ex.ToString());
+                    utils.writeToLog(logFile, "(updateBakkesMod) " + ex.ToString());
                     MessageBox.Show(ex.ToString(), "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -1427,39 +1388,37 @@ namespace BakkesModInjectorCs
                         foreach (ZipArchiveEntry entry in archive.Entries)
                         {
                             string destination = Path.GetFullPath(Path.Combine(Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\", entry.FullName));
-
                             if (entry.Name == "")
                             {
                                 Directory.CreateDirectory(Path.GetDirectoryName(destination));
                                 continue;
                             }
-                            utils.writeToLog(logFile, "(installUpdate) Checking existing installed files.");
 
+                            utils.writeToLog(logFile, "(updateBakkesMod) Checking existing installed files.");
                             if (destination.ToLower().EndsWith(".cfg") || destination.ToLower().EndsWith(".json"))
                             {
                                 if (File.Exists(destination))
                                     continue;
                             }
-
-                            utils.writeToLog(logFile, "(installUpdate) Extracting archive.");
+                            utils.writeToLog(logFile, "(updateBakkesMod) Extracting archive.");
                             entry.ExtractToFile(destination, true);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    utils.writeToLog(logFile, "(installUpdate) " + ex.ToString());
+                    utils.writeToLog(logFile, "(updateBakkesMod) " + ex.ToString());
                     MessageBox.Show(ex.ToString(), "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             try
             {
-                utils.writeToLog(logFile, "(installUpdate) Removing archive.");
+                utils.writeToLog(logFile, "(updateBakkesMod) Removing archive.");
                 File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip");
             }
             catch
             {
-                utils.writeToLog(logFile, "(installUpdate) Failed to Remove Archive.");
+                utils.writeToLog(logFile, "(updateBakkesMod) Failed to Remove Archive.");
                 MessageBox.Show("Failed to remove bakkesmod.zip, try running as administrator if you haven't arlready.", "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             getVersionInfo();

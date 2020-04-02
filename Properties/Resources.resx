@@ -214,10 +214,4 @@
   <data name="BakkesModUninstaller" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BakkesModUninstaller.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="injected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\injected.ogg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_XAPOFX1_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\_XAPOFX1_5.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>

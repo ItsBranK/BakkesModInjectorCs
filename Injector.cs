@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+
 // https://www.unknowncheats.me/forum/c-/82629-basic-dll-injector.html
 
 public enum feedback
@@ -72,7 +73,6 @@ public sealed class injector
         {
             string x64 = "Rocket League (64-bit, DX11, Cooked)";
             string x32 = "Rocket League (32-bit, DX9, Cooked)";
-
             if (P.ProcessName == name)
             {
                 if (P.MainWindowTitle == x64)
@@ -87,25 +87,29 @@ public sealed class injector
         }
 
         if (ProcessID == 0) return feedback.PROCESS_NOT_FOUND;
-
         return injectInstance(ProcessID, path);
     }
 
     feedback injectInstance(uint processId, string path)
     {
         IntPtr processHandle = OpenProcess(Access, 1, processId);
-        if (processHandle == IntPtr_Zero) return feedback.FILE_NOT_FOUND;
+        if (processHandle == IntPtr_Zero)
+            return feedback.FILE_NOT_FOUND;
 
         IntPtr loadLibraryAddress = GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
-        if (loadLibraryAddress == IntPtr_Zero) return feedback.NO_ENTRY_POINT;
+        if (loadLibraryAddress == IntPtr_Zero)
+            return feedback.NO_ENTRY_POINT;
 
         IntPtr argAddress = VirtualAllocEx(processHandle, (IntPtr)null, (IntPtr)path.Length, (0x1000 | 0x2000), 0X40);
-        if (argAddress == IntPtr_Zero) return feedback.MEMORY_SPACE_FAIL;
+        if (argAddress == IntPtr_Zero)
+            return feedback.MEMORY_SPACE_FAIL;
 
         byte[] bytes = Encoding.ASCII.GetBytes(path);
+        if (WriteProcessMemory(processHandle, argAddress, bytes, (uint)bytes.Length, 0) == 0)
+            return feedback.MEMORY_WRITE_FAIL;
 
-        if (WriteProcessMemory(processHandle, argAddress, bytes, (uint)bytes.Length, 0) == 0) return feedback.MEMORY_WRITE_FAIL;
-        if (CreateRemoteThread(processHandle, (IntPtr)null, IntPtr_Zero, loadLibraryAddress, argAddress, 0, (IntPtr)null) == IntPtr_Zero) return feedback.REMOTE_THREAD_FAIL;
+        if (CreateRemoteThread(processHandle, (IntPtr)null, IntPtr_Zero, loadLibraryAddress, argAddress, 0, (IntPtr)null) == IntPtr_Zero)
+            return feedback.REMOTE_THREAD_FAIL;
 
         CloseHandle(processHandle);
         return feedback.SUCCESS;
