@@ -67,27 +67,30 @@ public sealed class injector
             return feedback.FILE_NOT_FOUND;
         }
 
-        uint ProcessID = 0;
-        Process[] CurrentProcesses = Process.GetProcesses();
-        foreach (Process P in CurrentProcesses)
+        uint processID = 0;
+        Process[] currentProcesses = Process.GetProcesses();
+        foreach (Process p in currentProcesses)
         {
             string x64 = "Rocket League (64-bit, DX11, Cooked)";
             string x32 = "Rocket League (32-bit, DX9, Cooked)";
-            if (P.ProcessName == name)
+            if (p.ProcessName == name)
             {
-                if (P.MainWindowTitle == x64)
+                if (p.MainWindowTitle == x64)
                 {
-                    ProcessID = (uint)P.Id;
+                    processID = (uint)p.Id;
                 }
-                else if (P.MainWindowTitle == x32)
+                else if (p.MainWindowTitle == x32)
                 {
                     return feedback.NOT_SUPPORTED;
                 }
             }
         }
 
-        if (ProcessID == 0) return feedback.PROCESS_NOT_FOUND;
-        return injectInstance(ProcessID, path);
+        if (processID == 0)
+        {
+            return feedback.PROCESS_NOT_FOUND;
+        }
+        return injectInstance(processID, path);
     }
 
     feedback injectInstance(uint processId, string path)

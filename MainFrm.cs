@@ -110,7 +110,6 @@ namespace BakkesModInjectorCs
             else
             {
                 utils.writeToLog(logFile, "(getFolderPath) Return: " + directory);
-
                 if (directory.Contains("Win32"))
                 {
                     utils.writeToLog(logFile, "(getFolderPath) Path contains Win32, automatically switching to Win64.");
@@ -890,11 +889,13 @@ namespace BakkesModInjectorCs
         #region "Injector & Timers"
         public Boolean isProcessRunning()
         {
-            Process[] allProcesses = Process.GetProcesses();
-            foreach (Process p in allProcesses)
+            Process[] currentProcesses = Process.GetProcesses();
+            foreach (Process p in currentProcesses)
             {
                 if (p.ProcessName == "RocketLeague")
+                {
                     return true;
+                }
             }
             return false;
         }
@@ -919,12 +920,14 @@ namespace BakkesModInjectorCs
         {
             try
             {
-                Process[] allProcesses = Process.GetProcesses();
-                foreach (Process p in allProcesses)
+                Process[] currentProcesses = Process.GetProcesses();
+                foreach (Process p in currentProcesses)
                 {
                     if (p.ProcessName == "RocketLeague")
+                    {
                         p.Kill();
                         return true;
+                    }
                 }
                 return false;
             }
@@ -946,27 +949,17 @@ namespace BakkesModInjectorCs
             else
             {
                 rocketLeagueLbl.Text = "Rocket League is running.";
-
-                if (Properties.Settings.Default.INJECTION_TYPE == "always")
+                if (isInjected == false)
                 {
-                    statusLbl.Text = "Process found, always injected enabled.";
-                    injectionTmr.Stop();
-                }
-                else
-                {
-                    if (isInjected == false)
+                    injectionTmr.Interval = Properties.Settings.Default.TIMEOUT_VALUE;
+                    if (Properties.Settings.Default.INJECTION_TYPE == "manual")
                     {
-                        injectionTmr.Interval = Properties.Settings.Default.TIMEOUT_VALUE;
-
-                        if (Properties.Settings.Default.INJECTION_TYPE == "manual")
-                        {
-                            injectionTmr.Start();
-                        }
-                        else if (Properties.Settings.Default.INJECTION_TYPE == "timeout")
-                        {
-                            statusLbl.Text = "Process found, attempting injection.";
-                            injectionTmr.Start();
-                        }
+                        injectionTmr.Start();
+                    }
+                    else if (Properties.Settings.Default.INJECTION_TYPE == "timeout")
+                    {
+                        statusLbl.Text = "Process found, attempting injection.";
+                        injectionTmr.Start();
                     }
                 }
             }
