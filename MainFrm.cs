@@ -988,47 +988,54 @@ namespace BakkesModInjectorCs
         void injectInstance()
         {
             utils.writeToLog(logFile, "(injectInstance) Attempting injection.");
-            feedback Result = injector.instance.load("RocketLeague", Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\dll\\bakkesmod.dll");
-            switch (Result)
+            feedback result = injector.instance.load("RocketLeague", Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\dll\\bakkesmod.dll");
+            switch (result)
             {
                 case feedback.FILE_NOT_FOUND:
-                    utils.writeToLog(logFile, "(injectInstance) Injection failed, DLL not found.");
-                    statusLbl.Text = "Uninjected, could not locate DLL.";
-                    isInjected = true;
+                    utils.writeToLog(logFile, "(injectInstance) Injection failed, could not located necessary files.");
+                    statusLbl.Text = "Uninjected, could not locate necessary files.";
+                    processTmr.Stop();
+                    isInjected = false;
                     break;
                 case feedback.PROCESS_NOT_FOUND:
                     utils.writeToLog(logFile, "(injectInstance) Injection failed, process not found.");
-                    isInjected = true;
                     statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
+                    processTmr.Stop();
+                    isInjected = false;
                     break;
                 case feedback.NO_ENTRY_POINT:
                     utils.writeToLog(logFile, "(injectInstance) Injection failed, no entry point in process.");
                     statusLbl.Text = "Injection failed, no entry point for process.";
-                    isInjected = true;
+                    processTmr.Stop();
+                    isInjected = false;
                     break;
                 case feedback.MEMORY_SPACE_FAIL:
                     utils.writeToLog(logFile, "(injectInstance) Injection failed, not enough memory available.");
                     statusLbl.Text = "Injection failed, not enough memory space.";
-                    isInjected = true;
+                    processTmr.Stop();
+                    isInjected = false;
                     break;
                 case feedback.MEMORY_WRITE_FAIL:
                     utils.writeToLog(logFile, "(injectInstance) Injection failed, could not write to memory.");
                     statusLbl.Text = "Injection failed, could not write to memory.";
-                    isInjected = true;
+                    processTmr.Stop();
+                    isInjected = false;
                     break;
                 case feedback.REMOTE_THREAD_FAIL:
                     utils.writeToLog(logFile, "(injectInstance) Injection failed, could not create remote thread.");
                     statusLbl.Text = "Injection failed, could not create remote thread.";
-                    isInjected = true;
-                    break;
-                case feedback.SUCCESS:
-                    utils.writeToLog(logFile, "(injectInstance) Successfully injected.");
-                    statusLbl.Text = "Successfully injected, changes applied in-game.";
-                    isInjected = true;
+                    processTmr.Stop();
+                    isInjected = false;
                     break;
                 case feedback.NOT_SUPPORTED:
                     utils.writeToLog(logFile, "(injectInstance) User is on DX9, cannot inject at this time.");
                     statusLbl.Text = "Failed to inject, DX9 is no longer supported.";
+                    processTmr.Stop();
+                    isInjected = false;
+                    break;
+                case feedback.SUCCESS:
+                    utils.writeToLog(logFile, "(injectInstance) Successfully injected.");
+                    statusLbl.Text = "Successfully injected, changes applied in-game.";
                     isInjected = true;
                     break;
             }

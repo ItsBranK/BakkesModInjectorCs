@@ -4,10 +4,17 @@ using System.Text.RegularExpressions;
 
 class utils
 {
+    public static bool firstWrite = true;
     public static void writeToLog(String path, String data)
     {
         if (File.Exists(path))
         {
+            if (firstWrite == true)
+            {
+                firstWrite = false;
+                File.AppendAllText(path, DateTime.Now.ToString("[HH:mm:ss] ") + data);
+                return;
+            }
             File.AppendAllText(path, Environment.NewLine + DateTime.Now.ToString("[HH:mm:ss] ") + data);
         }
     }
