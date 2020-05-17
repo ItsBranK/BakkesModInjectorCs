@@ -716,7 +716,7 @@ namespace BakkesModInjectorCs
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                string win32_path = Properties.Settings.Default.WIN64_FOLDER;
+                string win64_path = Properties.Settings.Default.WIN64_FOLDER;
                 string myDocuments_path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 string logs_path = myDocuments_path + "\\My Games\\Rocket League\\TAGame\\Logs";
 
@@ -729,20 +729,19 @@ namespace BakkesModInjectorCs
 
                 List<string> filesToExport = new List<string>();
 
-                if (File.Exists(win32_path + "\\bakkesmod\\bakkesmod.log"))
+                if (File.Exists(win64_path + "\\bakkesmod\\bakkesmod.log"))
                 {
-                    filesToExport.Add(win32_path + "\\bakkesmod\\bakkesmod.log");
+                    filesToExport.Add(win64_path + "\\bakkesmod\\bakkesmod.log");
                 }
 
-                if (Directory.Exists(win32_path))
+                if (Directory.Exists(win64_path))
                 {
-                    string[] win32 = Directory.GetFiles(win32_path);
-
-                    foreach (string file in win32)
+                    string[] win64 = Directory.GetFiles(win64_path);
+                    foreach (string file in win64)
                     {
                         if (file.IndexOf(".mdump") > 0 || file.IndexOf(".mdmp") > 0 || file.IndexOf(".dmp") > 0)
                         {
-                            utils.writeToLog(logFile, "(exportLogsBtn) Adding files from: " + win32_path);
+                            utils.writeToLog(logFile, "(exportLogsBtn) Adding files from: " + win64_path);
                             filesToExport.Add(file);
                         }
                     }
@@ -751,7 +750,6 @@ namespace BakkesModInjectorCs
                 if (Directory.Exists(logs_path))
                 {
                     string[] logs = Directory.GetFiles(logs_path);
-
                     foreach (string file in logs)
                     {
                         if (file.IndexOf(".mdump") > 0 || file.IndexOf(".mdmp") > 0 || file.IndexOf(".dmp") > 0 || file.IndexOf(".log") > 0)
@@ -972,16 +970,15 @@ namespace BakkesModInjectorCs
             {
                 if (Properties.Settings.Default.INJECTION_TYPE == "timeout")
                 {
-                    injectionTmr.Stop();
                     injectBtn.Visible = false;
                     injectInstance();
                 }
                 else if (Properties.Settings.Default.INJECTION_TYPE == "manual")
                 {
-                    injectionTmr.Stop();
                     statusLbl.Text = "Process found, waiting for user to manually inject.";
                     injectBtn.Visible = true;
                 }
+                injectionTmr.Stop();
             }
         }
 
@@ -1000,7 +997,6 @@ namespace BakkesModInjectorCs
                 case feedback.PROCESS_NOT_FOUND:
                     utils.writeToLog(logFile, "(injectInstance) Injection failed, process not found.");
                     statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
-                    processTmr.Stop();
                     isInjected = false;
                     break;
                 case feedback.NO_ENTRY_POINT:
@@ -1029,7 +1025,7 @@ namespace BakkesModInjectorCs
                     break;
                 case feedback.NOT_SUPPORTED:
                     utils.writeToLog(logFile, "(injectInstance) User is on DX9, cannot inject at this time.");
-                    statusLbl.Text = "Failed to inject, DX9 is no longer supported.";
+                    statusLbl.Text = "Injection failed, DX9 is no longer supported.";
                     processTmr.Stop();
                     isInjected = false;
                     break;
@@ -1196,7 +1192,7 @@ namespace BakkesModInjectorCs
             if (!Directory.Exists(directory))
             {
                 utils.writeToLog(logFile, "(checkInstall) Failed to locate the Win64 folder.");
-                getFolderManually("Error: Could not find Win32 folder, please manually select where your RocketLeague.exe is located.");
+                getFolderManually("Error: Could not find Win64 folder, please manually select where your RocketLeague.exe is located.");
             }
             else
             {

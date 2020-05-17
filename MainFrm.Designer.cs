@@ -61,6 +61,7 @@
             this.uninstallpluginsBtn = new System.Windows.Forms.Label();
             this.pluginsList = new System.Windows.Forms.ListView();
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.windowTitleBtn = new System.Windows.Forms.Label();
             this.hideMinimizeBox = new System.Windows.Forms.CheckBox();
             this.startupRunBox = new System.Windows.Forms.CheckBox();
             this.exportLogsBtn = new System.Windows.Forms.Label();
@@ -107,7 +108,6 @@
             this.aboutImg = new System.Windows.Forms.PictureBox();
             this.settingsImg = new System.Windows.Forms.PictureBox();
             this.homeImg = new System.Windows.Forms.PictureBox();
-            this.windowTitleBtn = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).BeginInit();
             this.homeTab.SuspendLayout();
@@ -558,6 +558,21 @@
             this.settingsTab.TabIndex = 1;
             this.settingsTab.Text = "Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // windowTitleBtn
+            // 
+            this.windowTitleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.windowTitleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.windowTitleBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.windowTitleBtn.Image = global::BakkesModInjectorCs.Properties.Resources.dock;
+            this.windowTitleBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.windowTitleBtn.Location = new System.Drawing.Point(313, 212);
+            this.windowTitleBtn.Name = "windowTitleBtn";
+            this.windowTitleBtn.Size = new System.Drawing.Size(275, 32);
+            this.windowTitleBtn.TabIndex = 71;
+            this.windowTitleBtn.Text = "Change Window Title";
+            this.windowTitleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.windowTitleBtn.Click += new System.EventHandler(this.windowTitleBtn_Click);
             // 
             // hideMinimizeBox
             // 
@@ -1132,21 +1147,6 @@
             this.homeImg.TabStop = false;
             this.homeImg.Click += new System.EventHandler(this.homeImg_Click);
             // 
-            // windowTitleBtn
-            // 
-            this.windowTitleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.windowTitleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.windowTitleBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.windowTitleBtn.Image = global::BakkesModInjectorCs.Properties.Resources.dock;
-            this.windowTitleBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.windowTitleBtn.Location = new System.Drawing.Point(313, 212);
-            this.windowTitleBtn.Name = "windowTitleBtn";
-            this.windowTitleBtn.Size = new System.Drawing.Size(275, 32);
-            this.windowTitleBtn.TabIndex = 71;
-            this.windowTitleBtn.Text = "Change Window Title";
-            this.windowTitleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.windowTitleBtn.Click += new System.EventHandler(this.windowTitleBtn_Click);
-            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1162,6 +1162,7 @@
             this.Controls.Add(this.settingsBtn);
             this.Controls.Add(this.pluginsBtn);
             this.Controls.Add(this.controlTabs);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

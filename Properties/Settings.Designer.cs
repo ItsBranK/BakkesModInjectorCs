@@ -217,7 +217,7 @@ namespace BakkesModInjectorCs.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v2.0.6")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v2.0.7")]
         public string INJECTOR_VERSION {
             get {
                 return ((string)(this["INJECTOR_VERSION"]));
