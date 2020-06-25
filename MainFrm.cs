@@ -220,6 +220,7 @@ namespace BakkesModInjectorCs
         {
             utils.writeToLog(logFile, "(activateSafeMode) Safe Mode activated.");
             processTmr.Stop();
+            injectionTmr.Stop();
             rocketLeagueLbl.Text = "Safe Mode Enabled.";
             statusLbl.Text = "Mod out of date, please wait for an update.";
         }
@@ -545,6 +546,10 @@ namespace BakkesModInjectorCs
             {
                 injectionManualBox.Checked = true;
             }
+            else if (Properties.Settings.Default.INJECTION_TYPE == "always")
+            {
+                injectionAlwaysBox.Checked = true;
+            }
 
             injectionTimeBox.Text = Properties.Settings.Default.TIMEOUT_VALUE.ToString();
             utils.writeToLog(logFile, "(loadSettings) All settings loaded.");
@@ -569,28 +574,28 @@ namespace BakkesModInjectorCs
 
         public void setInjectionMethod()
         {
-            string originalFile = Path.GetTempPath() + "\\_XAPOFX1_5.dll";
-            string newFile = Properties.Settings.Default.WIN64_FOLDER + "\\XAPOFX1_5.dll";
+            string originalFile = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\data\\iertutil.dll";
+            string proxyFile = Properties.Settings.Default.WIN64_FOLDER + "\\iertutil.dll";
             string soundFile = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\data\\injected.ogg";
 
             processTmr.Stop();
 
             if (File.Exists(soundFile))
             {
-                utils.writeToLog(logFile, "(injectionAlwaysBox) Refreshing injected.ogg");
+                utils.writeToLog(logFile, "(setInjectionMethod) Refreshing injected.ogg");
                 File.Delete(soundFile);
+            }
+
+            if (File.Exists(proxyFile))
+            {
+                utils.writeToLog(logFile, "(setInjectionMethod) Refreshing proxy iertutil.dll");
+                File.Delete(proxyFile);
             }
 
             if (File.Exists(originalFile))
             {
-                utils.writeToLog(logFile, "(injectionAlwaysBox) Refreshing _XAPOFX1_5.dll");
+                utils.writeToLog(logFile, "(setInjectionMethod) Refreshing original iertutil.dll");
                 File.Delete(originalFile);
-            }
-
-            if (File.Exists(newFile))
-            {
-                utils.writeToLog(logFile, "(injectionAlwaysBox) Refreshing XAPOFX1_5.dll");
-                File.Delete(newFile);
             }
 
             if (injectionTimeoutBox.Checked == true)
@@ -600,6 +605,17 @@ namespace BakkesModInjectorCs
             else if (injectionManualBox.Checked == true)
             {
                 Properties.Settings.Default.INJECTION_TYPE = "manual";
+            }
+            else if (injectionAlwaysBox.Checked == true)
+            {
+                Properties.Settings.Default.INJECTION_TYPE = "always";
+            }
+            
+            if (Properties.Settings.Default.INJECTION_TYPE == "always")
+            {
+                /*
+                 ( ͡° ͜ʖ ͡°)
+                 */
             }
 
             Properties.Settings.Default.Save();
@@ -921,10 +937,14 @@ namespace BakkesModInjectorCs
                 Process[] currentProcesses = Process.GetProcesses();
                 foreach (Process p in currentProcesses)
                 {
+                    string x64 = "Rocket League (64-bit, DX11, Cooked)";
                     if (p.ProcessName == "RocketLeague")
                     {
-                        p.Kill();
-                        return true;
+                        if (p.MainWindowTitle == x64)
+                        {
+                            p.Kill();
+                            return true;
+                        }
                     }
                 }
                 return false;
@@ -985,55 +1005,78 @@ namespace BakkesModInjectorCs
         void injectInstance()
         {
             utils.writeToLog(logFile, "(injectInstance) Attempting injection.");
-            feedback result = injector.instance.load("RocketLeague", Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\dll\\bakkesmod.dll");
-            switch (result)
+
+            string dllPath = "null";
+            string firstDll = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\bakkesmod.dll";
+            string secondDll = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\dll\\bakkesmod.dll";
+            string secondInjector = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\64bitbminjector.exe";
+
+            if (File.Exists(secondInjector) && File.Exists(secondDll))
             {
-                case feedback.FILE_NOT_FOUND:
-                    utils.writeToLog(logFile, "(injectInstance) Injection failed, could not located necessary files.");
-                    statusLbl.Text = "Uninjected, could not locate necessary files.";
-                    processTmr.Stop();
-                    isInjected = false;
-                    break;
-                case feedback.PROCESS_NOT_FOUND:
-                    utils.writeToLog(logFile, "(injectInstance) Injection failed, process not found.");
-                    statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
-                    isInjected = false;
-                    break;
-                case feedback.NO_ENTRY_POINT:
-                    utils.writeToLog(logFile, "(injectInstance) Injection failed, no entry point in process.");
-                    statusLbl.Text = "Injection failed, no entry point for process.";
-                    processTmr.Stop();
-                    isInjected = false;
-                    break;
-                case feedback.MEMORY_SPACE_FAIL:
-                    utils.writeToLog(logFile, "(injectInstance) Injection failed, not enough memory available.");
-                    statusLbl.Text = "Injection failed, not enough memory space.";
-                    processTmr.Stop();
-                    isInjected = false;
-                    break;
-                case feedback.MEMORY_WRITE_FAIL:
-                    utils.writeToLog(logFile, "(injectInstance) Injection failed, could not write to memory.");
-                    statusLbl.Text = "Injection failed, could not write to memory.";
-                    processTmr.Stop();
-                    isInjected = false;
-                    break;
-                case feedback.REMOTE_THREAD_FAIL:
-                    utils.writeToLog(logFile, "(injectInstance) Injection failed, could not create remote thread.");
-                    statusLbl.Text = "Injection failed, could not create remote thread.";
-                    processTmr.Stop();
-                    isInjected = false;
-                    break;
-                case feedback.NOT_SUPPORTED:
-                    utils.writeToLog(logFile, "(injectInstance) User is on DX9, cannot inject at this time.");
-                    statusLbl.Text = "Injection failed, DX9 is no longer supported.";
-                    processTmr.Stop();
-                    isInjected = false;
-                    break;
-                case feedback.SUCCESS:
-                    utils.writeToLog(logFile, "(injectInstance) Successfully injected.");
-                    statusLbl.Text = "Successfully injected, changes applied in-game.";
-                    isInjected = true;
-                    break;
+                dllPath = secondDll;
+            } else if (File.Exists(firstDll)) {
+                dllPath = secondDll;
+            }
+
+            if (dllPath != "null")
+            {
+                feedback result = injector.instance.load("RocketLeague", dllPath);
+                switch (result)
+                {
+                    case feedback.FILE_NOT_FOUND:
+                        utils.writeToLog(logFile, "(injectInstance) Injection failed, could not located necessary files.");
+                        statusLbl.Text = "Uninjected, could not locate necessary files.";
+                        processTmr.Stop();
+                        isInjected = false;
+                        break;
+                    case feedback.PROCESS_NOT_FOUND:
+                        utils.writeToLog(logFile, "(injectInstance) Injection failed, process not found.");
+                        statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
+                        isInjected = false;
+                        break;
+                    case feedback.NO_ENTRY_POINT:
+                        utils.writeToLog(logFile, "(injectInstance) Injection failed, no entry point in process.");
+                        statusLbl.Text = "Injection failed, no entry point for process.";
+                        processTmr.Stop();
+                        isInjected = false;
+                        break;
+                    case feedback.MEMORY_SPACE_FAIL:
+                        utils.writeToLog(logFile, "(injectInstance) Injection failed, not enough memory available.");
+                        statusLbl.Text = "Injection failed, not enough memory space.";
+                        processTmr.Stop();
+                        isInjected = false;
+                        break;
+                    case feedback.MEMORY_WRITE_FAIL:
+                        utils.writeToLog(logFile, "(injectInstance) Injection failed, could not write to memory.");
+                        statusLbl.Text = "Injection failed, could not write to memory.";
+                        processTmr.Stop();
+                        isInjected = false;
+                        break;
+                    case feedback.REMOTE_THREAD_FAIL:
+                        utils.writeToLog(logFile, "(injectInstance) Injection failed, could not create remote thread.");
+                        statusLbl.Text = "Injection failed, could not create remote thread.";
+                        processTmr.Stop();
+                        isInjected = false;
+                        break;
+                    case feedback.NOT_SUPPORTED:
+                        utils.writeToLog(logFile, "(injectInstance) User is on DX9, cannot inject at this time.");
+                        statusLbl.Text = "Injection failed, DX9 is no longer supported.";
+                        processTmr.Stop();
+                        isInjected = false;
+                        break;
+                    case feedback.SUCCESS:
+                        utils.writeToLog(logFile, "(injectInstance) Successfully injected.");
+                        statusLbl.Text = "Successfully injected, changes applied in-game.";
+                        isInjected = true;
+                        break;
+                }
+            }
+            else
+            {
+                utils.writeToLog(logFile, "(injectInstance) Injection failed, could not located necessary files.");
+                statusLbl.Text = "Uninjected, could not locate necessary files.";
+                processTmr.Stop();
+                isInjected = false;
             }
         }
         #endregion
@@ -1422,6 +1465,5 @@ namespace BakkesModInjectorCs
             statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
         }
         #endregion
-
     }
 }

@@ -61,6 +61,8 @@
             this.uninstallpluginsBtn = new System.Windows.Forms.Label();
             this.pluginsList = new System.Windows.Forms.ListView();
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.injectionAlwaysBox = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.windowTitleBtn = new System.Windows.Forms.Label();
             this.hideMinimizeBox = new System.Windows.Forms.CheckBox();
             this.startupRunBox = new System.Windows.Forms.CheckBox();
@@ -117,6 +119,7 @@
             this.controlTabs.SuspendLayout();
             this.pluginsTab.SuspendLayout();
             this.settingsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SafemodeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionManualImg)).BeginInit();
@@ -147,7 +150,7 @@
             this.injectionTimeBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.injectionTimeBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.injectionTimeBox.ForeColor = System.Drawing.Color.Black;
-            this.injectionTimeBox.Location = new System.Drawing.Point(153, 293);
+            this.injectionTimeBox.Location = new System.Drawing.Point(453, 13);
             this.injectionTimeBox.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -197,7 +200,7 @@
             // 
             this.injectionTimeLbl.BackColor = System.Drawing.Color.Transparent;
             this.injectionTimeLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.injectionTimeLbl.Location = new System.Drawing.Point(43, 293);
+            this.injectionTimeLbl.Location = new System.Drawing.Point(344, 13);
             this.injectionTimeLbl.Name = "injectionTimeLbl";
             this.injectionTimeLbl.Size = new System.Drawing.Size(200, 25);
             this.injectionTimeLbl.TabIndex = 48;
@@ -523,6 +526,8 @@
             // 
             // settingsTab
             // 
+            this.settingsTab.Controls.Add(this.injectionAlwaysBox);
+            this.settingsTab.Controls.Add(this.pictureBox1);
             this.settingsTab.Controls.Add(this.windowTitleBtn);
             this.settingsTab.Controls.Add(this.injectionTimeBox);
             this.settingsTab.Controls.Add(this.safeModeBox);
@@ -558,6 +563,28 @@
             this.settingsTab.TabIndex = 1;
             this.settingsTab.Text = "Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // injectionAlwaysBox
+            // 
+            this.injectionAlwaysBox.Enabled = false;
+            this.injectionAlwaysBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.injectionAlwaysBox.Location = new System.Drawing.Point(43, 293);
+            this.injectionAlwaysBox.Name = "injectionAlwaysBox";
+            this.injectionAlwaysBox.Size = new System.Drawing.Size(200, 25);
+            this.injectionAlwaysBox.TabIndex = 72;
+            this.injectionAlwaysBox.Text = "Always Injected (Coming Soon™)";
+            this.injectionAlwaysBox.UseVisualStyleBackColor = true;
+            this.injectionAlwaysBox.CheckedChanged += new System.EventHandler(this.injectionAlwaysBox_CheckedChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.test;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 293);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.TabIndex = 73;
+            this.pictureBox1.TabStop = false;
             // 
             // windowTitleBtn
             // 
@@ -696,7 +723,7 @@
             // 
             this.injectionTimeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.hourglass;
             this.injectionTimeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectionTimeImg.Location = new System.Drawing.Point(12, 293);
+            this.injectionTimeImg.Location = new System.Drawing.Point(313, 14);
             this.injectionTimeImg.Name = "injectionTimeImg";
             this.injectionTimeImg.Size = new System.Drawing.Size(25, 25);
             this.injectionTimeImg.TabIndex = 55;
@@ -1182,6 +1209,7 @@
             this.controlTabs.ResumeLayout(false);
             this.pluginsTab.ResumeLayout(false);
             this.settingsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SafemodeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionManualImg)).EndInit();
@@ -1288,6 +1316,8 @@
         private System.Windows.Forms.PictureBox pluginsImg;
         private System.Windows.Forms.Label exportLogsBtn;
         private System.Windows.Forms.Label windowTitleBtn;
+        private System.Windows.Forms.RadioButton injectionAlwaysBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
