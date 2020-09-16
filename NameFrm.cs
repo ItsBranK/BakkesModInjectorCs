@@ -8,42 +8,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BakkesModInjectorCs
-{
-    public partial class NameFrm : Form
-    {
-        public NameFrm()
-        {
+namespace BakkesModInjectorCs {
+    public partial class NameFrm : Form {
+        public NameFrm() {
             InitializeComponent();
         }
 
-        private void NameFrm_Load(object sender, EventArgs e)
-        {
-            NameBox.Clear();
+        private void NameFrm_Load(object sender, EventArgs e)  {
+            nameBox.Clear();
         }
 
-        private void ConfirmBtn_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.WINDOW_TTILE = NameBox.Text;
+        private void NameFrm_FormClosing(object sender, EventArgs e) {
+            MainFrm mf = new MainFrm();
+            mf.Show();
+        }
+
+        private void confirmBtn_Click(object sender, EventArgs e) {
+            Properties.Settings.Default.WINDOW_TTILE = nameBox.Text;
             Properties.Settings.Default.Save();
             this.Close();
         }
 
-        private void CancelBtn_Click(object sender, EventArgs e)
-        {
+        private void defaultBtn_Click(object sender, EventArgs e) {
             Properties.Settings.Default.WINDOW_TTILE = "BakkesModInjectorCs - Community Edition";
             Properties.Settings.Default.Save();
             this.Close();
         }
 
-        private void NameFrm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            MainFrm mf = new MainFrm();
-            mf.Show();
-        }
-
-        private void DefaultBtn_Click(object sender, EventArgs e)
-        {
+        private void cancelBtn_Click(object sender, EventArgs e) {
             Properties.Settings.Default.WINDOW_TTILE = "BakkesModInjectorCs - Community Edition";
             Properties.Settings.Default.Save();
             this.Close();

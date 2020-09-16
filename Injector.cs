@@ -6,8 +6,7 @@ using System.Text;
 
 // https://www.unknowncheats.me/forum/c-/82629-basic-dll-injector.html
 
-public enum feedback
-{
+public enum feedback : int {
     FILE_NOT_FOUND,
     PROCESS_NOT_FOUND,
     NO_ENTRY_POINT,
@@ -18,8 +17,7 @@ public enum feedback
     SUCCESS
 }
 
-public sealed class injector
-{
+public sealed class injector {
     static readonly IntPtr IntPtr_Zero = IntPtr.Zero;
     static readonly uint Access = 0x001F0FFF;
     static injector _instance;
@@ -32,7 +30,7 @@ public sealed class injector
 
     [DllImport("kernel32.dll", SetLastError = true)]
     static extern IntPtr CreateRemoteThread(IntPtr hProcess, IntPtr lpThreadAttribute, IntPtr dwStackSize, IntPtr lpStartAddress,
-        IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+    IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
 
     [DllImport("kernel32.dll", SetLastError = true)]
     static extern IntPtr VirtualAllocEx(IntPtr hProcess, IntPtr lpAddress, IntPtr dwSize, uint flAllocationType, uint flProtect);
@@ -46,12 +44,9 @@ public sealed class injector
     [DllImport("kernel32.dll", SetLastError = true)]
     static extern int CloseHandle(IntPtr hObject);
 
-    public static injector instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
+    public static injector instance {
+        get {
+            if (_instance == null) {
                 _instance = new injector();
             }
             return _instance;
@@ -60,42 +55,31 @@ public sealed class injector
 
     private injector() { }
 
-    public feedback load(string name, string path)
-    {
+    public feedback load(string name, string path) {
         if (!File.Exists(path))
-        {
             return feedback.FILE_NOT_FOUND;
-        }
 
         uint processID = 0;
         Process[] currentProcesses = Process.GetProcesses();
-        foreach (Process p in currentProcesses)
-        {
+        foreach (Process p in currentProcesses) {
             string x64 = "Rocket League (64-bit, DX11, Cooked)";
             string x32 = "Rocket League (32-bit, DX9, Cooked)";
-            if (p.ProcessName == name)
-            {
-                if (p.MainWindowTitle == x64)
-                {
+            if (p.ProcessName == name) {
+                if (p.MainWindowTitle == x64) {
                     processID = (uint)p.Id;
-                }
-                else if (p.MainWindowTitle == x32)
-                {
+                } else if (p.MainWindowTitle == x32) {
                     return feedback.NOT_SUPPORTED;
                 }
             }
         }
 
         if (processID == 0)
-        {
             return feedback.PROCESS_NOT_FOUND;
-        }
 
         return injectInstance(processID, path);
     }
 
-    feedback injectInstance(uint processId, string path)
-    {
+    feedback injectInstance(uint processId, string path) {
         IntPtr processHandle = OpenProcess(Access, 1, processId);
         if (processHandle == IntPtr_Zero)
             return feedback.FILE_NOT_FOUND;

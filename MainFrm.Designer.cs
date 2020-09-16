@@ -46,6 +46,8 @@
             this.statusLbl = new System.Windows.Forms.Label();
             this.changelogBox = new System.Windows.Forms.RichTextBox();
             this.homeTab = new System.Windows.Forms.TabPage();
+            this.changelogBackground = new System.Windows.Forms.Panel();
+            this.changelogBtnBackground = new System.Windows.Forms.Panel();
             this.statusImg = new System.Windows.Forms.PictureBox();
             this.rocketLeagueImg = new System.Windows.Forms.PictureBox();
             this.rocketLeagueLbl = new System.Windows.Forms.Label();
@@ -56,22 +58,32 @@
             this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.controlTabs = new System.Windows.Forms.TabControl();
             this.pluginsTab = new System.Windows.Forms.TabPage();
+            this.downloadpluginsBackground = new System.Windows.Forms.Panel();
             this.downloadpluginsBtn = new System.Windows.Forms.Label();
+            this.refreshpluginsBackground = new System.Windows.Forms.Panel();
             this.refreshpluginsBtn = new System.Windows.Forms.Label();
+            this.uninstallpluginsBackground = new System.Windows.Forms.Panel();
             this.uninstallpluginsBtn = new System.Windows.Forms.Label();
             this.pluginsList = new System.Windows.Forms.ListView();
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.openFolderBackground = new System.Windows.Forms.Panel();
+            this.openFolderBtn = new System.Windows.Forms.Label();
+            this.exportLogsBackground = new System.Windows.Forms.Panel();
+            this.exportLogsBtn = new System.Windows.Forms.Label();
+            this.resetSettingsBackground = new System.Windows.Forms.Panel();
+            this.resetSettingsBtn = new System.Windows.Forms.Label();
+            this.windowTitleBackground = new System.Windows.Forms.Panel();
+            this.windowTitleBtn = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.uninstallBtn = new System.Windows.Forms.Label();
+            this.reinstallBackground = new System.Windows.Forms.Panel();
+            this.reinstallBtn = new System.Windows.Forms.Label();
+            this.manualUpdateBackground = new System.Windows.Forms.Panel();
+            this.manualUpdateBtn = new System.Windows.Forms.Label();
             this.injectionAlwaysBox = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.windowTitleBtn = new System.Windows.Forms.Label();
             this.hideMinimizeBox = new System.Windows.Forms.CheckBox();
             this.startupRunBox = new System.Windows.Forms.CheckBox();
-            this.exportLogsBtn = new System.Windows.Forms.Label();
-            this.resetSettingsBtn = new System.Windows.Forms.Label();
-            this.manualUpdateBtn = new System.Windows.Forms.Label();
-            this.openFolderBtn = new System.Windows.Forms.Label();
-            this.uninstallBtn = new System.Windows.Forms.Label();
-            this.reinstallBtn = new System.Windows.Forms.Label();
             this.injectionTimeImg = new System.Windows.Forms.PictureBox();
             this.SafemodeImg = new System.Windows.Forms.PictureBox();
             this.injectionManualImg = new System.Windows.Forms.PictureBox();
@@ -113,12 +125,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).BeginInit();
             this.homeTab.SuspendLayout();
+            this.changelogBackground.SuspendLayout();
+            this.changelogBtnBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rocketLeagueImg)).BeginInit();
             this.TrayMenuStrip.SuspendLayout();
             this.controlTabs.SuspendLayout();
             this.pluginsTab.SuspendLayout();
+            this.downloadpluginsBackground.SuspendLayout();
+            this.refreshpluginsBackground.SuspendLayout();
+            this.uninstallpluginsBackground.SuspendLayout();
             this.settingsTab.SuspendLayout();
+            this.openFolderBackground.SuspendLayout();
+            this.exportLogsBackground.SuspendLayout();
+            this.resetSettingsBackground.SuspendLayout();
+            this.windowTitleBackground.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.reinstallBackground.SuspendLayout();
+            this.manualUpdateBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SafemodeImg)).BeginInit();
@@ -309,13 +333,13 @@
             // 
             // changelogBtn
             // 
-            this.changelogBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.changelogBtn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.changelogBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.changelogBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changelogBtn.ForeColor = System.Drawing.Color.Black;
-            this.changelogBtn.Location = new System.Drawing.Point(12, 74);
+            this.changelogBtn.Location = new System.Drawing.Point(1, 1);
             this.changelogBtn.Name = "changelogBtn";
-            this.changelogBtn.Size = new System.Drawing.Size(576, 25);
+            this.changelogBtn.Size = new System.Drawing.Size(576, 26);
             this.changelogBtn.TabIndex = 19;
             this.changelogBtn.Text = "CHANGELOG";
             this.changelogBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -326,7 +350,7 @@
             this.statusLbl.BackColor = System.Drawing.Color.Transparent;
             this.statusLbl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusLbl.ForeColor = System.Drawing.Color.Black;
-            this.statusLbl.Location = new System.Drawing.Point(43, 43);
+            this.statusLbl.Location = new System.Drawing.Point(43, 42);
             this.statusLbl.Name = "statusLbl";
             this.statusLbl.Size = new System.Drawing.Size(514, 25);
             this.statusLbl.TabIndex = 8;
@@ -335,29 +359,29 @@
             // 
             // changelogBox
             // 
-            this.changelogBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.changelogBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.changelogBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.changelogBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.changelogBox.DetectUrls = false;
             this.changelogBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changelogBox.ForeColor = System.Drawing.Color.Black;
-            this.changelogBox.Location = new System.Drawing.Point(12, 99);
+            this.changelogBox.Location = new System.Drawing.Point(1, 1);
             this.changelogBox.Name = "changelogBox";
             this.changelogBox.ReadOnly = true;
             this.changelogBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.changelogBox.Size = new System.Drawing.Size(576, 220);
+            this.changelogBox.Size = new System.Drawing.Size(576, 218);
             this.changelogBox.TabIndex = 20;
             this.changelogBox.Text = "";
             // 
             // homeTab
             // 
-            this.homeTab.Controls.Add(this.changelogBtn);
+            this.homeTab.Controls.Add(this.changelogBtnBackground);
+            this.homeTab.Controls.Add(this.changelogBackground);
             this.homeTab.Controls.Add(this.injectBtn);
             this.homeTab.Controls.Add(this.statusImg);
             this.homeTab.Controls.Add(this.rocketLeagueImg);
             this.homeTab.Controls.Add(this.statusLbl);
             this.homeTab.Controls.Add(this.rocketLeagueLbl);
-            this.homeTab.Controls.Add(this.changelogBox);
             this.homeTab.Location = new System.Drawing.Point(4, 22);
             this.homeTab.Name = "homeTab";
             this.homeTab.Padding = new System.Windows.Forms.Padding(3);
@@ -366,12 +390,30 @@
             this.homeTab.Text = "Home";
             this.homeTab.UseVisualStyleBackColor = true;
             // 
+            // changelogBackground
+            // 
+            this.changelogBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.changelogBackground.Controls.Add(this.changelogBox);
+            this.changelogBackground.Location = new System.Drawing.Point(12, 100);
+            this.changelogBackground.Name = "changelogBackground";
+            this.changelogBackground.Size = new System.Drawing.Size(578, 220);
+            this.changelogBackground.TabIndex = 76;
+            // 
+            // changelogBtnBackground
+            // 
+            this.changelogBtnBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.changelogBtnBackground.Controls.Add(this.changelogBtn);
+            this.changelogBtnBackground.Location = new System.Drawing.Point(12, 74);
+            this.changelogBtnBackground.Name = "changelogBtnBackground";
+            this.changelogBtnBackground.Size = new System.Drawing.Size(578, 27);
+            this.changelogBtnBackground.TabIndex = 75;
+            // 
             // statusImg
             // 
             this.statusImg.BackColor = System.Drawing.Color.Transparent;
             this.statusImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.notes;
             this.statusImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.statusImg.Location = new System.Drawing.Point(12, 43);
+            this.statusImg.Location = new System.Drawing.Point(12, 42);
             this.statusImg.Name = "statusImg";
             this.statusImg.Size = new System.Drawing.Size(25, 25);
             this.statusImg.TabIndex = 10;
@@ -452,9 +494,9 @@
             // 
             // pluginsTab
             // 
-            this.pluginsTab.Controls.Add(this.downloadpluginsBtn);
-            this.pluginsTab.Controls.Add(this.refreshpluginsBtn);
-            this.pluginsTab.Controls.Add(this.uninstallpluginsBtn);
+            this.pluginsTab.Controls.Add(this.downloadpluginsBackground);
+            this.pluginsTab.Controls.Add(this.refreshpluginsBackground);
+            this.pluginsTab.Controls.Add(this.uninstallpluginsBackground);
             this.pluginsTab.Controls.Add(this.pluginsList);
             this.pluginsTab.Location = new System.Drawing.Point(4, 22);
             this.pluginsTab.Name = "pluginsTab";
@@ -463,46 +505,73 @@
             this.pluginsTab.Text = "Plugins";
             this.pluginsTab.UseVisualStyleBackColor = true;
             // 
+            // downloadpluginsBackground
+            // 
+            this.downloadpluginsBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.downloadpluginsBackground.Controls.Add(this.downloadpluginsBtn);
+            this.downloadpluginsBackground.Location = new System.Drawing.Point(403, 292);
+            this.downloadpluginsBackground.Name = "downloadpluginsBackground";
+            this.downloadpluginsBackground.Size = new System.Drawing.Size(185, 30);
+            this.downloadpluginsBackground.TabIndex = 78;
+            // 
             // downloadpluginsBtn
             // 
-            this.downloadpluginsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.downloadpluginsBtn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.downloadpluginsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.downloadpluginsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downloadpluginsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.update;
             this.downloadpluginsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.downloadpluginsBtn.Location = new System.Drawing.Point(403, 292);
+            this.downloadpluginsBtn.Location = new System.Drawing.Point(1, 1);
             this.downloadpluginsBtn.Name = "downloadpluginsBtn";
-            this.downloadpluginsBtn.Size = new System.Drawing.Size(185, 30);
+            this.downloadpluginsBtn.Size = new System.Drawing.Size(183, 28);
             this.downloadpluginsBtn.TabIndex = 63;
             this.downloadpluginsBtn.Text = "Download Plugins";
             this.downloadpluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.downloadpluginsBtn.Click += new System.EventHandler(this.downloadpluginsBtn_Click);
             // 
+            // refreshpluginsBackground
+            // 
+            this.refreshpluginsBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.refreshpluginsBackground.Controls.Add(this.refreshpluginsBtn);
+            this.refreshpluginsBackground.Location = new System.Drawing.Point(203, 292);
+            this.refreshpluginsBackground.Name = "refreshpluginsBackground";
+            this.refreshpluginsBackground.Size = new System.Drawing.Size(195, 30);
+            this.refreshpluginsBackground.TabIndex = 77;
+            // 
             // refreshpluginsBtn
             // 
-            this.refreshpluginsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.refreshpluginsBtn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.refreshpluginsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.refreshpluginsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshpluginsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.reset;
             this.refreshpluginsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.refreshpluginsBtn.Location = new System.Drawing.Point(203, 292);
+            this.refreshpluginsBtn.Location = new System.Drawing.Point(1, 1);
             this.refreshpluginsBtn.Name = "refreshpluginsBtn";
-            this.refreshpluginsBtn.Size = new System.Drawing.Size(194, 30);
+            this.refreshpluginsBtn.Size = new System.Drawing.Size(193, 28);
             this.refreshpluginsBtn.TabIndex = 62;
             this.refreshpluginsBtn.Text = "Refresh Plugins";
             this.refreshpluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.refreshpluginsBtn.Click += new System.EventHandler(this.refreshpluginsBtn_Click);
             // 
+            // uninstallpluginsBackground
+            // 
+            this.uninstallpluginsBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.uninstallpluginsBackground.Controls.Add(this.uninstallpluginsBtn);
+            this.uninstallpluginsBackground.Location = new System.Drawing.Point(12, 292);
+            this.uninstallpluginsBackground.Name = "uninstallpluginsBackground";
+            this.uninstallpluginsBackground.Size = new System.Drawing.Size(185, 30);
+            this.uninstallpluginsBackground.TabIndex = 76;
+            // 
             // uninstallpluginsBtn
             // 
-            this.uninstallpluginsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.uninstallpluginsBtn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.uninstallpluginsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uninstallpluginsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uninstallpluginsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.trash;
             this.uninstallpluginsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uninstallpluginsBtn.Location = new System.Drawing.Point(12, 292);
+            this.uninstallpluginsBtn.Location = new System.Drawing.Point(1, 1);
             this.uninstallpluginsBtn.Name = "uninstallpluginsBtn";
-            this.uninstallpluginsBtn.Size = new System.Drawing.Size(185, 30);
+            this.uninstallpluginsBtn.Size = new System.Drawing.Size(183, 28);
             this.uninstallpluginsBtn.TabIndex = 61;
             this.uninstallpluginsBtn.Text = "Uninstall Plugin";
             this.uninstallpluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -526,9 +595,15 @@
             // 
             // settingsTab
             // 
+            this.settingsTab.Controls.Add(this.openFolderBackground);
+            this.settingsTab.Controls.Add(this.exportLogsBackground);
+            this.settingsTab.Controls.Add(this.resetSettingsBackground);
+            this.settingsTab.Controls.Add(this.windowTitleBackground);
+            this.settingsTab.Controls.Add(this.panel1);
+            this.settingsTab.Controls.Add(this.reinstallBackground);
+            this.settingsTab.Controls.Add(this.manualUpdateBackground);
             this.settingsTab.Controls.Add(this.injectionAlwaysBox);
             this.settingsTab.Controls.Add(this.pictureBox1);
-            this.settingsTab.Controls.Add(this.windowTitleBtn);
             this.settingsTab.Controls.Add(this.injectionTimeBox);
             this.settingsTab.Controls.Add(this.safeModeBox);
             this.settingsTab.Controls.Add(this.injectionManualBox);
@@ -540,12 +615,6 @@
             this.settingsTab.Controls.Add(this.autoUpdateBox);
             this.settingsTab.Controls.Add(this.hideMinimizeBox);
             this.settingsTab.Controls.Add(this.startupRunBox);
-            this.settingsTab.Controls.Add(this.exportLogsBtn);
-            this.settingsTab.Controls.Add(this.resetSettingsBtn);
-            this.settingsTab.Controls.Add(this.manualUpdateBtn);
-            this.settingsTab.Controls.Add(this.openFolderBtn);
-            this.settingsTab.Controls.Add(this.uninstallBtn);
-            this.settingsTab.Controls.Add(this.reinstallBtn);
             this.settingsTab.Controls.Add(this.injectionTimeImg);
             this.settingsTab.Controls.Add(this.SafemodeImg);
             this.settingsTab.Controls.Add(this.injectionManualImg);
@@ -564,6 +633,174 @@
             this.settingsTab.Text = "Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
             // 
+            // openFolderBackground
+            // 
+            this.openFolderBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.openFolderBackground.Controls.Add(this.openFolderBtn);
+            this.openFolderBackground.Location = new System.Drawing.Point(313, 100);
+            this.openFolderBackground.Name = "openFolderBackground";
+            this.openFolderBackground.Size = new System.Drawing.Size(275, 32);
+            this.openFolderBackground.TabIndex = 80;
+            // 
+            // openFolderBtn
+            // 
+            this.openFolderBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.openFolderBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.openFolderBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openFolderBtn.Image = global::BakkesModInjectorCs.Properties.Resources.folder;
+            this.openFolderBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.openFolderBtn.Location = new System.Drawing.Point(1, 1);
+            this.openFolderBtn.Name = "openFolderBtn";
+            this.openFolderBtn.Size = new System.Drawing.Size(273, 30);
+            this.openFolderBtn.TabIndex = 58;
+            this.openFolderBtn.Text = "Open BakkesMod Folder";
+            this.openFolderBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.openFolderBtn.Click += new System.EventHandler(this.openFolderBtn_Click);
+            // 
+            // exportLogsBackground
+            // 
+            this.exportLogsBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.exportLogsBackground.Controls.Add(this.exportLogsBtn);
+            this.exportLogsBackground.Location = new System.Drawing.Point(313, 137);
+            this.exportLogsBackground.Name = "exportLogsBackground";
+            this.exportLogsBackground.Size = new System.Drawing.Size(275, 32);
+            this.exportLogsBackground.TabIndex = 79;
+            // 
+            // exportLogsBtn
+            // 
+            this.exportLogsBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.exportLogsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exportLogsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportLogsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.export;
+            this.exportLogsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exportLogsBtn.Location = new System.Drawing.Point(1, 1);
+            this.exportLogsBtn.Name = "exportLogsBtn";
+            this.exportLogsBtn.Size = new System.Drawing.Size(273, 30);
+            this.exportLogsBtn.TabIndex = 70;
+            this.exportLogsBtn.Text = "Export Crash Logs";
+            this.exportLogsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.exportLogsBtn.Click += new System.EventHandler(this.exportLogsBtn_Click);
+            // 
+            // resetSettingsBackground
+            // 
+            this.resetSettingsBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.resetSettingsBackground.Controls.Add(this.resetSettingsBtn);
+            this.resetSettingsBackground.Location = new System.Drawing.Point(313, 174);
+            this.resetSettingsBackground.Name = "resetSettingsBackground";
+            this.resetSettingsBackground.Size = new System.Drawing.Size(275, 32);
+            this.resetSettingsBackground.TabIndex = 78;
+            // 
+            // resetSettingsBtn
+            // 
+            this.resetSettingsBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.resetSettingsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.resetSettingsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetSettingsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.wrench;
+            this.resetSettingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.resetSettingsBtn.Location = new System.Drawing.Point(1, 1);
+            this.resetSettingsBtn.Name = "resetSettingsBtn";
+            this.resetSettingsBtn.Size = new System.Drawing.Size(273, 30);
+            this.resetSettingsBtn.TabIndex = 65;
+            this.resetSettingsBtn.Text = "Reset Settings to Default";
+            this.resetSettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.resetSettingsBtn.Click += new System.EventHandler(this.resetSettingsBtn_Click);
+            // 
+            // windowTitleBackground
+            // 
+            this.windowTitleBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.windowTitleBackground.Controls.Add(this.windowTitleBtn);
+            this.windowTitleBackground.Location = new System.Drawing.Point(313, 211);
+            this.windowTitleBackground.Name = "windowTitleBackground";
+            this.windowTitleBackground.Size = new System.Drawing.Size(275, 32);
+            this.windowTitleBackground.TabIndex = 77;
+            // 
+            // windowTitleBtn
+            // 
+            this.windowTitleBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.windowTitleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.windowTitleBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.windowTitleBtn.Image = global::BakkesModInjectorCs.Properties.Resources.dock;
+            this.windowTitleBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.windowTitleBtn.Location = new System.Drawing.Point(1, 1);
+            this.windowTitleBtn.Name = "windowTitleBtn";
+            this.windowTitleBtn.Size = new System.Drawing.Size(273, 30);
+            this.windowTitleBtn.TabIndex = 71;
+            this.windowTitleBtn.Text = "Change Window Title";
+            this.windowTitleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.windowTitleBtn.Click += new System.EventHandler(this.windowTitleBtn_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.uninstallBtn);
+            this.panel1.Location = new System.Drawing.Point(313, 248);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(275, 32);
+            this.panel1.TabIndex = 76;
+            // 
+            // uninstallBtn
+            // 
+            this.uninstallBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.uninstallBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uninstallBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uninstallBtn.Image = global::BakkesModInjectorCs.Properties.Resources.trash;
+            this.uninstallBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uninstallBtn.Location = new System.Drawing.Point(1, 1);
+            this.uninstallBtn.Name = "uninstallBtn";
+            this.uninstallBtn.Size = new System.Drawing.Size(273, 30);
+            this.uninstallBtn.TabIndex = 57;
+            this.uninstallBtn.Text = "Uninstall BakkesMod";
+            this.uninstallBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uninstallBtn.Click += new System.EventHandler(this.uninstallBtn_Click);
+            // 
+            // reinstallBackground
+            // 
+            this.reinstallBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.reinstallBackground.Controls.Add(this.reinstallBtn);
+            this.reinstallBackground.Location = new System.Drawing.Point(313, 285);
+            this.reinstallBackground.Name = "reinstallBackground";
+            this.reinstallBackground.Size = new System.Drawing.Size(275, 32);
+            this.reinstallBackground.TabIndex = 75;
+            // 
+            // reinstallBtn
+            // 
+            this.reinstallBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.reinstallBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reinstallBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reinstallBtn.Image = global::BakkesModInjectorCs.Properties.Resources.reset;
+            this.reinstallBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reinstallBtn.Location = new System.Drawing.Point(1, 1);
+            this.reinstallBtn.Name = "reinstallBtn";
+            this.reinstallBtn.Size = new System.Drawing.Size(273, 30);
+            this.reinstallBtn.TabIndex = 56;
+            this.reinstallBtn.Text = "Reinstall BakkesMod";
+            this.reinstallBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.reinstallBtn.Click += new System.EventHandler(this.reinstallBtn_Click);
+            // 
+            // manualUpdateBackground
+            // 
+            this.manualUpdateBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.manualUpdateBackground.Controls.Add(this.manualUpdateBtn);
+            this.manualUpdateBackground.Location = new System.Drawing.Point(313, 63);
+            this.manualUpdateBackground.Name = "manualUpdateBackground";
+            this.manualUpdateBackground.Size = new System.Drawing.Size(275, 32);
+            this.manualUpdateBackground.TabIndex = 74;
+            // 
+            // manualUpdateBtn
+            // 
+            this.manualUpdateBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.manualUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.manualUpdateBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manualUpdateBtn.Image = global::BakkesModInjectorCs.Properties.Resources.update;
+            this.manualUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manualUpdateBtn.Location = new System.Drawing.Point(1, 1);
+            this.manualUpdateBtn.Name = "manualUpdateBtn";
+            this.manualUpdateBtn.Size = new System.Drawing.Size(273, 30);
+            this.manualUpdateBtn.TabIndex = 59;
+            this.manualUpdateBtn.Text = "Check For Updates";
+            this.manualUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.manualUpdateBtn.Click += new System.EventHandler(this.manualUpdateBtn_Click);
+            // 
             // injectionAlwaysBox
             // 
             this.injectionAlwaysBox.Enabled = false;
@@ -572,7 +809,7 @@
             this.injectionAlwaysBox.Name = "injectionAlwaysBox";
             this.injectionAlwaysBox.Size = new System.Drawing.Size(200, 25);
             this.injectionAlwaysBox.TabIndex = 72;
-            this.injectionAlwaysBox.Text = "Always Injected (Coming Soon™)";
+            this.injectionAlwaysBox.Text = "Always Injected";
             this.injectionAlwaysBox.UseVisualStyleBackColor = true;
             this.injectionAlwaysBox.CheckedChanged += new System.EventHandler(this.injectionAlwaysBox_CheckedChanged);
             // 
@@ -585,21 +822,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(25, 25);
             this.pictureBox1.TabIndex = 73;
             this.pictureBox1.TabStop = false;
-            // 
-            // windowTitleBtn
-            // 
-            this.windowTitleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.windowTitleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.windowTitleBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.windowTitleBtn.Image = global::BakkesModInjectorCs.Properties.Resources.dock;
-            this.windowTitleBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.windowTitleBtn.Location = new System.Drawing.Point(313, 212);
-            this.windowTitleBtn.Name = "windowTitleBtn";
-            this.windowTitleBtn.Size = new System.Drawing.Size(275, 32);
-            this.windowTitleBtn.TabIndex = 71;
-            this.windowTitleBtn.Text = "Change Window Title";
-            this.windowTitleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.windowTitleBtn.Click += new System.EventHandler(this.windowTitleBtn_Click);
             // 
             // hideMinimizeBox
             // 
@@ -628,96 +850,6 @@
             this.startupRunBox.Text = "Run on Windows Startup";
             this.startupRunBox.UseVisualStyleBackColor = false;
             this.startupRunBox.CheckedChanged += new System.EventHandler(this.startupRunBox_CheckedChanged);
-            // 
-            // exportLogsBtn
-            // 
-            this.exportLogsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.exportLogsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exportLogsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exportLogsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.export;
-            this.exportLogsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exportLogsBtn.Location = new System.Drawing.Point(313, 138);
-            this.exportLogsBtn.Name = "exportLogsBtn";
-            this.exportLogsBtn.Size = new System.Drawing.Size(275, 32);
-            this.exportLogsBtn.TabIndex = 70;
-            this.exportLogsBtn.Text = "Export Crash Logs";
-            this.exportLogsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.exportLogsBtn.Click += new System.EventHandler(this.exportLogsBtn_Click);
-            // 
-            // resetSettingsBtn
-            // 
-            this.resetSettingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.resetSettingsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.resetSettingsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetSettingsBtn.Image = global::BakkesModInjectorCs.Properties.Resources.wrench;
-            this.resetSettingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.resetSettingsBtn.Location = new System.Drawing.Point(313, 175);
-            this.resetSettingsBtn.Name = "resetSettingsBtn";
-            this.resetSettingsBtn.Size = new System.Drawing.Size(275, 32);
-            this.resetSettingsBtn.TabIndex = 65;
-            this.resetSettingsBtn.Text = "Reset Settings to Default";
-            this.resetSettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.resetSettingsBtn.Click += new System.EventHandler(this.resetSettingsBtn_Click);
-            // 
-            // manualUpdateBtn
-            // 
-            this.manualUpdateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.manualUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.manualUpdateBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manualUpdateBtn.Image = global::BakkesModInjectorCs.Properties.Resources.update;
-            this.manualUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.manualUpdateBtn.Location = new System.Drawing.Point(313, 64);
-            this.manualUpdateBtn.Name = "manualUpdateBtn";
-            this.manualUpdateBtn.Size = new System.Drawing.Size(275, 32);
-            this.manualUpdateBtn.TabIndex = 59;
-            this.manualUpdateBtn.Text = "Check For Updates";
-            this.manualUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.manualUpdateBtn.Click += new System.EventHandler(this.manualUpdateBtn_Click);
-            // 
-            // openFolderBtn
-            // 
-            this.openFolderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.openFolderBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.openFolderBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.openFolderBtn.Image = global::BakkesModInjectorCs.Properties.Resources.folder;
-            this.openFolderBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.openFolderBtn.Location = new System.Drawing.Point(313, 101);
-            this.openFolderBtn.Name = "openFolderBtn";
-            this.openFolderBtn.Size = new System.Drawing.Size(275, 32);
-            this.openFolderBtn.TabIndex = 58;
-            this.openFolderBtn.Text = "Open BakkesMod Folder";
-            this.openFolderBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.openFolderBtn.Click += new System.EventHandler(this.openFolderBtn_Click);
-            // 
-            // uninstallBtn
-            // 
-            this.uninstallBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.uninstallBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uninstallBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uninstallBtn.Image = global::BakkesModInjectorCs.Properties.Resources.trash;
-            this.uninstallBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uninstallBtn.Location = new System.Drawing.Point(313, 249);
-            this.uninstallBtn.Name = "uninstallBtn";
-            this.uninstallBtn.Size = new System.Drawing.Size(275, 32);
-            this.uninstallBtn.TabIndex = 57;
-            this.uninstallBtn.Text = "Uninstall BakkesMod";
-            this.uninstallBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uninstallBtn.Click += new System.EventHandler(this.uninstallBtn_Click);
-            // 
-            // reinstallBtn
-            // 
-            this.reinstallBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.reinstallBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reinstallBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reinstallBtn.Image = global::BakkesModInjectorCs.Properties.Resources.reset;
-            this.reinstallBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reinstallBtn.Location = new System.Drawing.Point(313, 286);
-            this.reinstallBtn.Name = "reinstallBtn";
-            this.reinstallBtn.Size = new System.Drawing.Size(275, 32);
-            this.reinstallBtn.TabIndex = 56;
-            this.reinstallBtn.Text = "Reinstall BakkesMod";
-            this.reinstallBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.reinstallBtn.Click += new System.EventHandler(this.reinstallBtn_Click);
             // 
             // injectionTimeImg
             // 
@@ -1178,7 +1310,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(600, 359);
             this.Controls.Add(this.pluginsImg);
             this.Controls.Add(this.aboutImg);
@@ -1203,12 +1335,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).EndInit();
             this.homeTab.ResumeLayout(false);
+            this.changelogBackground.ResumeLayout(false);
+            this.changelogBtnBackground.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statusImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rocketLeagueImg)).EndInit();
             this.TrayMenuStrip.ResumeLayout(false);
             this.controlTabs.ResumeLayout(false);
             this.pluginsTab.ResumeLayout(false);
+            this.downloadpluginsBackground.ResumeLayout(false);
+            this.refreshpluginsBackground.ResumeLayout(false);
+            this.uninstallpluginsBackground.ResumeLayout(false);
             this.settingsTab.ResumeLayout(false);
+            this.openFolderBackground.ResumeLayout(false);
+            this.exportLogsBackground.ResumeLayout(false);
+            this.resetSettingsBackground.ResumeLayout(false);
+            this.windowTitleBackground.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.reinstallBackground.ResumeLayout(false);
+            this.manualUpdateBackground.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SafemodeImg)).EndInit();
@@ -1318,6 +1462,18 @@
         private System.Windows.Forms.Label windowTitleBtn;
         private System.Windows.Forms.RadioButton injectionAlwaysBox;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel manualUpdateBackground;
+        private System.Windows.Forms.Panel openFolderBackground;
+        private System.Windows.Forms.Panel exportLogsBackground;
+        private System.Windows.Forms.Panel resetSettingsBackground;
+        private System.Windows.Forms.Panel windowTitleBackground;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel reinstallBackground;
+        private System.Windows.Forms.Panel changelogBtnBackground;
+        private System.Windows.Forms.Panel changelogBackground;
+        private System.Windows.Forms.Panel downloadpluginsBackground;
+        private System.Windows.Forms.Panel refreshpluginsBackground;
+        private System.Windows.Forms.Panel uninstallpluginsBackground;
     }
 }
 

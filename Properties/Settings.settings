@@ -51,7 +51,7 @@
       <Value Profile="(Default)">BakkesModInjectorCs - Community Edition</Value>
     </Setting>
     <Setting Name="INJECTOR_VERSION" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v2.0.8</Value>
+      <Value Profile="(Default)">v2.0.9</Value>
     </Setting>
   </Settings>
 </SettingsFile>
