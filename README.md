@@ -30,13 +30,13 @@ The latest version can be downloaded from the [releases page](https://github.com
 
 ## Screenshots
 
-![](https://i.imgur.com/CPvlqPk.png)
-![](https://i.imgur.com/ceuS5Y1.png)
-![](https://i.imgur.com/87kRQwk.png)
-![](https://i.imgur.com/EImrv3y.png)
+![](https://i.imgur.com/N8d7bpX.png)
+![](https://i.imgur.com/yTh2dR4.png)
+![](https://i.imgur.com/Ulqx6Q2.png)
+![](https://i.imgur.com/V5tTd0C.png)
 
 ## Contact
 
 If you find a bug and want to report it, please create a new issue [here](https://github.com/ItsBranK/BakkesModInjectorCs/issues).
 
-If you need help or want to contact me directly, feel free to join our [Discord](https://discordapp.com/invite/HsM6kAR) or message me on [Twitter](https://twitter.com/itsbrank).
+If you need help or want to contact me directly, feel free to join the BakkesMod [Discord](https://discordapp.com/invite/HsM6kAR) or send me a tweet on [Twitter](https://twitter.com/itsbrank).
