@@ -37,18 +37,6 @@ namespace BakkesModInjectorCs.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DISABLE_WARNINGS {
-            get {
-                return ((bool)(this["DISABLE_WARNINGS"]));
-            }
-            set {
-                this["DISABLE_WARNINGS"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool AUTO_UPDATE {
             get {
@@ -104,18 +92,6 @@ namespace BakkesModInjectorCs.Properties {
             }
             set {
                 this["TOPMOST"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool OFFLINE_MODE {
-            get {
-                return ((bool)(this["OFFLINE_MODE"]));
-            }
-            set {
-                this["OFFLINE_MODE"] = value;
             }
         }
         
@@ -217,7 +193,7 @@ namespace BakkesModInjectorCs.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v2.0.9")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v2.1.0")]
         public string INJECTOR_VERSION {
             get {
                 return ((string)(this["INJECTOR_VERSION"]));

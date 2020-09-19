@@ -1,6 +1,6 @@
 ﻿namespace BakkesModInjectorCs
 {
-    partial class MainFrm
+    partial class mainFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainFrm));
             this.injectionTimeBox = new System.Windows.Forms.NumericUpDown();
             this.safeModeBox = new System.Windows.Forms.CheckBox();
             this.injectionManualBox = new System.Windows.Forms.RadioButton();
             this.injectionTimeLbl = new System.Windows.Forms.Label();
             this.injectionTimeoutBox = new System.Windows.Forms.RadioButton();
-            this.warningsBox = new System.Windows.Forms.CheckBox();
             this.topMostBox = new System.Windows.Forms.CheckBox();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.injectBtn = new System.Windows.Forms.PictureBox();
@@ -46,8 +45,8 @@
             this.statusLbl = new System.Windows.Forms.Label();
             this.changelogBox = new System.Windows.Forms.RichTextBox();
             this.homeTab = new System.Windows.Forms.TabPage();
-            this.changelogBackground = new System.Windows.Forms.Panel();
             this.changelogBtnBackground = new System.Windows.Forms.Panel();
+            this.changelogBackground = new System.Windows.Forms.Panel();
             this.statusImg = new System.Windows.Forms.PictureBox();
             this.rocketLeagueImg = new System.Windows.Forms.PictureBox();
             this.rocketLeagueLbl = new System.Windows.Forms.Label();
@@ -90,7 +89,6 @@
             this.injectionTimeoutImg = new System.Windows.Forms.PictureBox();
             this.topMostImg = new System.Windows.Forms.PictureBox();
             this.autoUpdateImg = new System.Windows.Forms.PictureBox();
-            this.warningsImg = new System.Windows.Forms.PictureBox();
             this.startupMinimizeImg = new System.Windows.Forms.PictureBox();
             this.hideMinimizeImg = new System.Windows.Forms.PictureBox();
             this.startupRunImg = new System.Windows.Forms.PictureBox();
@@ -125,8 +123,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).BeginInit();
             this.homeTab.SuspendLayout();
-            this.changelogBackground.SuspendLayout();
             this.changelogBtnBackground.SuspendLayout();
+            this.changelogBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rocketLeagueImg)).BeginInit();
             this.TrayMenuStrip.SuspendLayout();
@@ -150,7 +148,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeoutImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.topMostImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.autoUpdateImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningsImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startupMinimizeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hideMinimizeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startupRunImg)).BeginInit();
@@ -174,7 +171,7 @@
             this.injectionTimeBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.injectionTimeBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.injectionTimeBox.ForeColor = System.Drawing.Color.Black;
-            this.injectionTimeBox.Location = new System.Drawing.Point(453, 13);
+            this.injectionTimeBox.Location = new System.Drawing.Point(152, 292);
             this.injectionTimeBox.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -212,7 +209,7 @@
             // injectionManualBox
             // 
             this.injectionManualBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.injectionManualBox.Location = new System.Drawing.Point(43, 262);
+            this.injectionManualBox.Location = new System.Drawing.Point(43, 231);
             this.injectionManualBox.Name = "injectionManualBox";
             this.injectionManualBox.Size = new System.Drawing.Size(200, 25);
             this.injectionManualBox.TabIndex = 49;
@@ -224,7 +221,7 @@
             // 
             this.injectionTimeLbl.BackColor = System.Drawing.Color.Transparent;
             this.injectionTimeLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.injectionTimeLbl.Location = new System.Drawing.Point(344, 13);
+            this.injectionTimeLbl.Location = new System.Drawing.Point(43, 292);
             this.injectionTimeLbl.Name = "injectionTimeLbl";
             this.injectionTimeLbl.Size = new System.Drawing.Size(200, 25);
             this.injectionTimeLbl.TabIndex = 48;
@@ -235,7 +232,7 @@
             // 
             this.injectionTimeoutBox.Checked = true;
             this.injectionTimeoutBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.injectionTimeoutBox.Location = new System.Drawing.Point(43, 231);
+            this.injectionTimeoutBox.Location = new System.Drawing.Point(43, 200);
             this.injectionTimeoutBox.Name = "injectionTimeoutBox";
             this.injectionTimeoutBox.Size = new System.Drawing.Size(200, 25);
             this.injectionTimeoutBox.TabIndex = 50;
@@ -244,24 +241,12 @@
             this.injectionTimeoutBox.UseVisualStyleBackColor = true;
             this.injectionTimeoutBox.CheckedChanged += new System.EventHandler(this.injectionTimeoutBox_CheckedChanged);
             // 
-            // warningsBox
-            // 
-            this.warningsBox.BackColor = System.Drawing.Color.Transparent;
-            this.warningsBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.warningsBox.Location = new System.Drawing.Point(43, 76);
-            this.warningsBox.Name = "warningsBox";
-            this.warningsBox.Size = new System.Drawing.Size(200, 25);
-            this.warningsBox.TabIndex = 34;
-            this.warningsBox.Text = "Disable Warnings";
-            this.warningsBox.UseVisualStyleBackColor = false;
-            this.warningsBox.CheckedChanged += new System.EventHandler(this.warningsBox_CheckedChanged);
-            // 
             // topMostBox
             // 
             this.topMostBox.BackColor = System.Drawing.Color.Transparent;
             this.topMostBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topMostBox.ForeColor = System.Drawing.Color.Black;
-            this.topMostBox.Location = new System.Drawing.Point(43, 200);
+            this.topMostBox.Location = new System.Drawing.Point(43, 169);
             this.topMostBox.Name = "topMostBox";
             this.topMostBox.Size = new System.Drawing.Size(200, 25);
             this.topMostBox.TabIndex = 44;
@@ -308,7 +293,7 @@
             this.startupMinimizeBox.BackColor = System.Drawing.Color.Transparent;
             this.startupMinimizeBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startupMinimizeBox.ForeColor = System.Drawing.Color.Black;
-            this.startupMinimizeBox.Location = new System.Drawing.Point(43, 138);
+            this.startupMinimizeBox.Location = new System.Drawing.Point(43, 107);
             this.startupMinimizeBox.Name = "startupMinimizeBox";
             this.startupMinimizeBox.Size = new System.Drawing.Size(200, 25);
             this.startupMinimizeBox.TabIndex = 32;
@@ -390,15 +375,6 @@
             this.homeTab.Text = "Home";
             this.homeTab.UseVisualStyleBackColor = true;
             // 
-            // changelogBackground
-            // 
-            this.changelogBackground.BackColor = System.Drawing.Color.Gainsboro;
-            this.changelogBackground.Controls.Add(this.changelogBox);
-            this.changelogBackground.Location = new System.Drawing.Point(12, 100);
-            this.changelogBackground.Name = "changelogBackground";
-            this.changelogBackground.Size = new System.Drawing.Size(578, 220);
-            this.changelogBackground.TabIndex = 76;
-            // 
             // changelogBtnBackground
             // 
             this.changelogBtnBackground.BackColor = System.Drawing.Color.Gainsboro;
@@ -407,6 +383,15 @@
             this.changelogBtnBackground.Name = "changelogBtnBackground";
             this.changelogBtnBackground.Size = new System.Drawing.Size(578, 27);
             this.changelogBtnBackground.TabIndex = 75;
+            // 
+            // changelogBackground
+            // 
+            this.changelogBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.changelogBackground.Controls.Add(this.changelogBox);
+            this.changelogBackground.Location = new System.Drawing.Point(12, 100);
+            this.changelogBackground.Name = "changelogBackground";
+            this.changelogBackground.Size = new System.Drawing.Size(578, 220);
+            this.changelogBackground.TabIndex = 76;
             // 
             // statusImg
             // 
@@ -609,7 +594,6 @@
             this.settingsTab.Controls.Add(this.injectionManualBox);
             this.settingsTab.Controls.Add(this.injectionTimeLbl);
             this.settingsTab.Controls.Add(this.injectionTimeoutBox);
-            this.settingsTab.Controls.Add(this.warningsBox);
             this.settingsTab.Controls.Add(this.topMostBox);
             this.settingsTab.Controls.Add(this.startupMinimizeBox);
             this.settingsTab.Controls.Add(this.autoUpdateBox);
@@ -621,7 +605,6 @@
             this.settingsTab.Controls.Add(this.injectionTimeoutImg);
             this.settingsTab.Controls.Add(this.topMostImg);
             this.settingsTab.Controls.Add(this.autoUpdateImg);
-            this.settingsTab.Controls.Add(this.warningsImg);
             this.settingsTab.Controls.Add(this.startupMinimizeImg);
             this.settingsTab.Controls.Add(this.hideMinimizeImg);
             this.settingsTab.Controls.Add(this.startupRunImg);
@@ -805,7 +788,7 @@
             // 
             this.injectionAlwaysBox.Enabled = false;
             this.injectionAlwaysBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.injectionAlwaysBox.Location = new System.Drawing.Point(43, 293);
+            this.injectionAlwaysBox.Location = new System.Drawing.Point(43, 262);
             this.injectionAlwaysBox.Name = "injectionAlwaysBox";
             this.injectionAlwaysBox.Size = new System.Drawing.Size(200, 25);
             this.injectionAlwaysBox.TabIndex = 72;
@@ -817,7 +800,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.test;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 293);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 262);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(25, 25);
             this.pictureBox1.TabIndex = 73;
@@ -828,7 +811,7 @@
             this.hideMinimizeBox.BackColor = System.Drawing.Color.Transparent;
             this.hideMinimizeBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hideMinimizeBox.ForeColor = System.Drawing.Color.Black;
-            this.hideMinimizeBox.Location = new System.Drawing.Point(43, 169);
+            this.hideMinimizeBox.Location = new System.Drawing.Point(43, 138);
             this.hideMinimizeBox.Name = "hideMinimizeBox";
             this.hideMinimizeBox.Size = new System.Drawing.Size(200, 25);
             this.hideMinimizeBox.TabIndex = 33;
@@ -843,7 +826,7 @@
             this.startupRunBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.startupRunBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startupRunBox.ForeColor = System.Drawing.Color.Black;
-            this.startupRunBox.Location = new System.Drawing.Point(43, 107);
+            this.startupRunBox.Location = new System.Drawing.Point(43, 76);
             this.startupRunBox.Name = "startupRunBox";
             this.startupRunBox.Size = new System.Drawing.Size(200, 25);
             this.startupRunBox.TabIndex = 31;
@@ -855,7 +838,7 @@
             // 
             this.injectionTimeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.hourglass;
             this.injectionTimeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectionTimeImg.Location = new System.Drawing.Point(313, 14);
+            this.injectionTimeImg.Location = new System.Drawing.Point(12, 293);
             this.injectionTimeImg.Name = "injectionTimeImg";
             this.injectionTimeImg.Size = new System.Drawing.Size(25, 25);
             this.injectionTimeImg.TabIndex = 55;
@@ -875,7 +858,7 @@
             // 
             this.injectionManualImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.cursor;
             this.injectionManualImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectionManualImg.Location = new System.Drawing.Point(12, 262);
+            this.injectionManualImg.Location = new System.Drawing.Point(12, 231);
             this.injectionManualImg.Name = "injectionManualImg";
             this.injectionManualImg.Size = new System.Drawing.Size(25, 25);
             this.injectionManualImg.TabIndex = 54;
@@ -885,7 +868,7 @@
             // 
             this.injectionTimeoutImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.time;
             this.injectionTimeoutImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectionTimeoutImg.Location = new System.Drawing.Point(12, 231);
+            this.injectionTimeoutImg.Location = new System.Drawing.Point(12, 200);
             this.injectionTimeoutImg.Name = "injectionTimeoutImg";
             this.injectionTimeoutImg.Size = new System.Drawing.Size(25, 25);
             this.injectionTimeoutImg.TabIndex = 53;
@@ -895,7 +878,7 @@
             // 
             this.topMostImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.dock;
             this.topMostImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.topMostImg.Location = new System.Drawing.Point(12, 200);
+            this.topMostImg.Location = new System.Drawing.Point(12, 169);
             this.topMostImg.Name = "topMostImg";
             this.topMostImg.Size = new System.Drawing.Size(25, 25);
             this.topMostImg.TabIndex = 41;
@@ -911,21 +894,11 @@
             this.autoUpdateImg.TabIndex = 38;
             this.autoUpdateImg.TabStop = false;
             // 
-            // warningsImg
-            // 
-            this.warningsImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.warning;
-            this.warningsImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.warningsImg.Location = new System.Drawing.Point(12, 76);
-            this.warningsImg.Name = "warningsImg";
-            this.warningsImg.Size = new System.Drawing.Size(25, 25);
-            this.warningsImg.TabIndex = 36;
-            this.warningsImg.TabStop = false;
-            // 
             // startupMinimizeImg
             // 
             this.startupMinimizeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.minimize;
             this.startupMinimizeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.startupMinimizeImg.Location = new System.Drawing.Point(12, 138);
+            this.startupMinimizeImg.Location = new System.Drawing.Point(12, 107);
             this.startupMinimizeImg.Name = "startupMinimizeImg";
             this.startupMinimizeImg.Size = new System.Drawing.Size(25, 25);
             this.startupMinimizeImg.TabIndex = 39;
@@ -935,7 +908,7 @@
             // 
             this.hideMinimizeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.hide;
             this.hideMinimizeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.hideMinimizeImg.Location = new System.Drawing.Point(12, 169);
+            this.hideMinimizeImg.Location = new System.Drawing.Point(12, 138);
             this.hideMinimizeImg.Name = "hideMinimizeImg";
             this.hideMinimizeImg.Size = new System.Drawing.Size(25, 25);
             this.hideMinimizeImg.TabIndex = 40;
@@ -945,7 +918,7 @@
             // 
             this.startupRunImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.run;
             this.startupRunImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.startupRunImg.Location = new System.Drawing.Point(12, 107);
+            this.startupRunImg.Location = new System.Drawing.Point(12, 76);
             this.startupRunImg.Name = "startupRunImg";
             this.startupRunImg.Size = new System.Drawing.Size(25, 25);
             this.startupRunImg.TabIndex = 37;
@@ -1306,7 +1279,7 @@
             this.homeImg.TabStop = false;
             this.homeImg.Click += new System.EventHandler(this.homeImg_Click);
             // 
-            // MainFrm
+            // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1327,7 +1300,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "MainFrm";
+            this.Name = "mainFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFrm_FormClosed);
             this.Load += new System.EventHandler(this.MainFrm_Load);
@@ -1335,8 +1308,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).EndInit();
             this.homeTab.ResumeLayout(false);
-            this.changelogBackground.ResumeLayout(false);
             this.changelogBtnBackground.ResumeLayout(false);
+            this.changelogBackground.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statusImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rocketLeagueImg)).EndInit();
             this.TrayMenuStrip.ResumeLayout(false);
@@ -1360,7 +1333,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeoutImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.topMostImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.autoUpdateImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningsImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startupMinimizeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hideMinimizeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startupRunImg)).EndInit();
@@ -1396,7 +1368,6 @@
         private System.Windows.Forms.RadioButton injectionManualBox;
         private System.Windows.Forms.Label injectionTimeLbl;
         private System.Windows.Forms.RadioButton injectionTimeoutBox;
-        private System.Windows.Forms.CheckBox warningsBox;
         private System.Windows.Forms.CheckBox topMostBox;
         private System.Windows.Forms.TabPage aboutTab;
         private System.Windows.Forms.Label patreonLnk;
@@ -1452,7 +1423,6 @@
         private System.Windows.Forms.PictureBox injectionTimeoutImg;
         private System.Windows.Forms.PictureBox topMostImg;
         private System.Windows.Forms.PictureBox autoUpdateImg;
-        private System.Windows.Forms.PictureBox warningsImg;
         private System.Windows.Forms.PictureBox startupMinimizeImg;
         private System.Windows.Forms.PictureBox hideMinimizeImg;
         private System.Windows.Forms.PictureBox startupRunImg;

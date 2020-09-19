@@ -1,17 +1,35 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-class utils {
-    public static bool firstWrite = true;
-    public static void writeToLog(String path, String data) {
-        if (File.Exists(path)) {
-            if (firstWrite == true) {
-                firstWrite = false;
-                File.AppendAllText(path, DateTime.Now.ToString("[HH:mm:ss] ") + data);
-                return;
+public class utils {
+    private static string logFile = Path.GetTempPath() + "\\BakkesModInjectorCs.log";
+    private static bool firstLine = true;
+
+    private static void createLogFile() {
+        try {
+            StreamWriter sw = new StreamWriter(logFile);
+            sw.Close();
+            log(MethodBase.GetCurrentMethod(), "Initialized logging.");
+        } catch (Exception ex) {
+            MessageBox.Show("Error: " + ex, "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+    }
+
+    public static void log(MethodBase method, string s) {
+        if (File.Exists(logFile)) {
+            if (firstLine) {
+                firstLine = false;
+                File.WriteAllText(logFile, String.Empty);
+                File.AppendAllText(logFile, DateTime.Now.ToString("[HH:mm:ss] ") + "[" + method.Name + "] " + s);
+            } else {
+                File.AppendAllText(logFile, Environment.NewLine + DateTime.Now.ToString("[HH:mm:ss] ") + "[" + method.Name + "] " + s);
             }
-            File.AppendAllText(path, Environment.NewLine + DateTime.Now.ToString("[HH:mm:ss] ") + data);
+        } else {
+            createLogFile();
+            log(method, s);
         }
     }
 

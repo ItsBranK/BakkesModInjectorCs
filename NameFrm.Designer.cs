@@ -1,6 +1,6 @@
 ﻿namespace BakkesModInjectorCs
 {
-    partial class NameFrm
+    partial class nameFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NameFrm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(nameFrm));
             this.nameLbl = new System.Windows.Forms.Label();
             this.confirmBtn = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Label();

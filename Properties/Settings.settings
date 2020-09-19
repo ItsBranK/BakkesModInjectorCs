@@ -5,9 +5,6 @@
     <Setting Name="SAFE_MODE" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="DISABLE_WARNINGS" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="AUTO_UPDATE" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
@@ -21,9 +18,6 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="TOPMOST" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="OFFLINE_MODE" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="CHANGELOG_COLLAPSED" Type="System.Boolean" Scope="User">
@@ -51,7 +45,7 @@
       <Value Profile="(Default)">BakkesModInjectorCs - Community Edition</Value>
     </Setting>
     <Setting Name="INJECTOR_VERSION" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v2.0.9</Value>
+      <Value Profile="(Default)">v2.1.0</Value>
     </Setting>
   </Settings>
 </SettingsFile>
