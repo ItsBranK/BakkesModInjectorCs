@@ -170,12 +170,12 @@ namespace BakkesModInjectorCs.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string RL_VERSION {
+        public string RL_BUILD {
             get {
-                return ((string)(this["RL_VERSION"]));
+                return ((string)(this["RL_BUILD"]));
             }
             set {
-                this["RL_VERSION"] = value;
+                this["RL_BUILD"] = value;
             }
         }
         
@@ -193,13 +193,25 @@ namespace BakkesModInjectorCs.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v2.1.0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v2.1.1")]
         public string INJECTOR_VERSION {
             get {
                 return ((string)(this["INJECTOR_VERSION"]));
             }
             set {
                 this["INJECTOR_VERSION"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string RL_VERSION {
+            get {
+                return ((string)(this["RL_VERSION"]));
+            }
+            set {
+                this["RL_VERSION"] = value;
             }
         }
     }

@@ -101,7 +101,7 @@
             this.discordLbl = new System.Windows.Forms.Label();
             this.icons8Link = new System.Windows.Forms.Label();
             this.icons8Lbl = new System.Windows.Forms.Label();
-            this.rlVersionLbl = new System.Windows.Forms.Label();
+            this.rlBuildLbl = new System.Windows.Forms.Label();
             this.bmVersionLbl = new System.Windows.Forms.Label();
             this.injectorVersionLbl = new System.Windows.Forms.Label();
             this.creditsLbl = new System.Windows.Forms.Label();
@@ -109,7 +109,7 @@
             this.patreonImg = new System.Windows.Forms.PictureBox();
             this.discordImg = new System.Windows.Forms.PictureBox();
             this.bmVersionImg = new System.Windows.Forms.PictureBox();
-            this.rlVersionImg = new System.Windows.Forms.PictureBox();
+            this.rlBuildImg = new System.Windows.Forms.PictureBox();
             this.icons8Img = new System.Windows.Forms.PictureBox();
             this.injectorVersionImg = new System.Windows.Forms.PictureBox();
             this.processTmr = new System.Windows.Forms.Timer(this.components);
@@ -120,6 +120,8 @@
             this.aboutImg = new System.Windows.Forms.PictureBox();
             this.settingsImg = new System.Windows.Forms.PictureBox();
             this.homeImg = new System.Windows.Forms.PictureBox();
+            this.rlVersionLbl = new System.Windows.Forms.Label();
+            this.rlVersionImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).BeginInit();
             this.homeTab.SuspendLayout();
@@ -156,13 +158,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.patreonImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.discordImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bmVersionImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlBuildImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icons8Img)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectorVersionImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pluginsImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aboutImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).BeginInit();
             this.SuspendLayout();
             // 
             // injectionTimeBox
@@ -928,6 +931,8 @@
             // 
             this.aboutTab.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.banner;
             this.aboutTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.aboutTab.Controls.Add(this.rlVersionLbl);
+            this.aboutTab.Controls.Add(this.rlVersionImg);
             this.aboutTab.Controls.Add(this.websiteLnk);
             this.aboutTab.Controls.Add(this.websiteLbl);
             this.aboutTab.Controls.Add(this.discordLnk);
@@ -936,7 +941,7 @@
             this.aboutTab.Controls.Add(this.discordLbl);
             this.aboutTab.Controls.Add(this.icons8Link);
             this.aboutTab.Controls.Add(this.icons8Lbl);
-            this.aboutTab.Controls.Add(this.rlVersionLbl);
+            this.aboutTab.Controls.Add(this.rlBuildLbl);
             this.aboutTab.Controls.Add(this.bmVersionLbl);
             this.aboutTab.Controls.Add(this.injectorVersionLbl);
             this.aboutTab.Controls.Add(this.creditsLbl);
@@ -944,7 +949,7 @@
             this.aboutTab.Controls.Add(this.patreonImg);
             this.aboutTab.Controls.Add(this.discordImg);
             this.aboutTab.Controls.Add(this.bmVersionImg);
-            this.aboutTab.Controls.Add(this.rlVersionImg);
+            this.aboutTab.Controls.Add(this.rlBuildImg);
             this.aboutTab.Controls.Add(this.icons8Img);
             this.aboutTab.Controls.Add(this.injectorVersionImg);
             this.aboutTab.Location = new System.Drawing.Point(4, 22);
@@ -960,7 +965,7 @@
             this.websiteLnk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.websiteLnk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.websiteLnk.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.websiteLnk.Location = new System.Drawing.Point(95, 107);
+            this.websiteLnk.Location = new System.Drawing.Point(95, 138);
             this.websiteLnk.Name = "websiteLnk";
             this.websiteLnk.Size = new System.Drawing.Size(95, 25);
             this.websiteLnk.TabIndex = 82;
@@ -972,7 +977,7 @@
             // 
             this.websiteLbl.BackColor = System.Drawing.Color.Transparent;
             this.websiteLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.websiteLbl.Location = new System.Drawing.Point(43, 107);
+            this.websiteLbl.Location = new System.Drawing.Point(43, 138);
             this.websiteLbl.Name = "websiteLbl";
             this.websiteLbl.Size = new System.Drawing.Size(545, 25);
             this.websiteLbl.TabIndex = 80;
@@ -985,7 +990,7 @@
             this.discordLnk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.discordLnk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discordLnk.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.discordLnk.Location = new System.Drawing.Point(94, 138);
+            this.discordLnk.Location = new System.Drawing.Point(94, 169);
             this.discordLnk.Name = "discordLnk";
             this.discordLnk.Size = new System.Drawing.Size(125, 25);
             this.discordLnk.TabIndex = 79;
@@ -999,7 +1004,7 @@
             this.patreonLnk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.patreonLnk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patreonLnk.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.patreonLnk.Location = new System.Drawing.Point(95, 169);
+            this.patreonLnk.Location = new System.Drawing.Point(95, 200);
             this.patreonLnk.Name = "patreonLnk";
             this.patreonLnk.Size = new System.Drawing.Size(145, 25);
             this.patreonLnk.TabIndex = 78;
@@ -1011,7 +1016,7 @@
             // 
             this.patreonLbl.BackColor = System.Drawing.Color.Transparent;
             this.patreonLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patreonLbl.Location = new System.Drawing.Point(43, 169);
+            this.patreonLbl.Location = new System.Drawing.Point(43, 200);
             this.patreonLbl.Name = "patreonLbl";
             this.patreonLbl.Size = new System.Drawing.Size(545, 25);
             this.patreonLbl.TabIndex = 75;
@@ -1022,7 +1027,7 @@
             // 
             this.discordLbl.BackColor = System.Drawing.Color.Transparent;
             this.discordLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discordLbl.Location = new System.Drawing.Point(43, 138);
+            this.discordLbl.Location = new System.Drawing.Point(43, 169);
             this.discordLbl.Name = "discordLbl";
             this.discordLbl.Size = new System.Drawing.Size(545, 25);
             this.discordLbl.TabIndex = 74;
@@ -1035,7 +1040,7 @@
             this.icons8Link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icons8Link.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.icons8Link.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.icons8Link.Location = new System.Drawing.Point(148, 200);
+            this.icons8Link.Location = new System.Drawing.Point(148, 231);
             this.icons8Link.Name = "icons8Link";
             this.icons8Link.Size = new System.Drawing.Size(70, 25);
             this.icons8Link.TabIndex = 69;
@@ -1047,29 +1052,29 @@
             // 
             this.icons8Lbl.BackColor = System.Drawing.Color.Transparent;
             this.icons8Lbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icons8Lbl.Location = new System.Drawing.Point(43, 200);
+            this.icons8Lbl.Location = new System.Drawing.Point(43, 231);
             this.icons8Lbl.Name = "icons8Lbl";
             this.icons8Lbl.Size = new System.Drawing.Size(545, 25);
             this.icons8Lbl.TabIndex = 67;
             this.icons8Lbl.Text = "Icons provided by:";
             this.icons8Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rlVersionLbl
+            // rlBuildLbl
             // 
-            this.rlVersionLbl.BackColor = System.Drawing.Color.Transparent;
-            this.rlVersionLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rlVersionLbl.Location = new System.Drawing.Point(43, 14);
-            this.rlVersionLbl.Name = "rlVersionLbl";
-            this.rlVersionLbl.Size = new System.Drawing.Size(545, 25);
-            this.rlVersionLbl.TabIndex = 68;
-            this.rlVersionLbl.Text = "Rocket League Build:";
-            this.rlVersionLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rlBuildLbl.BackColor = System.Drawing.Color.Transparent;
+            this.rlBuildLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rlBuildLbl.Location = new System.Drawing.Point(43, 45);
+            this.rlBuildLbl.Name = "rlBuildLbl";
+            this.rlBuildLbl.Size = new System.Drawing.Size(545, 25);
+            this.rlBuildLbl.TabIndex = 68;
+            this.rlBuildLbl.Text = "Rocket League Build:";
+            this.rlBuildLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // bmVersionLbl
             // 
             this.bmVersionLbl.BackColor = System.Drawing.Color.Transparent;
             this.bmVersionLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bmVersionLbl.Location = new System.Drawing.Point(43, 76);
+            this.bmVersionLbl.Location = new System.Drawing.Point(43, 107);
             this.bmVersionLbl.Name = "bmVersionLbl";
             this.bmVersionLbl.Size = new System.Drawing.Size(545, 25);
             this.bmVersionLbl.TabIndex = 66;
@@ -1080,7 +1085,7 @@
             // 
             this.injectorVersionLbl.BackColor = System.Drawing.Color.Transparent;
             this.injectorVersionLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.injectorVersionLbl.Location = new System.Drawing.Point(43, 45);
+            this.injectorVersionLbl.Location = new System.Drawing.Point(43, 76);
             this.injectorVersionLbl.Name = "injectorVersionLbl";
             this.injectorVersionLbl.Size = new System.Drawing.Size(545, 25);
             this.injectorVersionLbl.TabIndex = 65;
@@ -1106,7 +1111,7 @@
             this.websiteImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.website;
             this.websiteImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.websiteImg.Cursor = System.Windows.Forms.Cursors.Default;
-            this.websiteImg.Location = new System.Drawing.Point(12, 107);
+            this.websiteImg.Location = new System.Drawing.Point(12, 138);
             this.websiteImg.Name = "websiteImg";
             this.websiteImg.Size = new System.Drawing.Size(25, 25);
             this.websiteImg.TabIndex = 81;
@@ -1118,7 +1123,7 @@
             this.patreonImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.patreon;
             this.patreonImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.patreonImg.Cursor = System.Windows.Forms.Cursors.Default;
-            this.patreonImg.Location = new System.Drawing.Point(12, 169);
+            this.patreonImg.Location = new System.Drawing.Point(12, 200);
             this.patreonImg.Name = "patreonImg";
             this.patreonImg.Size = new System.Drawing.Size(25, 25);
             this.patreonImg.TabIndex = 77;
@@ -1130,7 +1135,7 @@
             this.discordImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.discord;
             this.discordImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.discordImg.Cursor = System.Windows.Forms.Cursors.Default;
-            this.discordImg.Location = new System.Drawing.Point(12, 138);
+            this.discordImg.Location = new System.Drawing.Point(12, 169);
             this.discordImg.Name = "discordImg";
             this.discordImg.Size = new System.Drawing.Size(25, 25);
             this.discordImg.TabIndex = 76;
@@ -1142,23 +1147,23 @@
             this.bmVersionImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.console;
             this.bmVersionImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.bmVersionImg.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bmVersionImg.Location = new System.Drawing.Point(12, 76);
+            this.bmVersionImg.Location = new System.Drawing.Point(12, 107);
             this.bmVersionImg.Name = "bmVersionImg";
             this.bmVersionImg.Size = new System.Drawing.Size(25, 25);
             this.bmVersionImg.TabIndex = 73;
             this.bmVersionImg.TabStop = false;
             // 
-            // rlVersionImg
+            // rlBuildImg
             // 
-            this.rlVersionImg.BackColor = System.Drawing.Color.Transparent;
-            this.rlVersionImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.rocket;
-            this.rlVersionImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rlVersionImg.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rlVersionImg.Location = new System.Drawing.Point(12, 14);
-            this.rlVersionImg.Name = "rlVersionImg";
-            this.rlVersionImg.Size = new System.Drawing.Size(25, 25);
-            this.rlVersionImg.TabIndex = 72;
-            this.rlVersionImg.TabStop = false;
+            this.rlBuildImg.BackColor = System.Drawing.Color.Transparent;
+            this.rlBuildImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.rocket;
+            this.rlBuildImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rlBuildImg.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rlBuildImg.Location = new System.Drawing.Point(12, 45);
+            this.rlBuildImg.Name = "rlBuildImg";
+            this.rlBuildImg.Size = new System.Drawing.Size(25, 25);
+            this.rlBuildImg.TabIndex = 72;
+            this.rlBuildImg.TabStop = false;
             // 
             // icons8Img
             // 
@@ -1166,7 +1171,7 @@
             this.icons8Img.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.icons8;
             this.icons8Img.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.icons8Img.Cursor = System.Windows.Forms.Cursors.Default;
-            this.icons8Img.Location = new System.Drawing.Point(12, 200);
+            this.icons8Img.Location = new System.Drawing.Point(12, 231);
             this.icons8Img.Name = "icons8Img";
             this.icons8Img.Size = new System.Drawing.Size(25, 25);
             this.icons8Img.TabIndex = 71;
@@ -1178,7 +1183,7 @@
             this.injectorVersionImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.syringe;
             this.injectorVersionImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.injectorVersionImg.Cursor = System.Windows.Forms.Cursors.Default;
-            this.injectorVersionImg.Location = new System.Drawing.Point(12, 45);
+            this.injectorVersionImg.Location = new System.Drawing.Point(12, 76);
             this.injectorVersionImg.Name = "injectorVersionImg";
             this.injectorVersionImg.Size = new System.Drawing.Size(25, 25);
             this.injectorVersionImg.TabIndex = 70;
@@ -1279,6 +1284,29 @@
             this.homeImg.TabStop = false;
             this.homeImg.Click += new System.EventHandler(this.homeImg_Click);
             // 
+            // rlVersionLbl
+            // 
+            this.rlVersionLbl.BackColor = System.Drawing.Color.Transparent;
+            this.rlVersionLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rlVersionLbl.Location = new System.Drawing.Point(43, 14);
+            this.rlVersionLbl.Name = "rlVersionLbl";
+            this.rlVersionLbl.Size = new System.Drawing.Size(545, 25);
+            this.rlVersionLbl.TabIndex = 83;
+            this.rlVersionLbl.Text = "Rocket League Version:";
+            this.rlVersionLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rlVersionImg
+            // 
+            this.rlVersionImg.BackColor = System.Drawing.Color.Transparent;
+            this.rlVersionImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.rocket;
+            this.rlVersionImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rlVersionImg.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rlVersionImg.Location = new System.Drawing.Point(12, 14);
+            this.rlVersionImg.Name = "rlVersionImg";
+            this.rlVersionImg.Size = new System.Drawing.Size(25, 25);
+            this.rlVersionImg.TabIndex = 84;
+            this.rlVersionImg.TabStop = false;
+            // 
             // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1341,13 +1369,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.patreonImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.discordImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bmVersionImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlBuildImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icons8Img)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectorVersionImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pluginsImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aboutImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1377,11 +1406,11 @@
         private System.Windows.Forms.PictureBox discordImg;
         private System.Windows.Forms.Label icons8Link;
         private System.Windows.Forms.Label icons8Lbl;
-        private System.Windows.Forms.Label rlVersionLbl;
+        private System.Windows.Forms.Label rlBuildLbl;
         private System.Windows.Forms.Label bmVersionLbl;
         private System.Windows.Forms.Label injectorVersionLbl;
         private System.Windows.Forms.PictureBox bmVersionImg;
-        private System.Windows.Forms.PictureBox rlVersionImg;
+        private System.Windows.Forms.PictureBox rlBuildImg;
         private System.Windows.Forms.PictureBox icons8Img;
         private System.Windows.Forms.PictureBox injectorVersionImg;
         private System.Windows.Forms.Label creditsLbl;
@@ -1444,6 +1473,8 @@
         private System.Windows.Forms.Panel downloadpluginsBackground;
         private System.Windows.Forms.Panel refreshpluginsBackground;
         private System.Windows.Forms.Panel uninstallpluginsBackground;
+        private System.Windows.Forms.Label rlVersionLbl;
+        private System.Windows.Forms.PictureBox rlVersionImg;
     }
 }
 

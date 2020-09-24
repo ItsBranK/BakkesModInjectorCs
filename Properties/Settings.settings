@@ -38,14 +38,17 @@
     <Setting Name="BM_VERSION" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="RL_VERSION" Type="System.String" Scope="User">
+    <Setting Name="RL_BUILD" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="WINDOW_TTILE" Type="System.String" Scope="User">
       <Value Profile="(Default)">BakkesModInjectorCs - Community Edition</Value>
     </Setting>
     <Setting Name="INJECTOR_VERSION" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v2.1.0</Value>
+      <Value Profile="(Default)">v2.1.1</Value>
+    </Setting>
+    <Setting Name="RL_VERSION" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

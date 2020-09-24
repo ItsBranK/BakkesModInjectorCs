@@ -4,6 +4,7 @@ using System.Net;
 using System.Linq;
 using System.Drawing;
 using Microsoft.Win32;
+using System.Text.Json;
 using System.Reflection;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -16,14 +17,12 @@ namespace BakkesModInjectorCs {
 
     /*
         TO DO:
-        - Proper JSON desterilizing to objects
-        - Dynamic download/updater links in case stuff breaks in the future
         - Always injected mode (honestly at this point idk if I'll ever finish this)
         - Proper commenting for everything explaining what it does, I was told you're suppose to do that for github projects but I'm lazy
+        - Redo UI (I've gained a lot of knowledge from working on other UI projects, eventually I want to redo a bunch of stuff here as a result)
     */
 
     public partial class mainFrm : Form {
-        string updaterURL = "http://149.210.150.107/updater/";
         bool isInjected = false;
         bool offlineMode = false;
 
@@ -37,6 +36,8 @@ namespace BakkesModInjectorCs {
             checkForUpdater();
             checkForUninstaller();
             getFolderDirectory();
+            checkServer();
+            getJsonSuccess();
             loadSettings();
             loadChangelog();
         }
@@ -77,8 +78,17 @@ namespace BakkesModInjectorCs {
         #endregion
 
         #region "Loading Events"
+        public bool getJsonSuccess() {
+            if (!offlineMode) {
+                bool succeeded;
+                jsonObjects.getJsonObjects(out succeeded);
+                return succeeded;
+            }
+            return false;
+        }
+
         public void getFolderDirectory() {
-            string directory = utils.getDirectory();
+            string directory = utils.getRocketLeagueFolder();
             if (directory == "FILE_NOT_FOUND") {
                 utils.log(MethodBase.GetCurrentMethod(), "Could not locate your \"Launch.log\" file, calling getFolderManually.");
                 getFolderManually("Error: Could not locate your \"Launch.log\" file, please manually select where your RocketLeague.exe is located.");
@@ -127,10 +137,12 @@ namespace BakkesModInjectorCs {
         }
 
         public void getVersionInfo() {
-            Properties.Settings.Default.RL_VERSION = utils.getRocketLeagueVersion(Properties.Settings.Default.WIN64_FOLDER + "/../../../../");
-            Properties.Settings.Default.BM_VERSION = utils.getBakkesModVersion(Properties.Settings.Default.WIN64_FOLDER);
+            Properties.Settings.Default.RL_BUILD = utils.getRocketLeagueBuild();
+            Properties.Settings.Default.RL_VERSION = utils.getRocketLeagueVersion();
+            Properties.Settings.Default.BM_VERSION = utils.getBakkesModVersion();
             Properties.Settings.Default.Save();
-            rlVersionLbl.Text = "Rocket League Build: " + Properties.Settings.Default.RL_VERSION;
+            rlVersionLbl.Text = "Rocket League Version: " + Properties.Settings.Default.RL_VERSION;
+            rlBuildLbl.Text = "Rocket League Build: " + Properties.Settings.Default.RL_BUILD;
             injectorVersionLbl.Text = "Injector Version: " + Properties.Settings.Default.INJECTOR_VERSION;
             bmVersionLbl.Text = "Mod Version: " + Properties.Settings.Default.BM_VERSION;
         }
@@ -139,10 +151,11 @@ namespace BakkesModInjectorCs {
             if (!offlineMode) {
                 getVersionInfo();
                 utils.log(MethodBase.GetCurrentMethod(), "Checking Build ID.");
-                utils.log(MethodBase.GetCurrentMethod(), "Current Build ID: " + Properties.Settings.Default.RL_VERSION);
+                utils.log(MethodBase.GetCurrentMethod(), "Current Build ID: " + Properties.Settings.Default.RL_BUILD);
+                utils.log(MethodBase.GetCurrentMethod(), "Latest Build ID(s): " + jsonObjects.getBuildIds());
 
-                if (!latestBuild(updaterURL + Properties.Settings.Default.BM_VERSION)) {
-                    if (Properties.Settings.Default.RL_VERSION == "FILE_BLANK" || Properties.Settings.Default.RL_VERSION == "FILE_NOT_FOUND") {
+                if (jsonObjects.isUpdateRequired()) {
+                    if (Properties.Settings.Default.RL_BUILD == "FILE_BLANK" || Properties.Settings.Default.RL_BUILD == "FILE_NOT_FOUND") {
                         utils.log(MethodBase.GetCurrentMethod(), "Corrupted appmanifest detected.");
                     } else {
                         utils.log(MethodBase.GetCurrentMethod(), "Build ID mismatch, activating Safe Mode.");
@@ -171,7 +184,7 @@ namespace BakkesModInjectorCs {
         }
 
         public void checkServer() {
-            if (!serverOnline())
+            if (!serversOnline())
                 activateOfflineMode();
         }
 
@@ -223,7 +236,7 @@ namespace BakkesModInjectorCs {
             string message = "";
             if (!offlineMode) {
                 utils.log(MethodBase.GetCurrentMethod(), "Downloading latest changelog information.");
-                message = changeLogMessage(updaterURL + Properties.Settings.Default.BM_VERSION);
+                message = jsonObjects.getChangelog();
             } else {
                 utils.log(MethodBase.GetCurrentMethod(), "Offline mode activated, cannot download changelog information.");
                 message = "Offline mode has been activated, cannot download changelog information.";
@@ -341,8 +354,6 @@ namespace BakkesModInjectorCs {
 
         #region "Setting Events"
         public void loadSettings()  {
-            checkServer();
-
             if (Properties.Settings.Default.AUTO_UPDATE) {
                 autoUpdateBox.Checked = true;
             } else {
@@ -711,6 +722,7 @@ namespace BakkesModInjectorCs {
         }
 
         private void injectionTmr_Tick(object sender, EventArgs e) {
+            checkSafeMode();
             if (!isInjected) {
                 if (Properties.Settings.Default.INJECTION_TYPE == "timeout") {
                     injectInstance();
@@ -729,7 +741,6 @@ namespace BakkesModInjectorCs {
                 isInjected = false;
                 injectBtn.Visible = false;
             } else {
-                checkSafeMode();
                 rocketLeagueLbl.Text = "Rocket League is running.";
                 if (!isInjected) {
                     injectionTmr.Interval = Properties.Settings.Default.TIMEOUT_VALUE;
@@ -817,22 +828,7 @@ namespace BakkesModInjectorCs {
         #endregion
 
         #region "Installers & Updaters"
-        public string httpDownloader(String url, String pattern, String contents) {
-            string match = "";
-            string download = "";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            StreamReader SR = new StreamReader(response.GetResponseStream());
-            download = SR.ReadToEnd();
-            SR.Close();
-
-            if (download.Contains(contents))
-                match = Regex.Match(download, pattern, RegexOptions.IgnoreCase | RegexOptions.RightToLeft).Groups[1].Value.Replace("\"", "");
-
-            return match;
-        }
-
-        public bool serverOnline() {
+        public bool serversOnline() {
             try {
                 Ping ping = new Ping();
                 PingReply bakkesReply = ping.Send("bakkesmod.com");
@@ -846,64 +842,6 @@ namespace BakkesModInjectorCs {
             } catch (Exception ex) {
                 return false;
             }
-        }
-
-        public bool updateRequired(string url) {
-            string download = "";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-            download = sr.ReadToEnd();
-            sr.Close();
-
-            if (download.Contains("\"update_required\": true"))
-                return true;
-
-            return false;
-        }
-
-        public string downloadURL(string url) {
-            string download = "";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-            download = sr.ReadToEnd();
-            sr.Close();
-
-            download = download.Substring(download.IndexOf("\"download_url\": \"") + 17);
-            download = download.Substring(0, download.IndexOf("\""));
-            return download;
-        }
-
-        public Boolean latestBuild(string url) {
-            string download = "";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-            download = sr.ReadToEnd();
-            sr.Close();
-
-            if (download.Contains(Properties.Settings.Default.RL_VERSION))
-                return true;
-
-            return false;
-        }
-
-        public string changeLogMessage(string url) {
-            string download = "";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-            download = sr.ReadToEnd();
-            sr.Close();
-
-            if (download.Contains("message")) {
-                download = download.Substring(download.IndexOf("\"message\": \"") + 12);
-                download = download.Substring(0, download.IndexOf("\""));
-            } else {
-                download = "No changelog provided for the most recent update.";
-            }
-            return download;
         }
 
         public void checkForUpdater() {
@@ -954,10 +892,10 @@ namespace BakkesModInjectorCs {
             }
         }
 
-        public void checkForUpdates(Boolean displayResult) {
+        public void checkForUpdates(bool displayResult) {
             if (!offlineMode) {
                 getVersionInfo();
-                string injectorVersion = httpDownloader("https://pastebin.com/raw/BVMKZ4TZ", "(\"([^ \"]|\"\")*\")", "INJECTOR_VERSION");
+                string injectorVersion = jsonObjects.branksConfig.injectorVersion;
                 utils.log(MethodBase.GetCurrentMethod(), "Checking injector version.");
                 utils.log(MethodBase.GetCurrentMethod(), "Current injector version: " + Properties.Settings.Default.INJECTOR_VERSION);
                 utils.log(MethodBase.GetCurrentMethod(), "Latest injector version: " + injectorVersion);
@@ -966,7 +904,7 @@ namespace BakkesModInjectorCs {
                     utils.log(MethodBase.GetCurrentMethod(), "Version match, no injector update found.");
                     utils.log(MethodBase.GetCurrentMethod(), "Checking BakkesMod version.");
                     utils.log(MethodBase.GetCurrentMethod(), "Current BakkesMod version: " + Properties.Settings.Default.BM_VERSION);
-                    if (!updateRequired(updaterURL + Properties.Settings.Default.BM_VERSION)) {
+                    if (!jsonObjects.isUpdateRequired()) {
                         utils.log(MethodBase.GetCurrentMethod(), "No BakkesMod update was found.");
 
                         if (displayResult)
@@ -1011,7 +949,7 @@ namespace BakkesModInjectorCs {
 
         public void installBakkesMod() {
             string path = Properties.Settings.Default.WIN64_FOLDER;
-            string url = downloadURL(updaterURL + Properties.Settings.Default.BM_VERSION);
+            string url = jsonObjects.outdatedConfig.update_info.download_url;
 
             if (!Directory.Exists(path + "\\bakkesmod")) {
                 utils.log(MethodBase.GetCurrentMethod(), "Creating BakkesMod folder.");
@@ -1050,6 +988,7 @@ namespace BakkesModInjectorCs {
                 utils.log(MethodBase.GetCurrentMethod(), "Opening AutoUpdaterCs.");
                 Process P = new Process();
                 P.StartInfo.FileName = AppDomain.CurrentDomain.BaseDirectory + "\\AutoUpdaterCs.exe";
+                P.StartInfo.Arguments = jsonObjects.branksConfig.injectorUrl;
                 P.Start();
                 utils.log(MethodBase.GetCurrentMethod(), "Exiting own environment.");
                 Environment.Exit(1);
@@ -1059,7 +998,7 @@ namespace BakkesModInjectorCs {
         }
 
         public void updateBakkesMod() {
-            string url = downloadURL(updaterURL + Properties.Settings.Default.BM_VERSION);
+            string url = jsonObjects.outdatedConfig.update_info.download_url;
             using (WebClient client = new WebClient()) {
                 try {
                     utils.log(MethodBase.GetCurrentMethod(), "Downloading archive.");
