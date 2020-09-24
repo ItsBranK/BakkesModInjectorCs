@@ -33,7 +33,7 @@ The latest version can be downloaded from the [releases page](https://github.com
 ![](https://i.imgur.com/N8d7bpX.png)
 ![](https://i.imgur.com/yTh2dR4.png)
 ![](https://i.imgur.com/Ulqx6Q2.png)
-![](https://i.imgur.com/V5tTd0C.png)
+![](https://i.imgur.com/FE70GfD.png)
 
 ## Contact
 
