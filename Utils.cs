@@ -9,6 +9,8 @@ namespace BakkesModInjectorCs {
         private static string logFile = Path.GetTempPath() + "\\BakkesModInjectorCs.log";
         private static bool firstLine = true;
 
+        // Creates a new text file at the location provided by "logFile" and tries to write to it.
+        // If it catches the program might not have permission to read/write which would be weird
         private static void createLogFile() {
             try {
                 StreamWriter sw = new StreamWriter(logFile);
@@ -19,6 +21,7 @@ namespace BakkesModInjectorCs {
             }
         }
 
+        // Logs the calling methods name, the current date/time, and then the provided string
         public static void log(MethodBase method, string s) {
             if (File.Exists(logFile)) {
                 if (firstLine) {
@@ -34,23 +37,20 @@ namespace BakkesModInjectorCs {
             }
         }
 
+        // Thank you https://regex101.com/ for making the regex stuff ezpz
+
         public static string getRocketLeagueFolder() {
             string documentsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string logFile = documentsDir + "\\My Games\\Rocket League\\TAGame\\Logs\\launch.log";
             string directory = null;
             if (File.Exists(logFile)) {
-                string line;
-                using (FileStream fs = File.Open(logFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
-                    StreamReader sr = new StreamReader(fs);
-                    while ((line = sr.ReadLine()) != null) {
-                        if (line.Contains("Init: Base directory: ")) {
-                            line = line.Replace("Init: Base directory: ", "");
-                            directory = line;
-                            break;
-                        }
-                    }
-                    if (directory == null)
-                        directory = "FILE_BLANK";
+                string logContents = File.ReadAllText(logFile);
+                Match match = Regex.Match(logContents, "Init: Base directory: (.*)", RegexOptions.RightToLeft);
+                if (match.Groups[1].Success) {
+                    directory = match.Groups[1].Value;
+                    directory = directory.Remove(directory.LastIndexOf("\\"), 2); // Needs to be two because there is a invisible \n at the end
+                } else {
+                    directory = "FILE_BLANK";
                 }
             } else {
                 directory = "FILE_NOT_FOUND";

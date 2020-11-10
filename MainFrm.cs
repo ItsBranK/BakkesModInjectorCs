@@ -289,8 +289,9 @@ namespace BakkesModInjectorCs {
         public void loadPlugins() {
             pluginsList.Clear();
             if (Directory.Exists(Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\plugins")) {
+                // Returns an array of all files in the plugins folder (returns their path)
                 string[] files = Directory.GetFiles(Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\plugins");
-                foreach (string f in files) {
+                foreach (string f in files) { // Adds each file in the array to the listbox
                     utils.log(MethodBase.GetCurrentMethod(), "Found plugin: " + Path.GetFileName(f));
                     pluginsList.Items.Add(Path.GetFileName(f));
                 }
@@ -525,7 +526,7 @@ namespace BakkesModInjectorCs {
         }
 
         private void openFolderBtn_Click(object sender, EventArgs e) {
-            string directory = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod";
+            string directory = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\";
 
             if (!Directory.Exists(directory)) {
                 utils.log(MethodBase.GetCurrentMethod(), "Could not find the BakkesMod folder.");
@@ -682,7 +683,7 @@ namespace BakkesModInjectorCs {
         #endregion
 
         #region "Injector & Timers"
-        public Boolean isProcessRunning() {
+        public bool isProcessRunning() {
             Process[] currentProcesses = Process.GetProcesses();
             foreach (Process p in currentProcesses) {
                 if (p.ProcessName == "RocketLeague")
@@ -873,18 +874,21 @@ namespace BakkesModInjectorCs {
         }
 
         public void checkInstall() {
-            string directory = (Properties.Settings.Default.WIN64_FOLDER);
-            if (!Directory.Exists(directory)) {
+            if (!Directory.Exists(Properties.Settings.Default.WIN64_FOLDER)) {
                 utils.log(MethodBase.GetCurrentMethod(), "Failed to locate the Win64 folder.");
                 getFolderManually("Error: Could not find Win64 folder, please manually select where your RocketLeague.exe is located.");
             } else {
                 utils.log(MethodBase.GetCurrentMethod(), "Successfully located the Win64 folder.");
-                if (!Directory.Exists(directory + "\\bakkesmod")) {
-                    utils.log(MethodBase.GetCurrentMethod(), "Failed to locate the BakkesMod folder.");
-                    DialogResult DialogResult = MessageBox.Show("Error: Could not find the BakkesMod folder, would you like to install it? If you are on DX9 press no, DX9 is no longer supported.", "BakkesMod", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (!Directory.Exists(Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod")) {
+                    utils.log(MethodBase.GetCurrentMethod(), "Failed to locate the BakkesMod folder: " + Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod");
+                    DialogResult dialogResult = MessageBox.Show("Error: Could not find the BakkesMod folder, would you like to install it? If you are on DX9 press no, DX9 is no longer supported.", "BakkesMod", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     
-                    if (DialogResult == DialogResult.Yes)
+                    if (dialogResult == DialogResult.Yes) {
                         installBakkesMod();
+                    } else {
+                        MessageBox.Show("Error: Cannot continue without locating the BakkesMod folder.", "BakkesMod", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Environment.Exit(1);
+                    }
                 } else {
                     utils.log(MethodBase.GetCurrentMethod(), "Successfully located the BakkesMod folder.");
                     getVersionInfo();
@@ -895,51 +899,56 @@ namespace BakkesModInjectorCs {
         public void checkForUpdates(bool displayResult) {
             if (!offlineMode) {
                 getVersionInfo();
-                string injectorVersion = jsonObjects.branksConfig.injectorVersion;
-                utils.log(MethodBase.GetCurrentMethod(), "Checking injector version.");
-                utils.log(MethodBase.GetCurrentMethod(), "Current injector version: " + Properties.Settings.Default.INJECTOR_VERSION);
-                utils.log(MethodBase.GetCurrentMethod(), "Latest injector version: " + injectorVersion);
+                if (getJsonSuccess()) {
+                    string injectorVersion = jsonObjects.branksConfig.injectorVersion;
+                    utils.log(MethodBase.GetCurrentMethod(), "Checking injector version.");
+                    utils.log(MethodBase.GetCurrentMethod(), "Current injector version: " + Properties.Settings.Default.INJECTOR_VERSION);
+                    utils.log(MethodBase.GetCurrentMethod(), "Latest injector version: " + injectorVersion);
 
-                if (Properties.Settings.Default.INJECTOR_VERSION == injectorVersion) {
-                    utils.log(MethodBase.GetCurrentMethod(), "Version match, no injector update found.");
-                    utils.log(MethodBase.GetCurrentMethod(), "Checking BakkesMod version.");
-                    utils.log(MethodBase.GetCurrentMethod(), "Current BakkesMod version: " + Properties.Settings.Default.BM_VERSION);
-                    if (!jsonObjects.isUpdateRequired()) {
-                        utils.log(MethodBase.GetCurrentMethod(), "No BakkesMod update was found.");
+                    if (Properties.Settings.Default.INJECTOR_VERSION == injectorVersion) {
+                        utils.log(MethodBase.GetCurrentMethod(), "Version match, no injector update found.");
+                        utils.log(MethodBase.GetCurrentMethod(), "Checking BakkesMod version.");
+                        utils.log(MethodBase.GetCurrentMethod(), "Current BakkesMod version: " + Properties.Settings.Default.BM_VERSION);
+                        if (!jsonObjects.isUpdateRequired()) {
+                            utils.log(MethodBase.GetCurrentMethod(), "No BakkesMod update was found.");
 
-                        if (displayResult)
-                            MessageBox.Show("No mod or injector updates were found.", "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (displayResult)
+                                MessageBox.Show("No mod or injector updates were found.", "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        } else {
+                            utils.log(MethodBase.GetCurrentMethod(), "Version mismatch, a BakkesMod update was found.");
+                            DialogResult result = MessageBox.Show("A new version of BakkesMod was found, would you like to install it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            if (result == DialogResult.Yes) {
+                                if (isProcessRunning()) {
+                                    utils.log(MethodBase.GetCurrentMethod(), "Rocket League is running, asking user to close process.");
+                                    DialogResult processResult = MessageBox.Show("Rocket League needs to be closed in order to update, would you like to close it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                    if (processResult == DialogResult.Yes){
+                                        if (closeProcess())
+                                            updateBakkesMod();
+                                    }
+                                } else {
+                                    updateBakkesMod();
+                                }
+                            }
+                        }
                     } else {
-                        utils.log(MethodBase.GetCurrentMethod(), "Version mismatch, a BakkesMod update was found.");
-                        DialogResult result = MessageBox.Show("A new version of BakkesMod was found, would you like to install it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        utils.log(MethodBase.GetCurrentMethod(), "Version mismatch, injector update found.");
+                        DialogResult result = MessageBox.Show("A new version of BakkesModInjectorCs was found, would you like to install it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (result == DialogResult.Yes) {
                             if (isProcessRunning()) {
                                 utils.log(MethodBase.GetCurrentMethod(), "Rocket League is running, asking user to close process.");
                                 DialogResult processResult = MessageBox.Show("Rocket League needs to be closed in order to update, would you like to close it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                                 if (processResult == DialogResult.Yes) {
                                     if (closeProcess())
-                                        updateBakkesMod();
+                                        updateInjector();
                                 }
                             } else {
-                                updateBakkesMod();
+                                updateInjector();
                             }
                         }
                     }
                 } else {
-                    utils.log(MethodBase.GetCurrentMethod(), "Version mismatch, injector update found.");
-                    DialogResult result = MessageBox.Show("A new version of BakkesModInjectorCs was found, would you like to install it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (result == DialogResult.Yes) {
-                        if (isProcessRunning()) {
-                            utils.log(MethodBase.GetCurrentMethod(), "Rocket League is running, asking user to close process.");
-                            DialogResult processResult = MessageBox.Show("Rocket League needs to be closed in order to update, would you like to close it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                            if (processResult == DialogResult.Yes) {
-                                if (closeProcess())
-                                    updateInjector();
-                            }
-                        } else {
-                            updateInjector();
-                        }
-                    }
+                    utils.log(MethodBase.GetCurrentMethod(), "Get json objects failed, cannot get the most recent version!");
+                    MessageBox.Show("Get json objects failed, cannot get the most recent version!", "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             } else {
                 utils.log(MethodBase.GetCurrentMethod(), "Offline mode has been activated, cannot check for updates.");
@@ -1042,6 +1051,7 @@ namespace BakkesModInjectorCs {
             }
 
             getVersionInfo();
+            getJsonSuccess();
             loadChangelog();
             statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
         }

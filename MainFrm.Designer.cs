@@ -80,9 +80,9 @@
             this.manualUpdateBackground = new System.Windows.Forms.Panel();
             this.manualUpdateBtn = new System.Windows.Forms.Label();
             this.injectionAlwaysBox = new System.Windows.Forms.RadioButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.hideMinimizeBox = new System.Windows.Forms.CheckBox();
             this.startupRunBox = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.injectionTimeImg = new System.Windows.Forms.PictureBox();
             this.SafemodeImg = new System.Windows.Forms.PictureBox();
             this.injectionManualImg = new System.Windows.Forms.PictureBox();
@@ -93,6 +93,8 @@
             this.hideMinimizeImg = new System.Windows.Forms.PictureBox();
             this.startupRunImg = new System.Windows.Forms.PictureBox();
             this.aboutTab = new System.Windows.Forms.TabPage();
+            this.rlVersionLbl = new System.Windows.Forms.Label();
+            this.rlVersionImg = new System.Windows.Forms.PictureBox();
             this.websiteLnk = new System.Windows.Forms.Label();
             this.websiteLbl = new System.Windows.Forms.Label();
             this.discordLnk = new System.Windows.Forms.Label();
@@ -120,8 +122,6 @@
             this.aboutImg = new System.Windows.Forms.PictureBox();
             this.settingsImg = new System.Windows.Forms.PictureBox();
             this.homeImg = new System.Windows.Forms.PictureBox();
-            this.rlVersionLbl = new System.Windows.Forms.Label();
-            this.rlVersionImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectBtn)).BeginInit();
             this.homeTab.SuspendLayout();
@@ -154,6 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.hideMinimizeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startupRunImg)).BeginInit();
             this.aboutTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.websiteImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patreonImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.discordImg)).BeginInit();
@@ -165,7 +166,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.aboutImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).BeginInit();
             this.SuspendLayout();
             // 
             // injectionTimeBox
@@ -591,7 +591,6 @@
             this.settingsTab.Controls.Add(this.reinstallBackground);
             this.settingsTab.Controls.Add(this.manualUpdateBackground);
             this.settingsTab.Controls.Add(this.injectionAlwaysBox);
-            this.settingsTab.Controls.Add(this.pictureBox1);
             this.settingsTab.Controls.Add(this.injectionTimeBox);
             this.settingsTab.Controls.Add(this.safeModeBox);
             this.settingsTab.Controls.Add(this.injectionManualBox);
@@ -602,6 +601,7 @@
             this.settingsTab.Controls.Add(this.autoUpdateBox);
             this.settingsTab.Controls.Add(this.hideMinimizeBox);
             this.settingsTab.Controls.Add(this.startupRunBox);
+            this.settingsTab.Controls.Add(this.pictureBox1);
             this.settingsTab.Controls.Add(this.injectionTimeImg);
             this.settingsTab.Controls.Add(this.SafemodeImg);
             this.settingsTab.Controls.Add(this.injectionManualImg);
@@ -799,16 +799,6 @@
             this.injectionAlwaysBox.UseVisualStyleBackColor = true;
             this.injectionAlwaysBox.CheckedChanged += new System.EventHandler(this.injectionAlwaysBox_CheckedChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.test;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 262);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.TabIndex = 73;
-            this.pictureBox1.TabStop = false;
-            // 
             // hideMinimizeBox
             // 
             this.hideMinimizeBox.BackColor = System.Drawing.Color.Transparent;
@@ -836,6 +826,16 @@
             this.startupRunBox.Text = "Run on Windows Startup";
             this.startupRunBox.UseVisualStyleBackColor = false;
             this.startupRunBox.CheckedChanged += new System.EventHandler(this.startupRunBox_CheckedChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.test;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 262);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.TabIndex = 73;
+            this.pictureBox1.TabStop = false;
             // 
             // injectionTimeImg
             // 
@@ -958,6 +958,29 @@
             this.aboutTab.TabIndex = 3;
             this.aboutTab.Text = "About";
             this.aboutTab.UseVisualStyleBackColor = true;
+            // 
+            // rlVersionLbl
+            // 
+            this.rlVersionLbl.BackColor = System.Drawing.Color.Transparent;
+            this.rlVersionLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rlVersionLbl.Location = new System.Drawing.Point(43, 14);
+            this.rlVersionLbl.Name = "rlVersionLbl";
+            this.rlVersionLbl.Size = new System.Drawing.Size(545, 25);
+            this.rlVersionLbl.TabIndex = 83;
+            this.rlVersionLbl.Text = "Rocket League Version:";
+            this.rlVersionLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rlVersionImg
+            // 
+            this.rlVersionImg.BackColor = System.Drawing.Color.Transparent;
+            this.rlVersionImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.rocketleague;
+            this.rlVersionImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rlVersionImg.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rlVersionImg.Location = new System.Drawing.Point(12, 14);
+            this.rlVersionImg.Name = "rlVersionImg";
+            this.rlVersionImg.Size = new System.Drawing.Size(25, 25);
+            this.rlVersionImg.TabIndex = 84;
+            this.rlVersionImg.TabStop = false;
             // 
             // websiteLnk
             // 
@@ -1284,29 +1307,6 @@
             this.homeImg.TabStop = false;
             this.homeImg.Click += new System.EventHandler(this.homeImg_Click);
             // 
-            // rlVersionLbl
-            // 
-            this.rlVersionLbl.BackColor = System.Drawing.Color.Transparent;
-            this.rlVersionLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rlVersionLbl.Location = new System.Drawing.Point(43, 14);
-            this.rlVersionLbl.Name = "rlVersionLbl";
-            this.rlVersionLbl.Size = new System.Drawing.Size(545, 25);
-            this.rlVersionLbl.TabIndex = 83;
-            this.rlVersionLbl.Text = "Rocket League Version:";
-            this.rlVersionLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // rlVersionImg
-            // 
-            this.rlVersionImg.BackColor = System.Drawing.Color.Transparent;
-            this.rlVersionImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.rocket;
-            this.rlVersionImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rlVersionImg.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rlVersionImg.Location = new System.Drawing.Point(12, 14);
-            this.rlVersionImg.Name = "rlVersionImg";
-            this.rlVersionImg.Size = new System.Drawing.Size(25, 25);
-            this.rlVersionImg.TabIndex = 84;
-            this.rlVersionImg.TabStop = false;
-            // 
             // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1317,9 +1317,9 @@
             this.Controls.Add(this.aboutImg);
             this.Controls.Add(this.settingsImg);
             this.Controls.Add(this.homeImg);
-            this.Controls.Add(this.homeBtn);
             this.Controls.Add(this.aboutBtn);
             this.Controls.Add(this.settingsBtn);
+            this.Controls.Add(this.homeBtn);
             this.Controls.Add(this.pluginsBtn);
             this.Controls.Add(this.controlTabs);
             this.DoubleBuffered = true;
@@ -1365,6 +1365,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.hideMinimizeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startupRunImg)).EndInit();
             this.aboutTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.websiteImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patreonImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.discordImg)).EndInit();
@@ -1376,7 +1377,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.aboutImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rlVersionImg)).EndInit();
             this.ResumeLayout(false);
 
         }

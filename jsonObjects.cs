@@ -20,33 +20,34 @@ namespace BakkesModInjectorCs {
         }
 
         public class outdatedUpdater {
-            public class Gameinfo {
-                public string buildid { get; set; }
-                public string buildids { get; set; }
-            }
-
-            public class UpdateInfo {
-                public int trainer_version { get; set; }
-                public string rocketleague_version { get; set; }
-                public DateTime pub_date { get; set; }
-                public string message { get; set; }
-                public string download_url { get; set; }
-            }
-
-            public class Injector {
-                public string injectorurl { get; set; }
-                public string injectorversion { get; set; }
-            }
-
-            public class Root {
-                public bool err { get; set; }
-                public Gameinfo gameinfo { get; set; }
-                public UpdateInfo update_info { get; set; }
-                public bool update_required { get; set; }
-                public string user_agent { get; set; }
-                public Injector injector { get; set; }
-            }
+        public class Gameinfo {
+            public string buildid { get; set; }
+            public string egsbuildids { get; set; }
+            public string buildids { get; set; }
         }
+
+        public class UpdateInfo {
+            public int trainer_version { get; set; }
+            public string rocketleague_version { get; set; }
+            public DateTime pub_date { get; set; }
+            public string message { get; set; }
+            public string download_url { get; set; }
+        }
+
+        public class Injector {
+            public string injectorurl { get; set; }
+            public string injectorversion { get; set; }
+        }
+
+        public class Root {
+            public bool err { get; set; }
+            public Gameinfo gameinfo { get; set; }
+            public UpdateInfo update_info { get; set; }
+            public bool update_required { get; set; }
+            public string user_agent { get; set; }
+            public Injector injector { get; set; }
+        }
+    }
 
         public class currentUpdater  {
             public class Injector {
@@ -56,6 +57,7 @@ namespace BakkesModInjectorCs {
 
             public class Gameinfo {
                 public string buildid { get; set; }
+                public string egsbuildids { get; set; }
                 public string buildids { get; set; }
             }
 
