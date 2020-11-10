@@ -526,7 +526,7 @@ namespace BakkesModInjectorCs {
         }
 
         private void openFolderBtn_Click(object sender, EventArgs e) {
-            string directory = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\";
+            string directory = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod";
 
             if (!Directory.Exists(directory)) {
                 utils.log(MethodBase.GetCurrentMethod(), "Could not find the BakkesMod folder.");

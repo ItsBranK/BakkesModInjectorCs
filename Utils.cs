@@ -59,10 +59,10 @@ namespace BakkesModInjectorCs {
         }
 
         public static string getRocketLeagueBuild() {
-            string manifestFile = Properties.Settings.Default.WIN64_FOLDER; // getRocketLeagueFolder();
+            string manifestFile = getRocketLeagueFolder();
             string build = "";
             if (manifestFile != "FILE_BLANK" && manifestFile != "FILE_NOT_FOUND") {
-                manifestFile = manifestFile.Replace("\\common\\rocketleague\\Binaries\\Win64\\", "\\appmanifest_252950.acf");
+                manifestFile = manifestFile.Replace("\\common\\rocketleague\\Binaries\\Win64", "\\appmanifest_252950.acf");
                 if (File.Exists(manifestFile)) {
                     string manifestContents = File.ReadAllText(manifestFile);
                     Match match = Regex.Match(manifestContents, "(\"buildid\"\t\t\"(.*?)\")", RegexOptions.IgnoreCase | RegexOptions.RightToLeft);
@@ -82,10 +82,10 @@ namespace BakkesModInjectorCs {
 
 
         public static string getRocketLeagueVersion() {
-            string appinfoFile = Properties.Settings.Default.WIN64_FOLDER; // getRocketLeagueFolder();
+            string appinfoFile = getRocketLeagueFolder();
             string version = "";
             if (appinfoFile != "FILE_BLANK" && appinfoFile != "FILE_NOT_FOUND") {
-                appinfoFile = appinfoFile.Replace("\\Binaries\\Win64\\", "\\appinfo.vdf");
+                appinfoFile = appinfoFile.Replace("\\Binaries\\Win64", "\\appinfo.vdf");
                 if (File.Exists(appinfoFile)) {
                     string appinfoContents = File.ReadAllText(appinfoFile);
                     Match match = Regex.Match(appinfoContents, "(\"DisplayVersion\"\t\t\"(.*?)\")", RegexOptions.IgnoreCase | RegexOptions.RightToLeft);
