@@ -4,14 +4,12 @@ using System.Net;
 using System.Linq;
 using System.Drawing;
 using Microsoft.Win32;
-using System.Text.Json;
 using System.Reflection;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.IO.Compression;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
-using System.Text.RegularExpressions;
 
 namespace BakkesModInjectorCs {
 
@@ -38,8 +36,8 @@ namespace BakkesModInjectorCs {
             getFolderDirectory();
             checkServer();
             getJsonSuccess();
-            loadSettings();
             loadChangelog();
+            loadSettings();
         }
 
         private void MainFrm_FormClosed(object sender, FormClosedEventArgs e) {
@@ -308,10 +306,10 @@ namespace BakkesModInjectorCs {
                     string plugin = pluginsList.SelectedItems[0].Text;
                     string set = plugin.Replace(".dll", ".set");
                     string cfg = plugin.Replace(".dll", ".cfg");
-                    string dllFile = Properties.Settings.Default.WIN64_FOLDER + "bakkesmod\\plugins\\" + pluginsList.SelectedItems[0].Text;
-                    string setFile = Properties.Settings.Default.WIN64_FOLDER + "bakkesmod\\plugins\\settings\\" + set;
-                    string cfgFile = Properties.Settings.Default.WIN64_FOLDER + "bakkesmod\\cfg\\" + cfg;
-                    string dataFolder = Properties.Settings.Default.WIN64_FOLDER + "bakkesmod\\data\\" + plugin.Replace(".dll", "");
+                    string dllFile = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\plugins\\" + pluginsList.SelectedItems[0].Text;
+                    string setFile = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\plugins\\settings\\" + set;
+                    string cfgFile = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\cfg\\" + cfg;
+                    string dataFolder = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\data\\" + plugin.Replace(".dll", "");
 
                     try {
                         utils.log(MethodBase.GetCurrentMethod(), "Attempting to uninstall the selected plugin: \"" + plugin + "\"");
@@ -354,6 +352,7 @@ namespace BakkesModInjectorCs {
         #endregion
 
         #region "Setting Events"
+        // This sets the checkbox & textbox values to what the user last selected
         public void loadSettings()  {
             if (Properties.Settings.Default.AUTO_UPDATE) {
                 autoUpdateBox.Checked = true;
@@ -722,8 +721,9 @@ namespace BakkesModInjectorCs {
             }
         }
 
+        // This is the timer that the delay gets set to.
         private void injectionTmr_Tick(object sender, EventArgs e) {
-            checkSafeMode();
+            checkSafeMode(); // Important if the user updated RL and didn't restart the injector (because why would they really).
             if (!isInjected) {
                 if (Properties.Settings.Default.INJECTION_TYPE == "timeout") {
                     injectInstance();
@@ -735,13 +735,14 @@ namespace BakkesModInjectorCs {
             }
         }
 
+        // The process check timer will always (unless safe mode is activated of course)
         private void processTmr_Tick(object sender, EventArgs e) {
             if (!isProcessRunning()) {
                 rocketLeagueLbl.Text = "Rocket League is not running.";
                 statusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
                 isInjected = false;
                 injectBtn.Visible = false;
-            } else {
+            } else { // If RL is running see what injection type the user has set and follow accordingly (if not already injected of course).
                 rocketLeagueLbl.Text = "Rocket League is running.";
                 if (!isInjected) {
                     injectionTmr.Interval = Properties.Settings.Default.TIMEOUT_VALUE;
@@ -751,7 +752,7 @@ namespace BakkesModInjectorCs {
                         injectBtn.Visible = false;
                         statusLbl.Text = "Process found, attempting injection.";
                         injectionTmr.Start();
-                    } else if (Properties.Settings.Default.INJECTION_TYPE == "always") {
+                    } else if (Properties.Settings.Default.INJECTION_TYPE == "always") { // I still haven't finished this, but it's nice to have this here for when I do.
                         statusLbl.Text = "Always injected mode enabled.";
                         processTmr.Stop();
                     }
@@ -762,15 +763,28 @@ namespace BakkesModInjectorCs {
         void injectInstance() {
             utils.log(MethodBase.GetCurrentMethod(), "Attempting to inject.");
 
-            string dllPath = "null";
-            string mainDll = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\dll\\bakkesmod.dll";
+            string currentDll = "NULL";
+            string firstDll = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\bakkesmod.dll"; // This dll was used by Bakkes' x32 bit injector to inject the dll in "\dll\bakkesmod.dll"
+            string secondDll = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\dll\\bakkesmod.dll"; // The main BakkesMod dll
 
-            if (File.Exists(mainDll)) {
-                dllPath = mainDll;
+            // Yes, I really had to type out en entire paragraph to explain the following 3 lines of code below. So please bear with me if you try to read it.
+
+            // When the x64 bit update came Bakkes' injector was only x32 bit so it couldn't inject the new x64 bit dll.
+            // It was his luck that injector updater was broken (but the BakkesMod one worked fine) which mean nearly 100k people at the time would have to manually install the new injector.
+            // Because people are dumb he didn't want to deal with all the tech support that would cause, so he created "64bitbminjector.exe" and placed it in the BakkesMod folder.
+            // (He eventually had to tell users to manually update, but this wasn't until Epic Games' free to play launch which was like half a year later)
+            // So now when the "BakkesMod.dll" in the main folder was injected it opened "64bitbminjector" which then injected the actual BakkesMod dll located in "\dll\bakkesmod"
+            // Now this injector is x64 bit so we need to inject the main dll instead of the smaller one which just opens "64bitbminjector".
+
+            if (File.Exists(firstDll) && !File.Exists(secondDll)) { // If the dll in "\dll\bakkesmod.dll" doesn't exist that means Bakkes removed it so inject the first one.
+                currentDll = firstDll;
+            } else if (File.Exists(firstDll) && File.Exists(secondDll)) { // If it does exist, then inject that one instead.
+                currentDll = secondDll;
             }
 
-            if (dllPath != "null") {
-                result result = injector.injectorInstance.inject(dllPath);
+            // Try to inject and report the feedback of the injection.
+            if (currentDll != "NUll") {
+                result result = injector.injectorInstance.inject(currentDll);
                 switch (result) {
                     case result.FILE_NOT_FOUND:
                         utils.log(MethodBase.GetCurrentMethod(), "Injection failed, could not locate the necessary files.");
@@ -835,17 +849,21 @@ namespace BakkesModInjectorCs {
                 PingReply bakkesReply = ping.Send("bakkesmod.com");
                 PingReply pastebinReply = ping.Send("pastebin.com");
 
+                // If either dont return successful then they aren't online
                 if (bakkesReply.Status != IPStatus.Success
                      || pastebinReply.Status != IPStatus.Success) {
                     return false;
                 }
                 return true;
             } catch (Exception ex) {
+                // If it catches it could mean the user isn't connected to the internet.
+                // I could use "NetworkInterface.GetIsNetworkAvailable();" to check this first but it's really slow, like takes almost 2 seconds per-check.
                 return false;
             }
         }
 
         public void checkForUpdater() {
+            // If "AutoUpdaterCs" just updated we need to delete the exe out so there are no residual files.
             if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\AutoUpdaterCs.exe")) {
                 utils.log(MethodBase.GetCurrentMethod(), "\"AutoUpdaterCs.exe\" has been located, attempting to delete.");
                 try {
@@ -859,6 +877,7 @@ namespace BakkesModInjectorCs {
             }
         }
 
+        // The uninstall and reinstall buttons both use "BakkesModUninstaller", we need to delete it if the user is reinstalling so there are no residual files.
         public void checkForUninstaller() {
             if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModUninstaller.exe")) {
                 utils.log(MethodBase.GetCurrentMethod(), "\"BakkesModUninstaller.exe\" has been located.");
@@ -874,18 +893,22 @@ namespace BakkesModInjectorCs {
         }
 
         public void checkInstall() {
+            // Verifies the Win64 folder was located properly as well as if the BakkesMod folder exists.
             if (!Directory.Exists(Properties.Settings.Default.WIN64_FOLDER)) {
                 utils.log(MethodBase.GetCurrentMethod(), "Failed to locate the Win64 folder.");
                 getFolderManually("Error: Could not find Win64 folder, please manually select where your RocketLeague.exe is located.");
             } else {
                 utils.log(MethodBase.GetCurrentMethod(), "Successfully located the Win64 folder.");
                 if (!Directory.Exists(Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod")) {
+                    // If it doesn't exist then BakkesMod isn't installed, we ask the user if they want to install it (Apposed to Bakkes' injector it installs without asking).
                     utils.log(MethodBase.GetCurrentMethod(), "Failed to locate the BakkesMod folder: " + Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod");
                     DialogResult dialogResult = MessageBox.Show("Error: Could not find the BakkesMod folder, would you like to install it? If you are on DX9 press no, DX9 is no longer supported.", "BakkesMod", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     
                     if (dialogResult == DialogResult.Yes) {
                         installBakkesMod();
                     } else {
+                        // If the user doesn't want to install it we can't do anything further, so might as well just exit.
+                        // In the future I want to add an option to manually select the BakkesMod folder here, but I need to think of a "smooth" way to do it because reading a bunch of messageboxes in a row gets annoying.
                         MessageBox.Show("Error: Cannot continue without locating the BakkesMod folder.", "BakkesMod", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Environment.Exit(1);
                     }
@@ -898,6 +921,7 @@ namespace BakkesModInjectorCs {
 
         public void checkForUpdates(bool displayResult) {
             if (!offlineMode) {
+                // Grabs the current version and build info then redownloads the latest json objects
                 getVersionInfo();
                 if (getJsonSuccess()) {
                     string injectorVersion = jsonObjects.branksConfig.injectorVersion;
@@ -905,6 +929,7 @@ namespace BakkesModInjectorCs {
                     utils.log(MethodBase.GetCurrentMethod(), "Current injector version: " + Properties.Settings.Default.INJECTOR_VERSION);
                     utils.log(MethodBase.GetCurrentMethod(), "Latest injector version: " + injectorVersion);
 
+                    // Compares the recently grabbed version info with the json ones, if any are different then prompt the user to update. Pretty self explanatory.
                     if (Properties.Settings.Default.INJECTOR_VERSION == injectorVersion) {
                         utils.log(MethodBase.GetCurrentMethod(), "Version match, no injector update found.");
                         utils.log(MethodBase.GetCurrentMethod(), "Checking BakkesMod version.");
@@ -957,14 +982,14 @@ namespace BakkesModInjectorCs {
         }
 
         public void installBakkesMod() {
-            string path = Properties.Settings.Default.WIN64_FOLDER;
             string url = jsonObjects.outdatedConfig.update_info.download_url;
 
-            if (!Directory.Exists(path + "\\bakkesmod")) {
+            if (!Directory.Exists(Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod")) {
                 utils.log(MethodBase.GetCurrentMethod(), "Creating BakkesMod folder.");
-                Directory.CreateDirectory(path + "\\bakkesmod");
+                Directory.CreateDirectory(Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod");
             }
 
+            // Downloads the lastest BakkesMod version and places it in the same directory as the exe
             using (WebClient client = new WebClient()) {
                 try {
                     utils.log(MethodBase.GetCurrentMethod(), "Downloading BakkesMod archive.");
@@ -974,10 +999,11 @@ namespace BakkesModInjectorCs {
                 }
             }
 
+            // Extract the contents to a new BakkesMod folder in the Win64 folder, then deletes the archive afterwards.
             if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip")) {
                 try {
                     utils.log(MethodBase.GetCurrentMethod(), "Extracting archive.");
-                    ZipFile.ExtractToDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip", path + "\\bakkesmod\\");
+                    ZipFile.ExtractToDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip", Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\");
                     utils.log(MethodBase.GetCurrentMethod(), "Deleting archive.");
                     File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip");
                 } catch (Exception ex) {
@@ -990,6 +1016,7 @@ namespace BakkesModInjectorCs {
         }
 
         public void updateInjector() {
+            // See the branch "AutoUpdaterCs" in this repo if you wish to see how the updater works.
             try {
                 utils.log(MethodBase.GetCurrentMethod(), "Writing AutoUpdaterCs.");
                 byte[] fileBytes = Properties.Resources.AutoUpdaterCs;
@@ -997,16 +1024,17 @@ namespace BakkesModInjectorCs {
                 utils.log(MethodBase.GetCurrentMethod(), "Opening AutoUpdaterCs.");
                 Process P = new Process();
                 P.StartInfo.FileName = AppDomain.CurrentDomain.BaseDirectory + "\\AutoUpdaterCs.exe";
-                P.StartInfo.Arguments = jsonObjects.branksConfig.injectorUrl;
+                P.StartInfo.Arguments = jsonObjects.branksConfig.injectorUrl; // Sets the download url as the arguments so the updater know's where to download the file from.
                 P.Start();
                 utils.log(MethodBase.GetCurrentMethod(), "Exiting own environment.");
-                Environment.Exit(1);
+                Environment.Exit(1); // We exit so the exe itself can be replaced as the updater opens the new one by itself.
             } catch (Exception ex) {
                 utils.log(MethodBase.GetCurrentMethod(), ex.ToString());
             }
         }
 
         public void updateBakkesMod() {
+            // Downloads the current BakkesMod version to a zip file and places it in the same directory as the exe
             string url = jsonObjects.outdatedConfig.update_info.download_url;
             using (WebClient client = new WebClient()) {
                 try {
@@ -1018,7 +1046,8 @@ namespace BakkesModInjectorCs {
                 }
             }
 
-            statusLbl.Text = "Update found, installing updates...";
+            statusLbl.Text = "Update found, installing updates..."; // The user never see's the status label when updating but I like to change it anyway
+            // Verify the download worked and start extracting it's contents to the BakkesMod folder.
             if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip")) {
                 try {
                     using (ZipArchive archive = ZipFile.OpenRead(AppDomain.CurrentDomain.BaseDirectory + "\\bakkesmod.zip")) {
@@ -1028,7 +1057,7 @@ namespace BakkesModInjectorCs {
                                 Directory.CreateDirectory(Path.GetDirectoryName(destination));
                                 continue;
                             }
-
+                            // We don't want to override the user's settings and configurations, so this skips over those files when extracting
                             utils.log(MethodBase.GetCurrentMethod(), "Checking existing installed files.");
                             if (destination.ToLower().EndsWith(".cfg") || destination.ToLower().EndsWith(".json"))  {
                                 if (File.Exists(destination))
@@ -1038,7 +1067,7 @@ namespace BakkesModInjectorCs {
                             entry.ExtractToFile(destination, true);
                         }
                     }
-                } catch (Exception ex) {
+                } catch (Exception ex) { // Might catch if the program doesn't have permission, or for whatever reason the archive got corrupted.
                     utils.log(MethodBase.GetCurrentMethod(), ex.ToString());
                     MessageBox.Show(ex.ToString(), "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -1050,6 +1079,7 @@ namespace BakkesModInjectorCs {
                 MessageBox.Show("Failed to remove bakkesmod.zip, try running as administrator if you haven't arlready.", "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            // Re-grab the new build/version info and download the json objects for the new version we just installed
             getVersionInfo();
             getJsonSuccess();
             loadChangelog();

@@ -42,10 +42,14 @@ namespace BakkesModInjectorCs {
         public static string getRocketLeagueFolder() {
             string documentsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string logFile = documentsDir + "\\My Games\\Rocket League\\TAGame\\Logs\\launch.log";
-            string directory = null;
+            string directory = "NULL";
             if (File.Exists(logFile)) {
-                string logContents = File.ReadAllText(logFile);
-                Match match = Regex.Match(logContents, "Init: Base directory: (.*)", RegexOptions.RightToLeft);
+                string logContents;
+                FileStream fs = File.Open(logFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using (StreamReader sr = new StreamReader(fs))
+                    logContents = sr.ReadToEnd();
+
+                    Match match = Regex.Match(logContents, "Init: Base directory: (.*)", RegexOptions.RightToLeft);
                 if (match.Groups[1].Success) {
                     directory = match.Groups[1].Value;
                     directory = directory.Remove(directory.LastIndexOf("\\"), 2); // Needs to be two because there is a invisible \n at the end
@@ -60,7 +64,7 @@ namespace BakkesModInjectorCs {
 
         public static string getRocketLeagueBuild() {
             string manifestFile = getRocketLeagueFolder();
-            string build = "";
+            string build = "NULL";
             if (manifestFile != "FILE_BLANK" && manifestFile != "FILE_NOT_FOUND") {
                 manifestFile = manifestFile.Replace("\\common\\rocketleague\\Binaries\\Win64", "\\appmanifest_252950.acf");
                 if (File.Exists(manifestFile)) {
@@ -83,7 +87,7 @@ namespace BakkesModInjectorCs {
 
         public static string getRocketLeagueVersion() {
             string appinfoFile = getRocketLeagueFolder();
-            string version = "";
+            string version = "NULL";
             if (appinfoFile != "FILE_BLANK" && appinfoFile != "FILE_NOT_FOUND") {
                 appinfoFile = appinfoFile.Replace("\\Binaries\\Win64", "\\appinfo.vdf");
                 if (File.Exists(appinfoFile)) {
@@ -105,7 +109,7 @@ namespace BakkesModInjectorCs {
 
         public static string getBakkesModVersion() {
             string versionFile = Properties.Settings.Default.WIN64_FOLDER + "\\bakkesmod\\version.txt"; //getRocketLeagueFolder() + "\\bakkesmod\\version.txt";
-            string version = null;
+            string version = "NULL";
             if (File.Exists(versionFile)) {
                 string line;
                 using (FileStream fs = File.Open(versionFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
