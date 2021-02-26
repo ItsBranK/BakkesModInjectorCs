@@ -18,7 +18,6 @@ Some of the new features in this edition are:
 - Detailed process and injection status events in the Home tab.
 - Collapsable changelog box with the latest BakkesMod news.
 - View your installed plugins and have the option to uninstall them.
-- Diverse settings, you have full control over the Injector.
 - Multiple injection modes, Timeout and Manual.
 - Crash log exporter, exports all log files and crash reports into a single zip file.
 - Both reinstall and uninstall BakkesMod in the Settings tab.
@@ -34,7 +33,7 @@ If you notice something wrong or if anything can be improved please create a new
 
 Feel free to submit your own pull requests too, I will review them when I have the time.
 
-## Screenshots
+## Previews
 
 ![](https://i.imgur.com/fDbZjp6.png)
 ![](https://i.imgur.com/oqYXnDx.png)
