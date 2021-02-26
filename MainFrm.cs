@@ -192,7 +192,7 @@ namespace BakkesModInjectorCs
             }
         }
 
-        public void checkSafeMode()
+        public void CheckSafeMode()
         {
             if (Properties.Settings.Default.SAFE_MODE)
             {
@@ -291,7 +291,11 @@ namespace BakkesModInjectorCs
         private void injectBtn_Click(object sender, EventArgs e)
         {
             Utils.Log(MethodBase.GetCurrentMethod(), "Manually injecting dll.");
-            InjectInstance();
+
+            if (!CheckForUpdates(false) && !IsInjected)
+            {
+                InjectInstance();
+            }
         }
 
         private void changelogBtn_Click(object sender, EventArgs e)
@@ -429,7 +433,7 @@ namespace BakkesModInjectorCs
             {
                 safeModeBox.Checked = false;
             }
-            checkSafeMode();
+            CheckSafeMode();
 
             if (Properties.Settings.Default.STARTUP_RUN == true)
             {
@@ -524,7 +528,7 @@ namespace BakkesModInjectorCs
         {
             Properties.Settings.Default.SAFE_MODE = safeModeBox.Checked;
             Properties.Settings.Default.Save();
-            checkSafeMode();
+            CheckSafeMode();
         }
 
         private void startupRunBox_CheckedChanged(object sender, EventArgs e)
@@ -910,11 +914,7 @@ namespace BakkesModInjectorCs
 
         private void InjectionTmr_Tick(object sender, EventArgs e)
         {
-            // TO DO
-            //checkForUpdates(false);
-            //checkSafeMode(); // Downloads the latest json information and checks the Rocket League version again.
-
-            if (!IsInjected)
+            if (!CheckForUpdates(false) && !IsInjected)
             {
                 if (Properties.Settings.Default.INJECTION_TYPE == "timeout")
                 {
@@ -1035,7 +1035,7 @@ namespace BakkesModInjectorCs
             }
         }
 
-        public void CheckForUpdates(bool displayResult)
+        public bool CheckForUpdates(bool displayResult)
         {
             if (!OfflineMode)
             {
@@ -1067,13 +1067,17 @@ namespace BakkesModInjectorCs
                             {
                                 MessageBox.Show("No mod or injector updates were found.", "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
+
+                            return false;
                         }
                         else
                         {
+                            CheckRocketLeagueVersion();
+
                             Utils.Log(MethodBase.GetCurrentMethod(), "Version mismatch, a BakkesMod update was found.");
-                            DialogResult result = MessageBox.Show("A new version of BakkesMod was found, would you like to install it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            DialogResult dialogResult = MessageBox.Show("A new version of BakkesMod was found, would you like to install it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                             
-                            if (result == DialogResult.Yes)
+                            if (dialogResult == DialogResult.Yes)
                             {
                                 if (IsProcessRunning())
                                 {
@@ -1093,14 +1097,16 @@ namespace BakkesModInjectorCs
                                     UpdateBakkesMod();
                                 }
                             }
+
+                            return true;
                         }
                     }
                     else
                     {
                         Utils.Log(MethodBase.GetCurrentMethod(), "Version mismatch, injector update found.");
-                        DialogResult result = MessageBox.Show("A new version of BakkesModInjectorCs was found, would you like to install it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        DialogResult dialogResult = MessageBox.Show("A new version of BakkesModInjectorCs was found, would you like to install it now?", "BakkesModInjectorCs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         
-                        if (result == DialogResult.Yes)
+                        if (dialogResult == DialogResult.Yes)
                         {
                             if (IsProcessRunning())
                             {
@@ -1120,6 +1126,8 @@ namespace BakkesModInjectorCs
                                 UpdateInjector();
                             }
                         }
+
+                        return true;
                     }
                 }
                 else
@@ -1133,6 +1141,8 @@ namespace BakkesModInjectorCs
                 Utils.Log(MethodBase.GetCurrentMethod(), "Offline mode has been activated, cannot check for updates.");
                 MessageBox.Show("Offline mode has been activated, cannot check for updates at this time.", "BakkesModInjectorCs", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+            return false;
         }
 
         public void InstallBakkesMod()
