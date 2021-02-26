@@ -30,7 +30,7 @@ The latest version can be downloaded from the [releases page](https://github.com
 
 ## Issues & Feedback
 
-If you notice something wrong or if anything can be improved please create a new issue [here](https://github.com/ItsBranK/BakkesModInjectorCs/issues/)
+If you notice something wrong or if anything can be improved please create a new issue [here](https://github.com/ItsBranK/BakkesModInjectorCs/issues/).
 
 Feel free to submit your own pull requests too, I will review them when I have the time.
 
