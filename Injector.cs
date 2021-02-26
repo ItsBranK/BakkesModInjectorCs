@@ -8,20 +8,24 @@ using System.Text;
 // https://www.pinvoke.net/default.aspx/kernel32.openprocess
 // https://www.pinvoke.net/default.aspx/kernel32.virtualallocex
 
-namespace BakkesModInjectorCs {
-    public enum result : int {
+namespace BakkesModInjectorCs
+{
+    public enum InjectorResult : Int16
+    {
         FILE_NOT_FOUND = 0,
         PROCESS_NOT_FOUND = 1,
-        NO_ENTRY_POINT = 2,
-        MEMORY_SPACE_FAIL = 3,
-        MEMORY_WRITE_FAIL = 4,
-        REMOTE_THREAD_FAIL = 5,
-        NOT_SUPPORTED = 6,
-        SUCCESS = 7
+        PROCESS_NOT_SUPPORTED = 2,
+        PROCESS_HANDLE_NOT_FOUND = 3,
+        LOADLIBRARY_NOT_FOUND = 4,
+        VIRTUAL_ALLOCATE_FAIL = 5,
+        WRITE_MEMORY_FAIL = 6,
+        CREATE_THREAD_FAIL = 7,
+        SUCCESS = 8
     }
 
-    public class injector {
-        static injector instance;
+    public class Injector
+    {
+        private static Injector InjectorInstance;
 
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern int WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] buffer, uint size, int lpNumberOfBytesWritten);
@@ -45,7 +49,8 @@ namespace BakkesModInjectorCs {
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern int CloseHandle(IntPtr hObject);
 
-        private enum accessFlags : uint {
+        private enum AccessFlags : uint
+        {
             All = 0x001F0FFF,
             Terminate = 0x00000001,
             CreateThread = 0x00000002,
@@ -61,7 +66,8 @@ namespace BakkesModInjectorCs {
             Synchronize = 0x00100000
         }
 
-        private enum allocationType : uint {
+        private enum AllocationType : uint
+        {
             Commit = 0x1000,
             Reserve = 0x2000,
             Decommit = 0x4000,
@@ -73,7 +79,8 @@ namespace BakkesModInjectorCs {
             LargePages = 0x20000000
         }
 
-        private enum memoryProtection : uint {
+        private enum MemoryProtection : uint
+        {
             Execute = 0x10,
             ExecuteRead = 0x20,
             ExecuteReadWrite = 0x40,
@@ -87,64 +94,102 @@ namespace BakkesModInjectorCs {
             WriteCombineModifierflag = 0x400
         }
 
+        public static Injector Instance
+        {
+            get
+            {
+                if (InjectorInstance == null)
+                {
+                    InjectorInstance = new Injector();
+                }
 
-        public static injector injectorInstance {
-            get {
-                if (instance == null)
-                    instance = new injector();
-
-                return instance;
+                return InjectorInstance;
             }
         }
 
-        private injector() { }
+        public InjectorResult InjectDLL(string filePath)
+        {
+            if (!File.Exists(filePath))
+            {
+                return InjectorResult.FILE_NOT_FOUND;
+            }
 
-        public result inject(string dllPath) {
-            if (!File.Exists(dllPath))
-                return result.FILE_NOT_FOUND;
+            uint processId = 0;
 
-            uint procId = 0;
             Process[] processes = Process.GetProcesses();
-            foreach (Process p in processes) {
-                string x64 = "Rocket League (64-bit, DX11, Cooked)";
-                string x32 = "Rocket League (32-bit, DX9, Cooked)";
-                if (p.ProcessName == "RocketLeague") {
-                    if (p.MainWindowTitle == x64) {
-                        procId = Convert.ToUInt32(p.Id);
-                    } else if (p.MainWindowTitle == x32) {
-                        return result.NOT_SUPPORTED;
+            foreach (Process p in processes)
+            {
+                if (p.ProcessName == "RocketLeague")
+                {
+                    if (p.MainWindowTitle == "Rocket League (64-bit, DX11, Cooked)")
+                    {
+                        processId = Convert.ToUInt32(p.Id);
+                    }
+                    else
+                    {
+                        return InjectorResult.PROCESS_NOT_SUPPORTED;
                     }
                 }
             }
 
-            if (procId == 0)
-                return result.PROCESS_NOT_FOUND;
+            if (processId == 0)
+            {
+                return InjectorResult.PROCESS_NOT_FOUND;
+            }
 
-            return inject(procId, dllPath);
+            return InjectDLL(processId, filePath);
         }
 
-        private result inject(uint procId, string dllPath) {
-            IntPtr processHandle = OpenProcess(Convert.ToUInt32(accessFlags.All), 1, procId);
+        private InjectorResult InjectDLL(uint processId, string filePath)
+        {
+            IntPtr processHandle = OpenProcess(Convert.ToUInt32(AccessFlags.All), 1, processId);
+
             if (processHandle == IntPtr.Zero)
-                return result.FILE_NOT_FOUND;
+            {
+                return InjectorResult.PROCESS_HANDLE_NOT_FOUND;
+            }
 
             IntPtr loadLibraryAddress = GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
+
             if (loadLibraryAddress == IntPtr.Zero)
-                return result.NO_ENTRY_POINT;
+            {
+                CloseHandle(processHandle);
 
-            IntPtr argAddress = VirtualAllocEx(processHandle, (IntPtr)null, (IntPtr)dllPath.Length, Convert.ToUInt32(allocationType.Commit) | Convert.ToUInt32(allocationType.Reserve), Convert.ToUInt32(memoryProtection.ExecuteReadWrite));
-            if (argAddress == IntPtr.Zero)
-                return result.MEMORY_SPACE_FAIL;
+                return InjectorResult.LOADLIBRARY_NOT_FOUND;
+            }
 
-            byte[] bytes = Encoding.ASCII.GetBytes(dllPath);
-            if (WriteProcessMemory(processHandle, argAddress, bytes, Convert.ToUInt32(bytes.Length), 0) == 0)
-                return result.MEMORY_WRITE_FAIL;
+            IntPtr allocatedAddress = VirtualAllocEx(processHandle, (IntPtr)null, (IntPtr)filePath.Length, Convert.ToUInt32(AllocationType.Commit) | Convert.ToUInt32(AllocationType.Reserve), Convert.ToUInt32(MemoryProtection.ExecuteReadWrite));
+           
+            if (allocatedAddress == IntPtr.Zero)
+            {
+                CloseHandle(processHandle);
 
-            if (CreateRemoteThread(processHandle, (IntPtr)null, IntPtr.Zero, loadLibraryAddress, argAddress, 0, (IntPtr)null) == IntPtr.Zero)
-                return result.REMOTE_THREAD_FAIL;
+                return InjectorResult.VIRTUAL_ALLOCATE_FAIL;
+            }
 
+            byte[] bytes = Encoding.ASCII.GetBytes(filePath);
+            int bWroteMemory = WriteProcessMemory(processHandle, allocatedAddress, bytes, Convert.ToUInt32(bytes.Length), 0);
+
+            if (bWroteMemory == 0)
+            {
+                CloseHandle(processHandle);
+
+                return InjectorResult.WRITE_MEMORY_FAIL;
+            }
+
+            IntPtr threadHandle = CreateRemoteThread(processHandle, (IntPtr)null, IntPtr.Zero, loadLibraryAddress, allocatedAddress, 0, (IntPtr)null);
+
+            if (threadHandle == IntPtr.Zero)
+            {
+                CloseHandle(processHandle);
+
+                return InjectorResult.CREATE_THREAD_FAIL;
+            }
+
+            CloseHandle(threadHandle);
             CloseHandle(processHandle);
-            return result.SUCCESS;
+
+            return InjectorResult.SUCCESS;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace BakkesModInjectorCs.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -146,18 +146,18 @@ namespace BakkesModInjectorCs.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("null")]
-        public string WIN64_FOLDER {
+        public string BAKKESMOD_FOLDER {
             get {
-                return ((string)(this["WIN64_FOLDER"]));
+                return ((string)(this["BAKKESMOD_FOLDER"]));
             }
             set {
-                this["WIN64_FOLDER"] = value;
+                this["BAKKESMOD_FOLDER"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("null")]
         public string BM_VERSION {
             get {
                 return ((string)(this["BM_VERSION"]));
@@ -169,7 +169,7 @@ namespace BakkesModInjectorCs.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("null")]
         public string RL_BUILD {
             get {
                 return ((string)(this["RL_BUILD"]));
@@ -205,13 +205,25 @@ namespace BakkesModInjectorCs.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("null")]
         public string RL_VERSION {
             get {
                 return ((string)(this["RL_VERSION"]));
             }
             set {
                 this["RL_VERSION"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("null")]
+        public string PLATFORM {
+            get {
+                return ((string)(this["PLATFORM"]));
+            }
+            set {
+                this["PLATFORM"] = value;
             }
         }
     }

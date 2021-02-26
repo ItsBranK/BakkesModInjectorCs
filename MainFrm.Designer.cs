@@ -1,6 +1,6 @@
 ﻿namespace BakkesModInjectorCs
 {
-    partial class mainFrm
+    partial class MainFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainFrm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
             this.injectionTimeBox = new System.Windows.Forms.NumericUpDown();
             this.safeModeBox = new System.Windows.Forms.CheckBox();
             this.injectionManualBox = new System.Windows.Forms.RadioButton();
@@ -50,7 +50,7 @@
             this.statusImg = new System.Windows.Forms.PictureBox();
             this.rocketLeagueImg = new System.Windows.Forms.PictureBox();
             this.rocketLeagueLbl = new System.Windows.Forms.Label();
-            this.injectionTmr = new System.Windows.Forms.Timer(this.components);
+            this.InjectionTmr = new System.Windows.Forms.Timer(this.components);
             this.TrayMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.OpenTrayBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitTrayBtn = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,10 +79,8 @@
             this.reinstallBtn = new System.Windows.Forms.Label();
             this.manualUpdateBackground = new System.Windows.Forms.Panel();
             this.manualUpdateBtn = new System.Windows.Forms.Label();
-            this.injectionAlwaysBox = new System.Windows.Forms.RadioButton();
             this.hideMinimizeBox = new System.Windows.Forms.CheckBox();
             this.startupRunBox = new System.Windows.Forms.CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.injectionTimeImg = new System.Windows.Forms.PictureBox();
             this.SafemodeImg = new System.Windows.Forms.PictureBox();
             this.injectionManualImg = new System.Windows.Forms.PictureBox();
@@ -114,7 +112,7 @@
             this.rlBuildImg = new System.Windows.Forms.PictureBox();
             this.icons8Img = new System.Windows.Forms.PictureBox();
             this.injectorVersionImg = new System.Windows.Forms.PictureBox();
-            this.processTmr = new System.Windows.Forms.Timer(this.components);
+            this.ProcessTmr = new System.Windows.Forms.Timer(this.components);
             this.aboutBtn = new System.Windows.Forms.Label();
             this.settingsBtn = new System.Windows.Forms.Label();
             this.pluginsBtn = new System.Windows.Forms.Label();
@@ -143,7 +141,6 @@
             this.panel1.SuspendLayout();
             this.reinstallBackground.SuspendLayout();
             this.manualUpdateBackground.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SafemodeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionManualImg)).BeginInit();
@@ -174,7 +171,7 @@
             this.injectionTimeBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.injectionTimeBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.injectionTimeBox.ForeColor = System.Drawing.Color.Black;
-            this.injectionTimeBox.Location = new System.Drawing.Point(152, 292);
+            this.injectionTimeBox.Location = new System.Drawing.Point(152, 261);
             this.injectionTimeBox.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -224,7 +221,7 @@
             // 
             this.injectionTimeLbl.BackColor = System.Drawing.Color.Transparent;
             this.injectionTimeLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.injectionTimeLbl.Location = new System.Drawing.Point(43, 292);
+            this.injectionTimeLbl.Location = new System.Drawing.Point(43, 261);
             this.injectionTimeLbl.Name = "injectionTimeLbl";
             this.injectionTimeLbl.Size = new System.Drawing.Size(200, 25);
             this.injectionTimeLbl.TabIndex = 48;
@@ -285,7 +282,7 @@
             this.homeBtn.ForeColor = System.Drawing.Color.Black;
             this.homeBtn.Location = new System.Drawing.Point(0, 0);
             this.homeBtn.Name = "homeBtn";
-            this.homeBtn.Size = new System.Drawing.Size(150, 30);
+            this.homeBtn.Size = new System.Drawing.Size(150, 35);
             this.homeBtn.TabIndex = 33;
             this.homeBtn.Text = "HOME";
             this.homeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -315,7 +312,7 @@
             this.autoUpdateBox.Name = "autoUpdateBox";
             this.autoUpdateBox.Size = new System.Drawing.Size(200, 25);
             this.autoUpdateBox.TabIndex = 35;
-            this.autoUpdateBox.Text = "Automatically Update";
+            this.autoUpdateBox.Text = "Automatically Check for Updates";
             this.autoUpdateBox.UseVisualStyleBackColor = false;
             this.autoUpdateBox.CheckedChanged += new System.EventHandler(this.autoUpdateBox_CheckedChanged);
             // 
@@ -430,10 +427,10 @@
             this.rocketLeagueLbl.Text = "Rocket League is not running.";
             this.rocketLeagueLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // injectionTmr
+            // InjectionTmr
             // 
-            this.injectionTmr.Interval = 2500;
-            this.injectionTmr.Tick += new System.EventHandler(this.injectionTmr_Tick);
+            this.InjectionTmr.Interval = 2500;
+            this.InjectionTmr.Tick += new System.EventHandler(this.InjectionTmr_Tick);
             // 
             // TrayMenuStrip
             // 
@@ -474,7 +471,7 @@
             this.controlTabs.Controls.Add(this.settingsTab);
             this.controlTabs.Controls.Add(this.aboutTab);
             this.controlTabs.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.controlTabs.Location = new System.Drawing.Point(-4, 8);
+            this.controlTabs.Location = new System.Drawing.Point(-4, 13);
             this.controlTabs.Name = "controlTabs";
             this.controlTabs.SelectedIndex = 0;
             this.controlTabs.Size = new System.Drawing.Size(608, 355);
@@ -590,7 +587,6 @@
             this.settingsTab.Controls.Add(this.panel1);
             this.settingsTab.Controls.Add(this.reinstallBackground);
             this.settingsTab.Controls.Add(this.manualUpdateBackground);
-            this.settingsTab.Controls.Add(this.injectionAlwaysBox);
             this.settingsTab.Controls.Add(this.injectionTimeBox);
             this.settingsTab.Controls.Add(this.safeModeBox);
             this.settingsTab.Controls.Add(this.injectionManualBox);
@@ -601,7 +597,6 @@
             this.settingsTab.Controls.Add(this.autoUpdateBox);
             this.settingsTab.Controls.Add(this.hideMinimizeBox);
             this.settingsTab.Controls.Add(this.startupRunBox);
-            this.settingsTab.Controls.Add(this.pictureBox1);
             this.settingsTab.Controls.Add(this.injectionTimeImg);
             this.settingsTab.Controls.Add(this.SafemodeImg);
             this.settingsTab.Controls.Add(this.injectionManualImg);
@@ -787,18 +782,6 @@
             this.manualUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.manualUpdateBtn.Click += new System.EventHandler(this.manualUpdateBtn_Click);
             // 
-            // injectionAlwaysBox
-            // 
-            this.injectionAlwaysBox.Enabled = false;
-            this.injectionAlwaysBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.injectionAlwaysBox.Location = new System.Drawing.Point(43, 262);
-            this.injectionAlwaysBox.Name = "injectionAlwaysBox";
-            this.injectionAlwaysBox.Size = new System.Drawing.Size(200, 25);
-            this.injectionAlwaysBox.TabIndex = 72;
-            this.injectionAlwaysBox.Text = "Always Injected";
-            this.injectionAlwaysBox.UseVisualStyleBackColor = true;
-            this.injectionAlwaysBox.CheckedChanged += new System.EventHandler(this.injectionAlwaysBox_CheckedChanged);
-            // 
             // hideMinimizeBox
             // 
             this.hideMinimizeBox.BackColor = System.Drawing.Color.Transparent;
@@ -827,21 +810,11 @@
             this.startupRunBox.UseVisualStyleBackColor = false;
             this.startupRunBox.CheckedChanged += new System.EventHandler(this.startupRunBox_CheckedChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.test;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 262);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.TabIndex = 73;
-            this.pictureBox1.TabStop = false;
-            // 
             // injectionTimeImg
             // 
             this.injectionTimeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.hourglass;
             this.injectionTimeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.injectionTimeImg.Location = new System.Drawing.Point(12, 293);
+            this.injectionTimeImg.Location = new System.Drawing.Point(12, 262);
             this.injectionTimeImg.Name = "injectionTimeImg";
             this.injectionTimeImg.Size = new System.Drawing.Size(25, 25);
             this.injectionTimeImg.TabIndex = 55;
@@ -1212,10 +1185,10 @@
             this.injectorVersionImg.TabIndex = 70;
             this.injectorVersionImg.TabStop = false;
             // 
-            // processTmr
+            // ProcessTmr
             // 
-            this.processTmr.Interval = 250;
-            this.processTmr.Tick += new System.EventHandler(this.processTmr_Tick);
+            this.ProcessTmr.Interval = 250;
+            this.ProcessTmr.Tick += new System.EventHandler(this.ProcessTmr_Tick);
             // 
             // aboutBtn
             // 
@@ -1225,7 +1198,7 @@
             this.aboutBtn.ForeColor = System.Drawing.Color.Black;
             this.aboutBtn.Location = new System.Drawing.Point(450, 0);
             this.aboutBtn.Name = "aboutBtn";
-            this.aboutBtn.Size = new System.Drawing.Size(150, 30);
+            this.aboutBtn.Size = new System.Drawing.Size(150, 35);
             this.aboutBtn.TabIndex = 36;
             this.aboutBtn.Text = "ABOUT";
             this.aboutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1239,7 +1212,7 @@
             this.settingsBtn.ForeColor = System.Drawing.Color.Black;
             this.settingsBtn.Location = new System.Drawing.Point(300, 0);
             this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(150, 30);
+            this.settingsBtn.Size = new System.Drawing.Size(150, 35);
             this.settingsBtn.TabIndex = 35;
             this.settingsBtn.Text = "SETTINGS";
             this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1253,7 +1226,7 @@
             this.pluginsBtn.ForeColor = System.Drawing.Color.Black;
             this.pluginsBtn.Location = new System.Drawing.Point(150, 0);
             this.pluginsBtn.Name = "pluginsBtn";
-            this.pluginsBtn.Size = new System.Drawing.Size(150, 30);
+            this.pluginsBtn.Size = new System.Drawing.Size(150, 35);
             this.pluginsBtn.TabIndex = 34;
             this.pluginsBtn.Text = "PLUGINS";
             this.pluginsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1264,7 +1237,7 @@
             this.pluginsImg.BackColor = System.Drawing.Color.Transparent;
             this.pluginsImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.plugin;
             this.pluginsImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pluginsImg.Location = new System.Drawing.Point(155, 5);
+            this.pluginsImg.Location = new System.Drawing.Point(155, 8);
             this.pluginsImg.Name = "pluginsImg";
             this.pluginsImg.Size = new System.Drawing.Size(20, 20);
             this.pluginsImg.TabIndex = 39;
@@ -1276,7 +1249,7 @@
             this.aboutImg.BackColor = System.Drawing.Color.Transparent;
             this.aboutImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.help;
             this.aboutImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.aboutImg.Location = new System.Drawing.Point(455, 5);
+            this.aboutImg.Location = new System.Drawing.Point(455, 8);
             this.aboutImg.Name = "aboutImg";
             this.aboutImg.Size = new System.Drawing.Size(20, 20);
             this.aboutImg.TabIndex = 41;
@@ -1288,7 +1261,7 @@
             this.settingsImg.BackColor = System.Drawing.Color.Transparent;
             this.settingsImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.wrench;
             this.settingsImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.settingsImg.Location = new System.Drawing.Point(305, 5);
+            this.settingsImg.Location = new System.Drawing.Point(305, 8);
             this.settingsImg.Name = "settingsImg";
             this.settingsImg.Size = new System.Drawing.Size(20, 20);
             this.settingsImg.TabIndex = 40;
@@ -1300,19 +1273,19 @@
             this.homeImg.BackColor = System.Drawing.Color.White;
             this.homeImg.BackgroundImage = global::BakkesModInjectorCs.Properties.Resources.home;
             this.homeImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.homeImg.Location = new System.Drawing.Point(5, 5);
+            this.homeImg.Location = new System.Drawing.Point(5, 8);
             this.homeImg.Name = "homeImg";
             this.homeImg.Size = new System.Drawing.Size(20, 20);
             this.homeImg.TabIndex = 38;
             this.homeImg.TabStop = false;
             this.homeImg.Click += new System.EventHandler(this.homeImg_Click);
             // 
-            // mainFrm
+            // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(600, 359);
+            this.ClientSize = new System.Drawing.Size(600, 364);
             this.Controls.Add(this.pluginsImg);
             this.Controls.Add(this.aboutImg);
             this.Controls.Add(this.settingsImg);
@@ -1328,7 +1301,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "mainFrm";
+            this.Name = "MainFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFrm_FormClosed);
             this.Load += new System.EventHandler(this.MainFrm_Load);
@@ -1354,7 +1327,6 @@
             this.panel1.ResumeLayout(false);
             this.reinstallBackground.ResumeLayout(false);
             this.manualUpdateBackground.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionTimeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SafemodeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.injectionManualImg)).EndInit();
@@ -1432,7 +1404,7 @@
         private System.Windows.Forms.TabPage homeTab;
         internal System.Windows.Forms.Label rocketLeagueLbl;
         private System.Windows.Forms.Label pluginsBtn;
-        private System.Windows.Forms.Timer injectionTmr;
+        private System.Windows.Forms.Timer InjectionTmr;
         private System.Windows.Forms.ToolStripMenuItem ExitTrayBtn;
         private System.Windows.Forms.ToolStripMenuItem OpenTrayBtn;
         private System.Windows.Forms.ContextMenuStrip TrayMenuStrip;
@@ -1455,12 +1427,10 @@
         private System.Windows.Forms.PictureBox startupMinimizeImg;
         private System.Windows.Forms.PictureBox hideMinimizeImg;
         private System.Windows.Forms.PictureBox startupRunImg;
-        private System.Windows.Forms.Timer processTmr;
+        private System.Windows.Forms.Timer ProcessTmr;
         private System.Windows.Forms.PictureBox pluginsImg;
         private System.Windows.Forms.Label exportLogsBtn;
         private System.Windows.Forms.Label windowTitleBtn;
-        private System.Windows.Forms.RadioButton injectionAlwaysBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel manualUpdateBackground;
         private System.Windows.Forms.Panel openFolderBackground;
         private System.Windows.Forms.Panel exportLogsBackground;

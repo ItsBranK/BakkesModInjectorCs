@@ -109,28 +109,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="injector.cs" />
-    <Compile Include="jsonObjects.cs" />
-    <Compile Include="mainFrm.cs">
+    <Compile Include="Injector.cs" />
+    <Compile Include="JsonObjects.cs" />
+    <Compile Include="MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainFrm.Designer.cs">
-      <DependentUpon>mainFrm.cs</DependentUpon>
+    <Compile Include="MainFrm.Designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="nameFrm.cs">
+    <Compile Include="NameFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="nameFrm.Designer.cs">
-      <DependentUpon>nameFrm.cs</DependentUpon>
+    <Compile Include="NameFrm.Designer.cs">
+      <DependentUpon>NameFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="utils.cs" />
-    <EmbeddedResource Include="mainFrm.resx">
-      <DependentUpon>mainFrm.cs</DependentUpon>
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="nameFrm.resx">
-      <DependentUpon>nameFrm.cs</DependentUpon>
+    <EmbeddedResource Include="NameFrm.resx">
+      <DependentUpon>NameFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -158,9 +158,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <None Include="Resources\rocketleague.png" />
     <None Include="Resources\AutoUpdaterCs.exe" />
     <None Include="Resources\BakkesModUninstaller.exe" />
+    <None Include="Resources\rocketleague.png" />
     <None Include="Resources\eye.png" />
     <None Include="Resources\power.png" />
     <None Include="Resources\folder.png" />

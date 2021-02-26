@@ -32,14 +32,14 @@
     <Setting Name="INJECTION_TYPE" Type="System.String" Scope="User">
       <Value Profile="(Default)">timeout</Value>
     </Setting>
-    <Setting Name="WIN64_FOLDER" Type="System.String" Scope="User">
+    <Setting Name="BAKKESMOD_FOLDER" Type="System.String" Scope="User">
       <Value Profile="(Default)">null</Value>
     </Setting>
     <Setting Name="BM_VERSION" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">null</Value>
     </Setting>
     <Setting Name="RL_BUILD" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">null</Value>
     </Setting>
     <Setting Name="WINDOW_TTILE" Type="System.String" Scope="User">
       <Value Profile="(Default)">BakkesModInjectorCs - Community Edition</Value>
@@ -48,7 +48,10 @@
       <Value Profile="(Default)">v2.1.3</Value>
     </Setting>
     <Setting Name="RL_VERSION" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">null</Value>
+    </Setting>
+    <Setting Name="PLATFORM" Type="System.String" Scope="User">
+      <Value Profile="(Default)">null</Value>
     </Setting>
   </Settings>
 </SettingsFile>
