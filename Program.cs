@@ -6,51 +6,69 @@ using System.Diagnostics;
 using System.Net;
 using System.Threading;
 
-namespace AutoUpdaterCs {
-    class Program {
-        static void Main(string[] args) {
+namespace AutoUpdaterCs
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
             string url = "";
-            for (int i = 0; i < args.Length; i++)
-                url += args[i].ToString();
 
-            install(url);
+            for (int i = 0; i < args.Length; i++)
+            {
+                url += args[i].ToString();
+            }
+
+            Install(url);
         }
 
-        static void startProcess() {
+        static void StartProcess()
+        {
             Console.WriteLine("[" + DateTime.Now.ToString() + "] Attemping to Start BakkesModInjectorCs.exe");
 
-            try {
+            try
+            {
                 Process proc = new Process();
                 proc.StartInfo.FileName = AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.exe";
                 proc.Start();
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine(DateTime.Now.ToString("[HH:mm:ss] Failed to start process: ") + ex.ToString());
                 Console.ReadKey(true);
                 return;
             }
         }
 
-        static void checkProcess() {
+        static void CheckProcess()
+        {
             Console.WriteLine("[" + DateTime.Now.ToString() + "] Checking if BakkesModInjectorCs.exe is running.");
 
             Process[] proc = Process.GetProcessesByName("BakkesModInjectorCs");
 
-            if (proc.Length != 0) {
+            if (proc.Length != 0)
+            {
                 Console.WriteLine("[" + DateTime.Now.ToString() + "] Process found, attempting to close BakkesModInjectorCs.exe");
-                try {
+
+                try
+                {
                     Console.WriteLine("[" + DateTime.Now.ToString() + "] Closing BakkesModInjectorCs.exe");
                     proc[0].Kill();
-                } catch (Exception ex) {
+                }
+                catch (Exception ex)
+                {
                     Console.WriteLine("[" + DateTime.Now.ToString() + "] Failed to close process: " + ex.ToString());
-                    selfDestruct();
+                    SelfDestruct();
                 }
             }
         }
 
-        static void selfDestruct() {
+        static void SelfDestruct()
+        {
             Console.WriteLine("[" + DateTime.Now.ToString() + "] Update canceled.");
 
-            if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.zip")) {
+            if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.zip"))
+            {
                 Thread.Sleep(250);
                 Console.WriteLine("[" + DateTime.Now.ToString() + "] Deleting BakkesModInjectorCs.zip");
                 File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.zip");
@@ -59,40 +77,53 @@ namespace AutoUpdaterCs {
             Console.ReadKey(true);
         }
 
-        static void install(string url) {
+        static void Install(string url)
+        {
             //string currentVersion = httpDownloader("https://pastebin.com/raw/BVMKZ4TZ", "(\"([^ \"]|\"\")*\")", "INJECTOR_VERSION");
             //string url = "https://github.com/ItsBranK/BakkesModInjectorCs/releases/download/" + currentVersion + "/BakkesModInjectorCs.zip";
 
             Console.WriteLine("[" + DateTime.Now.ToString() + "] Download url: " + url);
 
-            if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.exe")) {
+            if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.exe"))
+            {
                 Console.WriteLine("[" + DateTime.Now.ToString() + "] Could not locate BakkesModInjectorCs.exe, canceling update.");
-                selfDestruct();
+                SelfDestruct();
+
                 return;
             }
 
-            checkProcess();
+            CheckProcess();
 
-            using (WebClient Client = new WebClient()) {
-                try {
+            using (WebClient Client = new WebClient())
+            {
+                try
+                {
                     Console.WriteLine("[" + DateTime.Now.ToString() + "] Downloading file.");
                     Client.DownloadFile(url, AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.zip");
                     Thread.Sleep(1000);
-                } catch (Exception ex) {
+                }
+                catch (Exception ex)
+                {
                     Console.WriteLine("[" + DateTime.Now.ToString() + "] Failed to download file: " + ex.ToString());
                     Console.ReadKey(true);
                     return;
                 }
             }
 
-            if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.zip")) {
+            if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.zip"))
+            {
                 Console.WriteLine("[" + DateTime.Now.ToString() + "] Could not locate BakkesModInjectorCs.zip, canceling update.");
-                selfDestruct();
+                SelfDestruct();
+
                 return;
-            } else {
+            }
+            else
+            {
                 Console.WriteLine("[" + DateTime.Now.ToString() + "] BakkesModInjectorCs.exe Located.");
                 Console.WriteLine("[" + DateTime.Now.ToString() + "] BakkesModInjectorCs.zip Located.");
-                try {
+
+                try
+                {
                     Console.WriteLine("[" + DateTime.Now.ToString() + "] Deleting BakkesModInjectorCs.exe");
                     File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.exe");
                     Thread.Sleep(250);
@@ -101,8 +132,10 @@ namespace AutoUpdaterCs {
                     Console.WriteLine("[" + DateTime.Now.ToString() + "] Deleting BakkesModInjectorCs.zip");
                     Thread.Sleep(250);
                     File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\BakkesModInjectorCs.zip");
-                    startProcess();
-                } catch (Exception ex) {
+                    StartProcess();
+                }
+                catch (Exception ex)
+                {
                     Console.WriteLine("[" + DateTime.Now.ToString() + "] Fatal error: " + ex.ToString());
                     Console.ReadKey(true);
                     return;
