@@ -28,15 +28,15 @@ Some of the new features in this edition are
 
 The latest version can be downloaded from the [releases page](https://github.com/ItsBranK/BakkesModInjectorCs/releases), simply extract exe from the zip file and run the program.
 
+## Issues & Feedback
+
+If you notice something wrong or if anything can be improved please create a new issue [here](https://github.com/ItsBranK/BakkesModInjectorCs/issues/)
+
+Feel free to submit your own pull requests too, I will review them when I have the time.
+
 ## Screenshots
 
-![](https://i.imgur.com/N8d7bpX.png)
-![](https://i.imgur.com/yTh2dR4.png)
-![](https://i.imgur.com/Ulqx6Q2.png)
-![](https://i.imgur.com/FE70GfD.png)
-
-## Contact
-
-If you find a bug and want to report it, please create a new issue [here](https://github.com/ItsBranK/BakkesModInjectorCs/issues).
-
-If you need help or want to contact me directly, feel free to join the BakkesMod [Discord](https://discordapp.com/invite/HsM6kAR) or send me a tweet on [Twitter](https://twitter.com/itsbrank).
+![](https://i.imgur.com/fDbZjp6.png)
+![](https://i.imgur.com/oqYXnDx.png)
+![](https://i.imgur.com/dDO6WGp.png)
+![](https://i.imgur.com/9aubp3k.png)
