@@ -29,8 +29,8 @@
     <Setting Name="TIMEOUT_VALUE" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2500</Value>
     </Setting>
-    <Setting Name="INJECTION_TYPE" Type="System.String" Scope="User">
-      <Value Profile="(Default)">timeout</Value>
+    <Setting Name="INJECTION_TYPE" Type="System.Int16" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="BAKKESMOD_FOLDER" Type="System.String" Scope="User">
       <Value Profile="(Default)">null</Value>
@@ -48,9 +48,6 @@
       <Value Profile="(Default)">v2.1.5</Value>
     </Setting>
     <Setting Name="RL_VERSION" Type="System.String" Scope="User">
-      <Value Profile="(Default)">null</Value>
-    </Setting>
-    <Setting Name="PLATFORM" Type="System.String" Scope="User">
       <Value Profile="(Default)">null</Value>
     </Setting>
   </Settings>

@@ -123,6 +123,16 @@ namespace BakkesModInjectorCs.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dll {
+            get {
+                object obj = ResourceManager.GetObject("dll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dock {
             get {
                 object obj = ResourceManager.GetObject("dock", resourceCulture);

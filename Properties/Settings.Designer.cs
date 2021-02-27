@@ -133,10 +133,10 @@ namespace BakkesModInjectorCs.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("timeout")]
-        public string INJECTION_TYPE {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public short INJECTION_TYPE {
             get {
-                return ((string)(this["INJECTION_TYPE"]));
+                return ((short)(this["INJECTION_TYPE"]));
             }
             set {
                 this["INJECTION_TYPE"] = value;
@@ -212,18 +212,6 @@ namespace BakkesModInjectorCs.Properties {
             }
             set {
                 this["RL_VERSION"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("null")]
-        public string PLATFORM {
-            get {
-                return ((string)(this["PLATFORM"]));
-            }
-            set {
-                this["PLATFORM"] = value;
             }
         }
     }

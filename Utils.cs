@@ -6,6 +6,21 @@ using System.Text.RegularExpressions;
 
 namespace BakkesModInjectorCs
 {
+    public enum InjectionTypes : Int16
+    {
+        UNKNOWN = 0,
+        TIMEOUT = 1,
+        MANUAL = 2,
+        ALWAYS = 3
+    };
+
+    public enum PlatformVersions : Int16
+    {
+        UNKNOWN = 0,
+        STEAM = 1,
+        EPIC_GAMES = 2
+    };
+
     public static class Utils
     {
         private static string LogFile = Path.GetTempPath() + "\\BakkesModInjectorCs.log";
@@ -57,7 +72,6 @@ namespace BakkesModInjectorCs
 
             string bakkesModFolder = GetBakkesModFolder();
             string bakkesModVersion = GetBakkesModVersion();
-            string rocketLeaguePlatform = GetRocketLeaguePlatform();
             string rocketLeagueBuild = GetRocketLeagueBuild();
             string rocketLeagueVersion = GetRocketLeagueVersion();
 
@@ -85,7 +99,6 @@ namespace BakkesModInjectorCs
             {
                 Properties.Settings.Default.BAKKESMOD_FOLDER = bakkesModFolder;
                 Properties.Settings.Default.BM_VERSION = bakkesModVersion;
-                Properties.Settings.Default.PLATFORM = rocketLeaguePlatform;
                 Properties.Settings.Default.RL_BUILD = rocketLeagueBuild;
                 Properties.Settings.Default.RL_VERSION = rocketLeagueVersion;
 
@@ -113,6 +126,7 @@ namespace BakkesModInjectorCs
             }
         }
 
+        // Reads the text from the version.txt file in the BakkesMod folder.
         public static string GetBakkesModVersion()
         {
             string bakkesModFolder = GetBakkesModFolder();
@@ -123,19 +137,16 @@ namespace BakkesModInjectorCs
 
                 if (File.Exists(versionFile))
                 {
-                    string line = "NULL";
+                    string versionContents;
 
-                    using (FileStream fs = File.Open(versionFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    FileStream fs = File.Open(versionFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+                    using (StreamReader sr = new StreamReader(fs))
                     {
-                        StreamReader sr = new StreamReader(fs);
-
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            break;
-                        }
-
-                        return line;
+                        versionContents = sr.ReadToEnd();
                     }
+
+                    return versionContents;
                 }
                 else
                 {
@@ -183,7 +194,7 @@ namespace BakkesModInjectorCs
         }
 
         // Checks the games full directory path for keywords to determine the platform.
-        public static string GetRocketLeaguePlatform()
+        public static PlatformVersions GetRocketLeaguePlatform()
         {
             string rocketLeagueDir = GetRocketLeagueFolder();
 
@@ -191,28 +202,23 @@ namespace BakkesModInjectorCs
             {
                 if (rocketLeagueDir.Contains("Epic Games"))
                 {
-                    return "EPIC";
+                    return PlatformVersions.EPIC_GAMES;
                 }
                 else if (rocketLeagueDir.Contains("steamapps"))
                 {
-                    return "STEAM";
-                }
-                else
-                {
-                    return "UNKNOWN";
+                    return PlatformVersions.STEAM;
                 }
             }
-            else
-            {
-                return "FOLDER_NOT_FOUND";
-            }
+
+            return PlatformVersions.UNKNOWN;
         }
 
+        // Gets all text from Rocket League's appmanifest file, and uses regex to find
         public static string GetRocketLeagueBuild()
         {
-            string platform = GetRocketLeaguePlatform();
+            PlatformVersions platform = GetRocketLeaguePlatform();
 
-            if (platform == "STEAM")
+            if (platform == PlatformVersions.STEAM)
             {
                 string rocketLeagueDir = GetRocketLeagueFolder();
 
@@ -244,7 +250,7 @@ namespace BakkesModInjectorCs
                     return "FOLDER_NOT_FOUND";
                 }
             }
-            else if (platform == "EPIC")
+            else if (platform == PlatformVersions.UNKNOWN)
             {
                 return "Not available on the EGS.";
             }
@@ -256,9 +262,9 @@ namespace BakkesModInjectorCs
 
         public static string GetRocketLeagueVersion()
         {
-            string platform = GetRocketLeaguePlatform();
+            PlatformVersions platform = GetRocketLeaguePlatform();
 
-            if (platform == "STEAM")
+            if (platform == PlatformVersions.STEAM)
             {
                 string rocketLeagueDir = GetRocketLeagueFolder();
                 string version = "NULL";
@@ -293,7 +299,7 @@ namespace BakkesModInjectorCs
 
                 return version;
             }
-            else if (platform == "EPIC")
+            else if (platform == PlatformVersions.EPIC_GAMES)
             {
                 return "Not available on the EGS.";
             }
