@@ -2,9 +2,9 @@
 using System.Net;
 using System.Text.Json;
 using System.Reflection;
-using System.Windows.Forms;
 
-namespace BakkesModInjectorCs {
+namespace BakkesModInjectorCs
+{
     // https://json2csharp.com/
 
     public static class JsonObjects

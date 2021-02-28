@@ -15,15 +15,7 @@ namespace BakkesModInjectorCs
 {
     /*
         TO DO:
-        - Always injected mode.
         - Figure out why takes forever to load when first opening the exe.
-
-        Chnagelog for next update (v2.1.6):
-        - Added file check for the uninstaller to verify all bytes were written.
-        - Added checkbox for always injected mode, if I ever get around to finishing that in the future.
-        - Fixed the crash log exporter not including the bakkesmod log file.
-        - Changed the injection types internally to be enums instead of strings.
-        - Finished renaming everything under the hood.
      */
 
     public partial class MainFrm : Form
@@ -542,6 +534,11 @@ namespace BakkesModInjectorCs
             {
                 InjectionManualBox.Checked = true;
             }
+            else if (Properties.Settings.Default.INJECTION_TYPE == (Int16)InjectionTypes.ALWAYS)
+            {
+                InjectionAlwaysBox.Checked = true;
+            }
+            SetInjectionMethod();
 
             InjectionTimeBox.Text = Properties.Settings.Default.TIMEOUT_VALUE.ToString();
             Utils.Log(MethodBase.GetCurrentMethod(), "All settings have been loaded.");
@@ -566,17 +563,46 @@ namespace BakkesModInjectorCs
         {
             ProcessTmr.Stop();
 
-            if (InjectionTimeoutBox.Checked == true)
+            if (InjectionTimeoutBox.Checked)
             {
                 Properties.Settings.Default.INJECTION_TYPE = (Int16)InjectionTypes.TIMEOUT;
             }
-            else if (InjectionManualBox.Checked == true)
+            else if (InjectionManualBox.Checked)
             {
                 Properties.Settings.Default.INJECTION_TYPE = (Int16)InjectionTypes.MANUAL;
             }
-            else if (InjectionAlwaysBox.Checked == true)
+            else if (InjectionAlwaysBox.Checked)
             {
                 Properties.Settings.Default.INJECTION_TYPE = (Int16)InjectionTypes.ALWAYS;
+            }
+
+            // See the AlwaysInjected branch in this repo if you want to know how the dll works.
+
+            if (!IsInjected)
+            {
+                string hijackedDll = Utils.GetRocketLeagueFolder() + "\\wkscli.dll";
+
+                if (InjectionAlwaysBox.Checked)
+                {
+                    if (File.Exists(hijackedDll))
+                    {
+                        File.Delete(hijackedDll);
+                    }
+
+                    byte[] fileBytes = Properties.Resources.wkscli;
+                    File.WriteAllBytes(hijackedDll, fileBytes);
+
+                    InjectionTimeBox.Enabled = false;
+                }
+                else
+                {
+                    if (File.Exists(hijackedDll))
+                    {
+                        File.Delete(hijackedDll);
+                    }
+
+                    InjectionTimeBox.Enabled = true;
+                }
             }
 
             Properties.Settings.Default.Save();
@@ -862,6 +888,13 @@ namespace BakkesModInjectorCs
 
                 switch (result)
                 {
+                    case InjectorResult.RETRY_INJECTION:
+                        Utils.Log(MethodBase.GetCurrentMethod(), "Uninjected, process is not responding. Retrying injection again after 1.5 seconds.");
+                        StatusLbl.Text = "Uninjected, process is not responding. Retrying injection.";
+                        IsInjected = false;
+                        System.Threading.Thread.Sleep(1500);
+                        InjectInstance();
+                        break;
                     case InjectorResult.FILE_NOT_FOUND:
                         Utils.Log(MethodBase.GetCurrentMethod(), "Uninjected, could not locate the necessary files.");
                         StatusLbl.Text = "Uninjected, could not locate the necessary files.";
@@ -949,9 +982,17 @@ namespace BakkesModInjectorCs
             if (!IsProcessRunning())
             {
                 RocketLeagueLbl.Text = "Rocket League is not running.";
-                StatusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
                 IsInjected = false;
                 InjectBtn.Visible = false;
+
+                if (Properties.Settings.Default.INJECTION_TYPE == (Int16)InjectionTypes.ALWAYS)
+                {
+                    StatusLbl.Text = "Process not found, always injected enabled.";
+                }
+                else
+                {
+                    StatusLbl.Text = "Uninjected, waiting for user to start Rocket League.";
+                }
             }
             else // If RL is running see what injection type the user has set and follow accordingly (if not already injected of course).
             {

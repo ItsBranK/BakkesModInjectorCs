@@ -12,15 +12,16 @@ namespace BakkesModInjectorCs
 {
     public enum InjectorResult : Int16
     {
-        FILE_NOT_FOUND = 0,
-        PROCESS_NOT_FOUND = 1,
-        PROCESS_NOT_SUPPORTED = 2,
-        PROCESS_HANDLE_NOT_FOUND = 3,
-        LOADLIBRARY_NOT_FOUND = 4,
-        VIRTUAL_ALLOCATE_FAIL = 5,
-        WRITE_MEMORY_FAIL = 6,
-        CREATE_THREAD_FAIL = 7,
-        SUCCESS = 8
+        RETRY_INJECTION = 0,
+        FILE_NOT_FOUND = 1,
+        PROCESS_NOT_FOUND = 2,
+        PROCESS_NOT_SUPPORTED = 3,
+        PROCESS_HANDLE_NOT_FOUND = 4,
+        LOADLIBRARY_NOT_FOUND = 5,
+        VIRTUAL_ALLOCATE_FAIL = 6,
+        WRITE_MEMORY_FAIL = 7,
+        CREATE_THREAD_FAIL = 8,
+        SUCCESS = 9
     }
 
     public class Injector
@@ -116,14 +117,22 @@ namespace BakkesModInjectorCs
 
             uint processId = 0;
 
-            Process[] processes = Process.GetProcesses();
-            foreach (Process p in processes)
+            Process[] processList = Process.GetProcesses();
+
+            foreach (Process process in processList)
             {
-                if (p.ProcessName == "RocketLeague")
+                if (process.ProcessName == "RocketLeague")
                 {
-                    if (p.MainWindowTitle == "Rocket League (64-bit, DX11, Cooked)")
+                    if (process.MainWindowTitle.Contains("Rocket League (64-bit, DX11, Cooked"))
                     {
-                        processId = Convert.ToUInt32(p.Id);
+                        if (!process.MainWindowTitle.Contains("(Not Responding)"))
+                        {
+                            processId = Convert.ToUInt32(process.Id);
+                        }
+                        else
+                        {
+                            return InjectorResult.RETRY_INJECTION;
+                        }
                     }
                     else
                     {
