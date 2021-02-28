@@ -37,5 +37,5 @@ Feel free to submit your own pull requests too, I will review them when I have t
 
 ![](https://i.imgur.com/fDbZjp6.png)
 ![](https://i.imgur.com/oqYXnDx.png)
-![](https://i.imgur.com/dDO6WGp.png)
-![](https://i.imgur.com/9aubp3k.png)
+![](https://i.imgur.com/FcEQGl3.png)
+![](https://i.imgur.com/LMjmbcc.png)
